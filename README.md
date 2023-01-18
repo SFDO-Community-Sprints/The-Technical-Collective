@@ -1,19 +1,19 @@
 # UK-Admin-Match
-Local program to train admins to help Charities with Salesforce
-
-This is a sample README.md file you can use to update your project. New project repos will use this template when they are created.
+Local program to upskill inexperienced admins to help Charities make the most of their Salesforce platform with the added support of a group of experienced Salesforce professionals.
 
 # Project Name
-Please replace with your projects name
+Technical Collective: 
+A formalised way to match not-for-profits with an inexperienced admin supported by a technical collective of experienced Salesforce professionals.
 
 # Project Overview
 ## Vision & Goals
-Please replace with your projects vision.
-* Goal 1
-* Goal 2
+* A route for inexperienced admins to gain real life experience, supported by experienced Salesforce professionals
+* An opportunity for experienced Salesforce professionals to give back and support non-profits and inexperienced admins
+* Help charities make the most of their Salesforce platform while limiting possible technical debt 
+* Reduce the technical skills gap
 
 ## Project Vertical
-Please replace with Nonprofit, Education, or Other (if Other, explain further)
+Nonprofit
 
 ## Trailblazer Group or Slack Channel Link (access required)
 Please replace with the URL for your Trailblazer Community group and/or Slack channel issued by the Commons program team.
@@ -25,28 +25,3 @@ Please replace with the URL for your Trailblazer Community group and/or Slack ch
 
 ## Project Resources and Documentation
 Documentation can be found in the repository [wiki] (URL for wiki where docs are stored)
-
-
-***
-BELOW CONTENT TO USE TO CREATE YOUR FIRST WIKI PAGE TO HOUSE DETAILS ABOUT YOUR SPRINT PARTICIPATION. 
-1. Cut the below from the readme and paste into a new Wiki page. Delete these instructions.
-2. Update that wiki page with details from the Sprint. 
-3. Copy that format for the next Sprint.
-
-# Sprint (DATE): 
-## Project Team & Accomplishments
-Add details here - what you did, links to docs if there are any, etc.
-
-## Contributors
-
-Full Name            | Team Role     | Github Username                                    | Working Group? 
-------------         | ------------- | -------------                                      |-------------   
-Enter persons name   | Group Leader  | [fakeusername](https://github.com/fakeusername)    | 
-Enter persons name   | Contributor   |                                                    | Enter working group name
-
-## Future Contributions 
-(AKA what were you unable to finish at the Sprint)
-Replace with the goals your team would like to continue working on next time.
-
-***
-
