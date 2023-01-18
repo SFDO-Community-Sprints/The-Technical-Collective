@@ -2,7 +2,7 @@
 Local program to upskill inexperienced admins to help Charities make the most of their Salesforce platform with the added support of a group of experienced Salesforce professionals.
 
 # Project Name
-Technical Collective: 
+Technical Collective Project: 
 A formalised way to match not-for-profits with an inexperienced admin supported by a technical collective of experienced Salesforce professionals.
 
 # Project Overview
