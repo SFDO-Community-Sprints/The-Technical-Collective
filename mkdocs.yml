@@ -1,14 +1,12 @@
 site_name: The Technical Collective
 docs_dir: files/docs
+
 theme:
   name: material
+
 plugins:
   - search
   - ezlinks
-nav:
-  - Home: index.md
-  - I am a junior professional: junior-professional.md
-  - I am a technical expert: technical-expert.md
-  - I am a charity/nonprofit: charity-nonprofit.md
-  - Promises & Expectations: promises-expectations.md
-  - Stories: stories.md
+  - awesome-pages        # ← auto-nav plugin
+
+# nav: block deleted – the plugin builds the sidebar from folders & files

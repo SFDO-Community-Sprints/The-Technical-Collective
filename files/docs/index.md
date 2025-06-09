@@ -1,12 +1,21 @@
-# Home
+# The Technical Collective
 
+## Who we are  
 
-## Who we are
+The Technical Collective solves a familiar three-way problem in the Salesforce ecosystem:
 
-The Technical Collective solves a three‑way problem in the Salesforce ecosystem:
+* **Junior admins** need real-world experience to land their first role.  
+* **Non-profits & charities** have 10 free Salesforce licences but often lack hands-on help.  
+* **Technical experts** want to volunteer, yet need a framework that makes their time effective.
 
-* **Junior admins** need experience.
-* **Charities** need Salesforce help.
-* **Technical experts** want to volunteer effectively.
+Formed at the **Salesforce Commons sprint (January 2023)**, our programme puts all three groups into a single, mentored project pipeline.
 
-We match all three.
+---
+
+### Quick links
+
+- 👉 **[I am a junior professional](junior-professional.md)**
+- 👉 **[I am a technical expert](technical-expert.md)**
+- 👉 **[I am a charity / nonprofit](charity-nonprofit.md)**
+- 👉 **[Promises & Expectations](promises-expectations.md)**
+- 👉 **[Stories](stories.md)**
