@@ -1,3 +1,6 @@
+---
+title: Overview
+---
 <!-- LOGO (top-center) -->
 <p align="center">
   <img src="assets/img/tclogo.png" alt="The Technical Collective logo"

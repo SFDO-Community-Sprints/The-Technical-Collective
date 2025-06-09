@@ -1,0 +1,11 @@
+# Sidebar order (top → bottom)
+arrange:
+  - index.md
+  - charity-nonprofit.md
+  - junior-professional.md
+  - technical-expert.md
+  - promises-expectations.md
+  - stories.md
+  - sprints.md
+  - faq.md
+order: asc
