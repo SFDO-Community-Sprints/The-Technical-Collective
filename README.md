@@ -1,4 +1,4 @@
-# UK-Technical-Collective
+Technical-Collective
 Local program to upskill inexperienced admins to help Charities make the most of their Salesforce platform with the added support of a group of experienced Salesforce professionals.
 
 # Project Name
