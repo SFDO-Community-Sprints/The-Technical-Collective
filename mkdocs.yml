@@ -1,12 +1,51 @@
 site_name: The Technical Collective
 docs_dir: files/docs
 
+# ───────────────────────────
+#  1.  THEME & BRANDING
+# ───────────────────────────
 theme:
   name: material
+  favicon: assets/img/tc-favicon.png      # drop a 48×48 PNG here later
+  logo: assets/img/tc-logo.svg           # 32×32 SVG in same folder
+  font:
+    text: Inter
+    code: "JetBrains Mono"
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+    - scheme: slate                       # auto-dark-mode
+      primary: indigo
+      accent: cyan
+  features:
+    - navigation.instant                 # turbo-links
+    - navigation.tabs                    # top tabs instead of long sidebar
+    - navigation.sections                # collapsible sections
+    - toc.integrate                      # merge ToC into sidebar (hides 3rd column)
+    - search.highlight
+    - content.code.copy
 
+# ───────────────────────────
+#  2.  PLUG-INS
+# ───────────────────────────
 plugins:
   - search
   - ezlinks
-  - awesome-pages        # ← auto-nav plugin
+  - awesome-pages                        # auto-builds nav from folders/files
 
-# nav: block deleted – the plugin builds the sidebar from folders & files
+# ───────────────────────────
+#  3.  EXTRAS
+# ───────────────────────────
+extra_css:
+  - assets/css/extra.css                 # minimal overrides (see §2)
+
+# ───────────────────────────
+#  4.  MARKDOWN EXTENSIONS
+# ───────────────────────────
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji
