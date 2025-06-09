@@ -1,0 +1,9 @@
+site_name: The Technical Collective
+docs_dir: files/docs
+theme:
+  name: material
+plugins:
+  - search
+  - ezlinks
+nav:
+  - Home: index.md
