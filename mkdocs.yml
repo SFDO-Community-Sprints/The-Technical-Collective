@@ -1,13 +1,20 @@
-site_name: The Technical Collective
+site_name: " "                       # required but invisible
 docs_dir: files/docs
+site_url: https://the-technical-collective.github.io/
 
 theme:
   name: material
-  logo: assets/img/tclogo.png        
-  favicon: assets/img/favicon.png  # ← optional
+
+  # ── Branding ───────────────────────────────────────────────
+  logo: assets/img/tclogo.png        # 32-160 px SVG / PNG
+  favicon: assets/img/favicon.ico    # optional
+
+  # ── Typeface ───────────────────────────────────────────────
   font:
     text: Inter
     code: "JetBrains Mono"
+
+  # ── Colour palette ────────────────────────────────────────
   palette:
     - scheme: default
       primary: indigo
@@ -15,21 +22,26 @@ theme:
     - scheme: slate
       primary: indigo
       accent: cyan
+
+  # ── UX & Navigation ───────────────────────────────────────
   features:
-    - navigation.instant
-    - navigation.tabs
-    - navigation.sections
-    - toc.integrate
+    - navigation.instant            # turbo-links
+    - navigation.sections           # collapsible groups
+    - navigation.expand             # sidebar open by default
     - search.highlight
     - content.code.copy
+
+  # ── Hide the right-hand ToC completely ────────────────────
+  hide:
+    - toc
 
 plugins:
   - search
   - ezlinks
-  - awesome-pages
+  - awesome-pages                  # auto-builds sidebar
 
 extra_css:
-  - assets/css/extra.css
+  - assets/css/extra.css           # universal tweaks
 
 markdown_extensions:
   - admonition
@@ -37,3 +49,5 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed
   - pymdownx.emoji
+
+# edit_uri: ""   # uncomment to remove “Edit on GitHub” links

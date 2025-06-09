@@ -1,65 +1,44 @@
-<!-- ─────────────────────────────────────────────────────────────
-     HOME / LANDING PAGE
-     Place this file at: files/docs/00_home/index.md
-     (If you haven't rearranged folders yet, just keep it at
-     files/docs/index.md — both work.)
-──────────────────────────────────────────────────────────────── -->
+<!-- LOGO (top-center) -->
+<p align="center">
+  <img src="assets/img/tclogo.png" alt="The Technical Collective logo"
+       style="max-width: 200px; margin-bottom: 1.5rem;">
+</p>
 
-<!-- HERO BANNER -->
-<div class="hero" style="margin-bottom:2.5rem; text-align:center;">
+# Overview
 
-  <h1 style="font-size:2.75rem; font-weight:700; letter-spacing:-0.5px;">
-    Empowering Non-profits &amp; Aspiring Admins
-  </h1>
+## What is The Technical Collective?
 
-  <p style="font-size:1.25rem; max-width:720px; margin:0.75rem auto;">
-    We match certified <strong>junior Salesforce professionals</strong> with
-    resource-strapped <strong>charities</strong>, guided by
-    <strong>expert mentors</strong>.<br>
-    Real projects, real impact.
-  </p>
+This project was born from an age-old problem in the Salesforce ecosystem:
 
-  <div class="hero-buttons" style="margin-top:1.75rem;">
-    <a href="../junior-professional/" class="md-button md-button--primary">
-      I’m a Junior Pro
-    </a>
-    <a href="../charity-nonprofit/" class="md-button">
-      I’m a Charity
-    </a>
-    <a href="../technical-expert/" class="md-button">
-      I’m an Expert
-    </a>
-  </div>
+* **Junior admins** lack the work experience to land their first job role.  
+* **Non-profits & charities** receive donated Salesforce licences but need help to start or maintain their systems.  
+* **Technical experts** want to volunteer, yet lack a structured way to make their time effective.
 
-</div>
+At the **Salesforce Commons sprint (January 2023)** a group of us designed a programme that **upskills junior admins** while **helping non-profits** get the most from Salesforce—supported by a pool of seasoned professionals.
 
 ---
 
-## Who we are  
+## Who can participate?
 
-The Technical Collective solves a familiar three-way problem in the Salesforce ecosystem:
-
-* **Junior admins** need real-world experience to land their first role.  
-* **Non-profits &amp; charities** have 10 free Salesforce licences but often lack hands-on help.  
-* **Technical experts** want to volunteer, yet need a framework that makes their time effective.
-
-Formed at the **Salesforce Commons sprint (January 2023)**, our programme puts all three groups into a single, mentored project pipeline.
+| Role | Summary | CTA |
+|------|---------|-----|
+| **Non-profits & charities** | Small- to mid-sized orgs using the 10 free licences. Projects range from process tweaks to full reports & dashboards. | [Learn more →](charity-nonprofit.md){ .md-button } |
+| **Junior Salesforce professionals** | Have at least **1 certification** and want real-world experience for their CV. | [Learn more →](junior-professional.md){ .md-button } |
+| **Technical experts** | 5 + years in the ecosystem—MVPs, Champions, seasoned admins—who mentor and quality-check. | [Learn more →](technical-expert.md){ .md-button } |
 
 ---
 
-## How it works  
+## Meet the team
 
-1. **Charity needs** a Salesforce solution → submits a brief.  
-2. We form a **team**: one junior professional + one senior mentor.  
-3. **8–10&nbsp;weeks** of discovery, build, demo, and hand-over.  
-4. Charity gains working features; junior gains experience; mentor gives back.
+**Steering committee**
 
----
+* Silvia Denaro  
+* Nathaniel Sombu  
+* Pei Mun Lim  
+* Vicki Moritz-Henry  
+* Claire Jones  
+* Lawrence Newcombe  
 
-## Ready to get involved?
+We are a **Salesforce Commons** project and benefit from the support of the Salesforce team.
 
-Choose the path that fits you:
-
-* **Aspiring admin?** → [Start here](../junior-professional/)  
-* **Seasoned expert?** → [Mentor a project](../technical-expert/)  
-* **Non-profit?** → [Submit a brief](../charity-nonprofit/)  
+> *Special thanks to the volunteers at Salesforce Commons sprints who keep the project moving forward—this initiative wouldn’t be here without you!*

@@ -1,29 +1,24 @@
-/* Center content & tweak typography */
-.md-main__inner { max-width: 960px; }
+/* ==================  GLOBAL LAYOUT  ================== */
+.md-sidebar { border-right: 1px solid rgb(0 0 0 /.06); }
+.md-sidebar--secondary { display: none !important; }   /* ← kills right-hand ToC */
+.md-main__inner { max-width: 960px; padding: 2rem 1rem; }
 
-/* Headings */
-.md-typeset h1 { font-weight: 700; letter-spacing:-0.5px; }
-.md-typeset h2 { margin-top: 2.4rem; }
+/* ==================  TYPOGRAPHY  ===================== */
+:root { --tc-h2: 1.35rem; }
+.md-typeset { font-size: 1.05rem; line-height: 1.6; }
+.md-typeset h1 { font-size: 2rem; font-weight: 700; }
+.md-typeset h2 { font-size: var(--tc-h2); margin-top: 1.8rem; }
+.md-typeset h3 { font-size: 1.1rem; margin-top: 1.3rem; }
 
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-.hero h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 1.8rem;
-}
+/* ==================  CTA BUTTONS  ==================== */
+.md-button { border-radius: .4rem; font-weight: 600; padding: .6rem 1.2rem; }
+.md-button + .md-button { margin-left: .5rem; }
 
-/* CTA buttons */
-.hero .md-button {
-  border-radius: 6px;
-  padding: 0.7rem 1.5rem;
-  margin: 0.25rem 0.4rem;
+/* ==================  CARDS  ========================== */
+.md-typeset .card {
+  text-align: left;
+  border-radius: .5rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 /.06);
+  transition: box-shadow .2s;
 }
+.md-typeset .card:hover { box-shadow: 0 4px 6px rgb(0 0 0 /.12); }
