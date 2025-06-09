@@ -1,12 +1,29 @@
-/* Tidy up spacing & card look */
-.md-main__inner { max-width: 980px; }
+/* Center content & tweak typography */
+.md-main__inner { max-width: 960px; }
+
+/* Headings */
 .md-typeset h1 { font-weight: 700; letter-spacing:-0.5px; }
-.md-tabs__link { font-weight: 600; }
-.hero-buttons .md-button {
-  border-radius: 6px;
-  padding-inline: 1.5rem;
+.md-typeset h2 { margin-top: 2.4rem; }
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 1.8rem;
 }
 
-/* Optional: underline links only on hover */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* CTA buttons */
+.hero .md-button {
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  margin: 0.25rem 0.4rem;
+}
