@@ -24,6 +24,15 @@ A group of us got together at the Salesforce Commons January 2023 sprint and put
 
 **Learn more as a nonprofit**
 
+**Junior Salesforce Professionals:** Junior Salesforce professionals will be individuals who have already upskilled in Salesforce by earning at least one certification, but are seeking work experience to add to their CV.
+
+**Learn more as Salesforce Professionals**
+
+**Technical Experts:** The team of technical experts are seasoned Salesforce professionals coming with at least 5 years of experience in the Salesforce ecosystem. They include Salesforce MVPs, Champions and volunteers with many collective years of experience.
+
+**Learn more as Technical Experts**
+
+
 ---
 
 ## Meet the team
