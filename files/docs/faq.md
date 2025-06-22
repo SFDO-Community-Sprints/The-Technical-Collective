@@ -37,7 +37,7 @@ You can complete the online application form detailing your Salesforce setup, cu
 ### 2. What are the eligibility criteria for nonprofits?
 Your organisation should:
 - Be using Salesforce Nonprofit Cloud or similar
-- Ideally be within the 10 free licenses provided by Salesforce.org
+- Ideally using no more than the 10 donated licenses provided through the Power of Us Program from Salesforce.org
 - Be open to collaboration and knowledge-sharing
 
 ### 3. Will we be working directly with a junior admin?
@@ -56,7 +56,7 @@ We will assess your requirements during the scoping process. If a project is too
 ## For Junior Salesforce Professionals
 
 ### 1. What do I need to join as a junior Salesforce professional?
-You need to be already upskilled in Salesforce by earning at least one certification, but are seeking work experience to add to your CV.
+You need to be already upskilled in Salesforce by earning at least one certification, but are seeking work experience to add to your CV or resume.
 
 ### 2. What kind of support will I receive?
 You will be paired with an experienced Salesforce mentor who will:
