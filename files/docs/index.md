@@ -11,23 +11,18 @@ title: Overview
 
 ## What is The Technical Collective?
 
-This project was born from an age-old problem in the Salesforce ecosystem:
+This project was born from the age-old problem in the Salesforce ecosystem. Junior admins don’t have enough work experience to land their first job role. Nonprofits and charities have donated Salesforce licenses, but need help either getting started or maintaining their systems. Technical experts want to support, but don’t have the structure to properly volunteer their time. 
 
-* **Junior admins** lack the work experience to land their first job role.  
-* **Non-profits & charities** receive donated Salesforce licences but need help to start or maintain their systems.  
-* **Technical experts** want to volunteer, yet lack a structured way to make their time effective.
+A group of us got together at the Salesforce Commons January 2023 sprint and put together a program to upskill inexperienced admins to help nonprofits make the most of their Salesforce platform with the added support of a group of experienced Salesforce professionals.
 
-At the **Salesforce Commons sprint (January 2023)** a group of us designed a programme that **upskills junior admins** while **helping non-profits** get the most from Salesforce—supported by a pool of seasoned professionals.
 
 ---
 
 ## Who can participate?
 
-| Role | Summary | CTA |
-|------|---------|-----|
-| **Non-profits & charities** | Small- to mid-sized orgs using the 10 free licences. Projects range from process tweaks to full reports & dashboards. | [Learn more →](charity-nonprofit.md){ .md-button } |
-| **Junior Salesforce professionals** | Have at least **1 certification** and want real-world experience for their CV. | [Learn more →](junior-professional.md){ .md-button } |
-| **Technical experts** | 5 + years in the ecosystem—MVPs, Champions, seasoned admins—who mentor and quality-check. | [Learn more →](technical-expert.md){ .md-button } |
+**Nonprofit & Charities:** Nonprofit organisations can benefit from either pro-bono or compensated support on a scoped piece of Salesforce project work. We know that nonprofit organisations are often short on resources and can benefit from additional support, whether it is an update to the existing processes, creating some reports & dashboards or helping to document the system. The nonprofits supported will be small- to mid-sized nonprofits leveraging donated Salesforce licenses through the Power of Us Program.
+
+**Learn more as a nonprofit**
 
 ---
 
