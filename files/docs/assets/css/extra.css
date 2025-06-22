@@ -3,12 +3,52 @@
 .md-sidebar--secondary { display: none !important; }   /* ← kills right-hand ToC */
 .md-main__inner { max-width: 960px; padding: 2rem 1rem; }
 
+/* Align sidebar navigation more to the left */
+.md-nav--primary .md-nav__title,
+.md-nav--primary .md-nav__link {
+  padding-left: 0.75rem;
+}
+
 /* ==================  TYPOGRAPHY  ===================== */
-:root { --tc-h2: 1.35rem; }
-.md-typeset { font-size: 1.05rem; line-height: 1.6; }
-.md-typeset h1 { font-size: 2rem; font-weight: 700; }
-.md-typeset h2 { font-size: var(--tc-h2); margin-top: 1.8rem; }
-.md-typeset h3 { font-size: 1.1rem; margin-top: 1.3rem; }
+:root {
+  --md-text-font-family: "Inter", sans-serif;
+  --md-heading-font-family: "Inter", sans-serif;
+}
+
+.md-typeset {
+  font-size: 1rem; /* Standardize base font size to 16px */
+  line-height: 1.7;
+  font-family: var(--md-text-font-family);
+}
+
+/* Headings - establish a clear, consistent hierarchy */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-family: var(--md-heading-font-family);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+}
+
+.md-typeset h1 { font-size: 2.2rem; font-weight: 700; }
+.md-typeset h2 { font-size: 1.8rem; }
+.md-typeset h3 { font-size: 1.5rem; }
+.md-typeset h4 { font-size: 1.25rem; }
+.md-typeset h5 { font-size: 1.1rem; }
+.md-typeset h6 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Body text - ensure paragraphs and lists are consistent */
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol,
+.md-typeset blockquote {
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+}
+
+.md-typeset li {
+  margin-bottom: 0.5em;
+}
 
 /* ==================  CTA BUTTONS  ==================== */
 .md-button { border-radius: .4rem; font-weight: 600; padding: .6rem 1.2rem; }
@@ -22,3 +62,45 @@
   transition: box-shadow .2s;
 }
 .md-typeset .card:hover { box-shadow: 0 4px 6px rgb(0 0 0 /.12); }
+
+/* ==================  SIDEBAR ANIMATION  ================== */
+.md-sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 0.8rem;
+  color: var(--md-primary-fg-color);
+  opacity: 0.8;
+  transition: opacity .2s;
+}
+
+.md-sidebar-toggle:hover {
+  opacity: 1;
+}
+
+.md-sidebar-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.md-sidebar--primary {
+  transition: transform .3s ease-in-out, width .3s ease-in-out;
+  will-change: transform;
+}
+
+.md-main {
+  transition: margin-left .3s ease-in-out;
+  will-change: margin-left;
+}
+
+.sidebar-hidden .md-sidebar--primary {
+  transform: translateX(-100%);
+  width: 0; /* To fully collapse it */
+}
+
+/* When sidebar is hidden, expand main content */
+.sidebar-hidden .md-main {
+  margin-left: 0;
+}

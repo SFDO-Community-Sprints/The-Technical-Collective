@@ -43,6 +43,9 @@ plugins:
 extra_css:
   - assets/css/extra.css           # universal tweaks
 
+extra_javascript:
+  - assets/js/sidebar.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
