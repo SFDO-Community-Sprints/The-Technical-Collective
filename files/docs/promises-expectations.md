@@ -8,7 +8,8 @@ Our mission is very important to us. In order for us to create change and make a
 We understand that we are fully responsible and accountable for our org, and that the junior Salesforce professional will help us do the work (with the guidance of the technical experts) that we need to achieve the aims of our charity.
 When things go wrong, we will collectively work to create an action plan to move forward, and we will also learn from the experience so that we can avoid similar mistakes in future.
 
-**We promise to:**
+**We promise to**
+
 * Have strong leadership representation who will listen to technical advice
 * Make time to have thoughtful discussions, respond to queries and review documents where necessary
 * Respect the time that our technical experts are providing and considering options carefully
