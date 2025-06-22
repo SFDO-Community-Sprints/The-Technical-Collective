@@ -44,7 +44,7 @@ It is important for us to utilise our funding carefully, which means that we may
 * Support the junior Salesforce professional by making time to answer their questions and queries
 * Provide access to the junior Salesforce professional to the relevant org (for example a sandbox environment)
 * Be thoughtful in our requests by thinking about the outcome we want to achieve
-* We recognise the best way to help us think through our requirements would be to write them in the form of a User Story: “As a ___, I want to ___ so that I can do ___”
+* We recognise the best way to help us think through our requirements would be to write them in the form of a User Story: **“As a ___ , I want to ___ so that I can do ___”**
 * Be reasonable with our requests and the deadlines, as we understand that the junior Salesforce professional is volunteering and may have other demands on their time
 * Respect the junior Salesforce professional’s hours of work and not make requests out of work hours
 * Test requirements that have been built in a timely manner and report any issues found
