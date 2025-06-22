@@ -5,7 +5,7 @@ arrange:
   - technical-expert.md
   - charity-nonprofit.md
   - promises-expectations.md
-  - Past Sprints: sprints.md
+  - sprints.md
   - stories.md
   - faq.md
 order: asc
