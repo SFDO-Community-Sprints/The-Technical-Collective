@@ -32,3 +32,25 @@ In aid of this, we promise to utilise our collective skills and experience to:
 * Be clear about the hours and timings that we can commit to the programme
 Be honest if we are no longer able to provide services due to personal or professional circumstances
 
+**Nonprofit & Junior Salesforce Professional**
+
+**Nonprofit**
+
+It is important for us to utilise our funding carefully, which means that we may not have the budget to hire a junior Salesforce professional for now. If we are recruiting a volunteer to fill this role, we will need someone who cares about us and understands why the mission is so important to our charity.
+
+**We promise to:**
+
+* Create an environment that supports the junior Salesforce professional by allowing them flexibility in how they choose to engage with us
+* Support the junior Salesforce professional by making time to answer their questions and queries
+* Provide access to the junior Salesforce professional to the relevant org (for example a sandbox environment)
+* Be thoughtful in our requests by thinking about the outcome we want to achieve
+* We recognise the best way to help us think through our requirements would be to write them in the form of a User Story: “As a ___, I want to ___ so that I can do ___”
+* Be reasonable with our requests and the deadlines, as we understand that the junior Salesforce professional is volunteering and may have other demands on their time
+* Respect the junior Salesforce professional’s hours of work and not make requests out of work hours
+* Test requirements that have been built in a timely manner and report any issues found
+* Show our appreciation to the junior Salesforce professional by providing LinkedIn testimonials, personal written testimonials, recommendations and referrals as seen fit
+* Apply for DBS or equivalent background check for the Salesforce team (for both technical experts and junior Salesforce professionals) if required
+* Provide required training for the Salesforce team such as on policies and procedures, safeguarding, security, ethics, diversity and inclusion where necessary
+* Manage any legal requirements (such as providing NDA if sensitive information is to be shared)
+
+
