@@ -32,7 +32,7 @@ In aid of this, we promise to utilise our collective skills and experience to:
 * Be clear about the hours and timings that we can commit to the programme
 Be honest if we are no longer able to provide services due to personal or professional circumstances
 
-**Nonprofit & Junior Salesforce Professional**
+## Nonprofit & Junior Salesforce Professional  
 
 **Nonprofit**
 
@@ -53,4 +53,53 @@ It is important for us to utilise our funding carefully, which means that we may
 * Provide required training for the Salesforce team such as on policies and procedures, safeguarding, security, ethics, diversity and inclusion where necessary
 * Manage any legal requirements (such as providing NDA if sensitive information is to be shared)
 
+**Junior Salesforce Professional**
+
+I am a certified Salesforce professional, possibly pivoting into the Salesforce industry from a (potentially non-technical) career. I have done the relevant Trailhead modules, and have my relevant certification. I have limited experience and am looking to get a foot in the door by working with a charity on a volunteer basis. I would be grateful for support from senior Salesforce experts to help me build my skills and implement a good solution that will adhere to best practices.
+
+**I promise to:**
+
+* Adhere to charity’s policies and procedures
+* Be clear about the hours and dates that I can commit to the charity
+* Be honest and provide as much notice as possible if I am no longer able to volunteer due to personal circumstances or if I have found a job
+* Be responsible for the tasks that are assigned to me and manage expectations appropriately and in a timely manner
+* Be accountable for the work I do and own up for any mistakes I make with the understanding that we are all human and make mistakes
+* Have a conscientious work ethic by focusing on best practices, future-proofed solutioning and taking ownership of the solution
+* Be curious to find out what other functionalities can be used to help the charity in their mission
+* Be reliable and do what I say I will do. If I cannot, I will notify the charity as soon as possible
+* Write detailed meeting notes from every encounter with a charity representative when discussing my work
+* Have initiative in problem solving by improving my Googling skills and researching
+* Document all requirements properly using user stories and acceptance criteria and process maps where necessary
+* Document any decisions that require a change in the system and the reasons why
+* Write up test cases so that I can test the requirements before handing over to the charity for final testing and sign-off
+* Have a growth mindset, recognise that this is a career-changing moment and be fully open to feedback so that I can grow and learn
+* Document my processes so that I am able to handover easily to the charity once the project is completed
+
+## Technical Expert & Junior Salesforce Professional
+
+**Technical Expert**
+
+We want to help new talent break into the Salesforce ecosystem, and we understand how difficult it can be for junior Salesforce professionals to get their first job without experience.
+
+This initiative will allow us to coach junior Salesforce professionals to perform tasks within charities to grow their skills and experience in a controlled manner which will safeguard the charity’s Salesforce org and deliver quality solutions.
+
+**To this end, we promise to:**
+
+* Be clear with the junior Salesforce professional as to our expectations of them with regards to a particular engagement with a specific charity
+* Be transparent with the ‘why’ of the instruction so that they can understand the rationale behind the approach
+* Provide detailed feedback in a way that is constructive and sensitive so that the junior Salesforce professional can grow
+* Support the junior Salesforce professional when they have questions or doubts that need clarifying
+
+**Junior Salesforce Professionals**
+
+I understand that the technical expert is also a volunteer who might be really busy with their day jobs and their lives, and I am deeply appreciative of their guidance and advice to help me upskill and learn.
+
+**And so, I promise to:**
+
+* Be responsible, accountable and reliable
+* Be a proactive problem solver, using all the resources at my disposal
+* Ask a technical expert for advice when I am stuck, or if I am unsure how to implement a request and my research has not yielded the answers that I am looking for
+* Quickly learn the ropes so that I can reduce reliance on the technical experts
+* Respect the technical expert’s time by writing notes when discussing issues so that I can refer to them in future before asking the question again
+* Be thorough, detail-focussed and test everything
 
