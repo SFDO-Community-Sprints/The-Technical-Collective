@@ -2,7 +2,7 @@
 
 ## Promises & expectations between the Nonprofits & Technical Experts
 
-**Nonprofits**
+**Nonprofits:**
 Our mission is very important to us. In order for us to create change and make an impact for this cause we care deeply about, we need real time information to see how successful our initiatives are.
 
 We understand that we are fully responsible and accountable for our org, and that the junior Salesforce professional will help us do the work (with the guidance of the technical experts) that we need to achieve the aims of our charity.
