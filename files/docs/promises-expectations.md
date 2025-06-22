@@ -11,7 +11,8 @@ When things go wrong, we will collectively work to create an action plan to move
 **We promise to:**
 * Have strong leadership representation who will listen to technical advice
 * Make time to have thoughtful discussions, respond to queries and review documents where necessary
-* Respect the time that our technical experts are providing and considering options carefully. We will make decisions based on discussions and recommendations
+* Respect the time that our technical experts are providing and considering options carefully
+* We will make decisions based on discussions and recommendations
 * Show our appreciation to the Salesforce team by providing personal written testimonials, recommendations and referrals
 
 **Technical Expert**
