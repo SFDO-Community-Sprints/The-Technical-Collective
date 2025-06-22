@@ -4,10 +4,8 @@ title: Overview
 <!-- LOGO (top-center) -->
 <p align="center">
   <img src="assets/img/tclogo.png" alt="The Technical Collective logo"
-       style="max-width: 200px; margin-bottom: 1.5rem;">
+       style="max-width: 300px; margin-bottom: 1.5rem;">
 </p>
-
-# Overview
 
 ## What is The Technical Collective?
 
