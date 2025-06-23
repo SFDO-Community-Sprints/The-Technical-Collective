@@ -1,6 +1,6 @@
 # Promises & Expectations
 
-## Promises & expectations between the Nonprofits & Technical Experts
+## Between Nonprofits & Technical Experts
 
 **Nonprofits:**
 Our mission is very important to us. In order for us to create change and make an impact for this cause we care deeply about, we need real time information to see how successful our initiatives are.
@@ -32,7 +32,7 @@ In aid of this, we promise to utilise our collective skills and experience to:
 * Be clear about the hours and timings that we can commit to the programme
 Be honest if we are no longer able to provide services due to personal or professional circumstances
 
-## Nonprofit & Junior Salesforce Professional  
+## Between Nonprofit & Junior Salesforce Professional  
 
 **Nonprofit**
 
@@ -75,7 +75,7 @@ I am a certified Salesforce professional, possibly pivoting into the Salesforce 
 * Have a growth mindset, recognise that this is a career-changing moment and be fully open to feedback so that I can grow and learn
 * Document my processes so that I am able to handover easily to the charity once the project is completed
 
-## Technical Expert & Junior Salesforce Professional
+## Between Technical Expert & Junior Salesforce Professional
 
 **Technical Expert**
 
