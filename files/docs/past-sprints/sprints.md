@@ -242,7 +242,7 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 - [Sprint Working Document](https://docs.google.com/spreadsheets/your-sheet-link)
 
 <figure class="sprint-image">
-  <img src="../assets/img/2023-01 Working Hard.jpg" alt="Team working hard during the January 2023 sprint">
+  <img src="../../assets/img/2023-01 Working Hard.jpg" alt="Team working hard during the January 2023 sprint">
   <figcaption>The team collaborating during the January 2023 sprint.</figcaption>
 </figure>
 
