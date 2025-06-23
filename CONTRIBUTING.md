@@ -49,13 +49,16 @@ Our "Sprint Gallery" page showcases photos from our past events. Adding a new ph
     *   Upload your new photo here.
 
 2.  **Add the Image to the Gallery Page:**
-    *   Go to the `files/docs/gallery.md` file and click the **pencil icon** (✏️) to edit it.
+    *   Go to the `files/docs/past-sprints/galleries/index.md` file and click the **pencil icon** (✏️) to edit it.
     *   Inside the `<div class="sprint-gallery-grid">`, copy the following code block:
 
     ```html
-    <figure class="sprint-image">
-      <img src="../assets/img/YOUR-IMAGE-FILENAME.jpg" alt="A short description of the image">
-      <figcaption>Month Year: A brief caption for the photo.</figcaption>
+    <figure class="sprint-image" style="aspect-ratio: 1/1; max-width: 350px; margin: 2em auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border-radius: 12px; overflow: hidden;">
+      <img src="../../assets/img/YOUR-IMAGE-FILENAME.jpg" alt="A short description of the image" style="object-fit: cover; width: 100%; height: 100%; border-radius: 0;">
+      <figcaption style="padding: 1.2em 1em 1em 1em; font-size: 1.05em; color: #222; text-align: left;">
+        <strong style="display: block; font-size: 1.15em; margin-bottom: 0.5em; color: #1877f2;">Your Title Here</strong>
+        Your caption text here.
+      </figcaption>
     </figure>
     ```
 

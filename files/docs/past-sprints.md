@@ -1,18 +1,34 @@
 ---
-title: Sprint Summaries
+title: Past Sprints
 ---
 
-# Sprint Summaries
+# Past Sprints
 
 Welcome to the history of The Technical Collective's sprints. Here you'll find detailed summaries of all our past sprints, showcasing the incredible work of our volunteers and the evolution of our program.
 
 ---
 
-## January 2023
+## Sprint Gallery
 
-### Sprint 1: 17-18 January 2023, London UK
+<div class="sprint-gallery-grid">
+  <figure class="sprint-image" style="aspect-ratio: 1/1; max-width: 350px; margin: 2em auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border-radius: 12px; overflow: hidden;">
+    <img src="/assets/img/2023-01 Working Hard.jpg" alt="Team working hard during the January 2023 sprint" style="object-fit: cover; width: 100%; height: 100%; border-radius: 0;">
+    <figcaption style="padding: 1.2em 1em 1em 1em; font-size: 1.05em; color: #222; text-align: left;">
+      <strong style="display: block; font-size: 1.15em; margin-bottom: 0.5em; color: #1877f2;">Building the Collective</strong>
+      The team collaborates intensely during the inaugural January 2023 sprint in London, laying the foundation for a movement that empowers nonprofits and aspiring Salesforce professionals alike.
+    </figcaption>
+  </figure>
+</div>
 
-#### Project Team & Accomplishments
+---
+
+## Sprint Summaries
+
+### January 2023
+
+#### Sprint 1: 17-18 January 2023, London UK
+
+##### Project Team & Accomplishments
 
 During this sprint, the team:
 
@@ -21,7 +37,7 @@ During this sprint, the team:
 - Explored what could be done differently
 - Developed the concept of a "Technical Collective" as the key differentiator
 
-#### Key Deliverables
+##### Key Deliverables
 
 1. **Concept Development**
    - Established the core idea of the Technical Collective
@@ -35,11 +51,11 @@ During this sprint, the team:
      - The experienced technical collective coach
    - Created detailed [Who-What-Why](https://github.com/SFDO-Community-Sprints/UK-Admin-Match/wiki/Who-What-Why) personas for each stakeholder
 
-#### Documentation
+##### Documentation
 
 - [Sprint 1 Detailed Notes](https://docs.google.com/document/d/1UNiRbkvhOL2bPm4SadEsSSZZHYL1ME1b7YLfK8rF3HQ/edit#)
 
-#### Impact
+##### Impact
 
 This initial sprint laid the foundation for the Technical Collective by:
 - Establishing the core concept and mission
@@ -49,11 +65,11 @@ This initial sprint laid the foundation for the Technical Collective by:
 
 ---
 
-## June 2023
+### June 2023
 
-### Sprint Overview
+#### Sprint Overview
 
-#### Participants
+##### Participants
 A big thank you goes out to all our participants:
 - Trish Perkins
 - Hamid Mathew Khan
@@ -73,7 +89,7 @@ A big thank you goes out to all our participants:
 - Gaye Eren
 - Silvia Denaro
 
-#### Team Accomplishments
+##### Team Accomplishments
 
 1. **Documentation Team**
    - Requirements Gathering Process Mapping
@@ -106,27 +122,27 @@ A big thank you goes out to all our participants:
      - Communication barriers
    - Developed recommendations for language and jargon standardization
 
-#### Documentation
+##### Documentation
 - [Working Document during the Sprint](https://docs.google.com/document/d/1TODqRKgdwy807gENkrY9zPUw3O94i6QFZNJBt6IIiwU/edit)
 
 ---
 
-## February 2024 Virtual Sprint
+### February 2024 Virtual Sprint
 
-### Sprint Overview
+#### Sprint Overview
 
-#### Sprint Leaders
+##### Sprint Leaders
 - Silvia Denaro
 - Vicki Moritz-Henry
 
-#### Awesome Volunteers
+##### Awesome Volunteers
 - Dianne Mishra
 - Jana Jones
 - John
 - Karim Gabriel
 - Wendi Paden
 
-### Key Deliverables
+##### Key Deliverables
 
 1. **Forms Development**
    - Audited and implemented existing form content in Google Forms
@@ -152,10 +168,10 @@ A big thank you goes out to all our participants:
      - Project scope definition
      - Standardized processes
 
-### Sprint Impact
+##### Sprint Impact
 The February 2024 Virtual Sprint demonstrated remarkable progress with a small but dedicated team. Despite being new to the project, participants showed exceptional enthusiasm and made significant contributions. The sprint successfully created scalable, reusable resources that will enable the project to grow effectively.
 
-#### Key Achievements
+###### Key Achievements
 - Created composable and reusable resources
 - Established scalable project management tools
 - Developed standardized engagement processes
@@ -163,11 +179,11 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 
 ---
 
-## June 2024 Sprint (4th-5th)
+### June 2024 Sprint (4th-5th)
 
-### Sprint Overview
+#### Sprint Overview
 
-#### Team Members
+##### Team Members
 - Nathaniel Sombu (n.sombu@gmail.com)
 - Lukasz Bujlo (lukasz.bujlo@coffeeforce.pl)
 - Kacper Pytowski (kacper.pytowski@coffeeforce.pl)
@@ -183,9 +199,9 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 - Adenike Adegboyega (zadeadegboyega@gmail.com)
 - Maurice Kollewe (kollewe@gmail.com)
 
-### Sprint Goals
+##### Sprint Goals
 
-#### Day 1 Objectives
+###### Day 1 Objectives
 1. **Website Development** (Team: Nathaniel, Vicki)
    - Create signposting site
    - Develop site content
@@ -218,7 +234,7 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
    - Create training materials
    - Develop support resources
 
-### Day 1 Achievements
+##### Day 1 Achievements
 
 1. **Website Development**
    - Completed majority of website development
@@ -250,10 +266,10 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
      - Identified as key Day 2 priority
      - Framework to be developed
 
-### Documentation
+##### Documentation
 - [Sprint Working Document](https://docs.google.com/spreadsheets/your-sheet-link)
 
-### Next Steps
+##### Next Steps
 1. Complete website proofreading
 2. Implement social media channels
 3. Develop technical expert onboarding process

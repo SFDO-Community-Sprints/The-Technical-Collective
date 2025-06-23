@@ -1,8 +1,8 @@
 # Sidebar order (top → bottom)
-nav:
+arrange:
   - index.md
   - roles
   - promises-expectations.md
   - stories.md
   - faq.md
-  - past-sprints
+  - past-sprints.md
