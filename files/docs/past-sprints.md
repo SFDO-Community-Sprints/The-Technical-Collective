@@ -12,7 +12,7 @@ Welcome to the history of The Technical Collective's sprints. Here you'll find d
 
 <div class="sprint-gallery-grid">
   <figure class="sprint-image" style="aspect-ratio: 1/1; max-width: 350px; margin: 2em auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border-radius: 12px; overflow: hidden;">
-    <img src="/assets/img/2023-01 Working Hard.jpg" alt="Team working hard during the January 2023 sprint" style="object-fit: cover; width: 100%; height: 100%; border-radius: 0;">
+    <img src="/assets/img/2023-01-Working-Hard.jpg" alt="Team working hard during the January 2023 sprint" style="object-fit: cover; width: 100%; height: 100%; border-radius: 0;">
     <figcaption style="padding: 1.2em 1em 1em 1em; font-size: 1.05em; color: #222; text-align: left;">
       <strong style="display: block; font-size: 1.15em; margin-bottom: 0.5em; color: #1877f2;">Building the Collective</strong>
       The team collaborates intensely during the inaugural January 2023 sprint in London, laying the foundation for a movement that empowers nonprofits and aspiring Salesforce professionals alike.
