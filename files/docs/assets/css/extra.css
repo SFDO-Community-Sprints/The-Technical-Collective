@@ -15,6 +15,30 @@
   }
 }
 
+/* ==================  CUSTOM IMAGE STYLES  ================== */
+/* Style for images in sprint pages */
+.sprint-image {
+  margin: 2.5em auto;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  max-width: 80%;
+  text-align: center;
+}
+
+.sprint-image img {
+  border-radius: 4px;
+  width: 100%;
+}
+
+.sprint-image figcaption {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
 /* ==================  SIDEBAR STYLING & CONSISTENCY  ================== */
 /* Align left sidebar navigation */
 .md-nav--primary .md-nav__title,
