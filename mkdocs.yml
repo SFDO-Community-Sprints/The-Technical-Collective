@@ -1,4 +1,4 @@
-site_name: " "                       # required but invisible
+site_name: "The Technical Collective"    # Site title
 docs_dir: files/docs
 site_url: https://the-technical-collective.github.io/
 
@@ -62,4 +62,4 @@ markdown_extensions:
   - pymdownx.tabbed
   - pymdownx.emoji
 
-# edit_uri: ""   # uncomment to remove “Edit on GitHub” links
+# edit_uri: ""   # uncomment to remove "Edit on GitHub" links
