@@ -1,7 +1,7 @@
 # Sidebar order (top → bottom)
 arrange:
   - index.md
-  - Members
+  - roles
   - promises-expectations.md
   - sprints.md
   - stories.md
