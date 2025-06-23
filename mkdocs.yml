@@ -16,24 +16,33 @@ theme:
 
   # ── Colour palette ────────────────────────────────────────
   palette:
-    - scheme: default
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: indigo
       accent: cyan
-    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: indigo
       accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
   # ── UX & Navigation ───────────────────────────────────────
   features:
     - navigation.instant            # turbo-links
     - navigation.sections           # collapsible groups
     - navigation.expand             # sidebar open by default
+    - navigation.tracking           # highlight current section in ToC
+    - navigation.top                # add a 'back to top' button
     - search.highlight
     - content.code.copy
-
-  # ── Hide the right-hand ToC completely ────────────────────
-  hide:
-    - toc
 
 plugins:
   - search

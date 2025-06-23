@@ -1,11 +1,40 @@
 /* ==================  GLOBAL LAYOUT  ================== */
 .md-sidebar { border-right: 1px solid rgb(0 0 0 /.06); }
-.md-sidebar--secondary { display: none !important; }   /* ← kills right-hand ToC */
-.md-main__inner { max-width: 960px; padding: 2rem 1rem; }
 
-/* Align sidebar navigation more to the left */
+/* Responsive main content area */
+.md-main__inner {
+  max-width: 100%; /* Default for mobile, ensures no overflow */
+  padding: 1rem;   /* Mobile-first padding */
+}
+
+/* Apply wider layout only on large screens */
+@media screen and (min-width: 1220px) {
+  .md-main__inner {
+    max-width: 1600px; /* The spacious layout for desktops */
+    padding: 2rem 2.5rem;
+  }
+}
+
+/* ==================  SIDEBAR STYLING & CONSISTENCY  ================== */
+/* Align left sidebar navigation */
 .md-nav--primary .md-nav__title,
 .md-nav--primary .md-nav__link {
+  padding-left: 0.75rem;
+}
+
+/* Style right sidebar (Table of Contents) for consistency */
+.md-nav--secondary .md-nav__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.75rem 0.5rem;
+  margin-top: 0;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.8rem;
   padding-left: 0.75rem;
 }
 
