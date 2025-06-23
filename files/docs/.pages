@@ -3,7 +3,6 @@ nav:
   - index.md
   - roles
   - promises-expectations.md
-  - past-sprints
-  - faq.md
   - stories.md
-
+  - faq.md
+  - past-sprints.md
