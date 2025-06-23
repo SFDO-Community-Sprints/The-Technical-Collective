@@ -1,8 +1,8 @@
 ---
-title: Previous Sprints
+title: Sprint Summaries
 ---
 
-# Previous Sprints
+# Sprint Summaries
 
 Welcome to the history of The Technical Collective's sprints. Here you'll find detailed summaries of all our past sprints, showcasing the incredible work of our volunteers and the evolution of our program.
 

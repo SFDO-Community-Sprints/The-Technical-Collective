@@ -1,5 +1,5 @@
 ---
-title: Sprint Galleries Overview
+title: Sprint Galleries
 ---
 
 # Sprint Galleries
