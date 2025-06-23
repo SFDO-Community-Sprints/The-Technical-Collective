@@ -1,5 +1,11 @@
 ---
-title: Past Sprints
+title: Previous Sprints
+---
+
+# Previous Sprints
+
+Welcome to the history of The Technical Collective's sprints. Here you'll find detailed summaries of all our past sprints, showcasing the incredible work of our volunteers and the evolution of our program.
+
 ---
 
 ## January 2023
@@ -40,6 +46,8 @@ This initial sprint laid the foundation for the Technical Collective by:
 - Defining the stakeholder relationships
 - Creating the framework for future development
 - Setting the stage for subsequent sprints and project evolution
+
+---
 
 ## June 2023
 
@@ -101,6 +109,8 @@ A big thank you goes out to all our participants:
 #### Documentation
 - [Working Document during the Sprint](https://docs.google.com/document/d/1TODqRKgdwy807gENkrY9zPUw3O94i6QFZNJBt6IIiwU/edit)
 
+---
+
 ## February 2024 Virtual Sprint
 
 ### Sprint Overview
@@ -150,6 +160,8 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 - Established scalable project management tools
 - Developed standardized engagement processes
 - Built a foundation for future project growth
+
+---
 
 ## June 2024 Sprint (4th-5th)
 
@@ -241,14 +253,9 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 ### Documentation
 - [Sprint Working Document](https://docs.google.com/spreadsheets/your-sheet-link)
 
-<figure class="sprint-image">
-  <img src="../assets/img/2023-01 Working Hard.jpg" alt="Team working hard during the January 2023 sprint">
-  <figcaption>The team collaborating during the January 2023 sprint.</figcaption>
-</figure>
-
 ### Next Steps
 1. Complete website proofreading
 2. Implement social media channels
 3. Develop technical expert onboarding process
 4. Create and distribute feedback surveys
-5. Finalize all onboarding documentation
+5. Finalize all onboarding documentation 
