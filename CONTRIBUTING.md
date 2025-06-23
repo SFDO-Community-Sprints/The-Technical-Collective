@@ -36,3 +36,30 @@ Simply change the order of the filenames in the `arrange:` list. The sidebar wil
 3.  **Update the `.pages` file:** In the `arrange:` list, replace the individual filenames with the name of your new folder.
 
 The website will automatically create a new, expandable section in the sidebar with the same name as your folder. It's that simple!
+
+---
+
+### How to Add to the Sprint Gallery
+
+Our "Sprint Gallery" page showcases photos from our past events. Adding a new photo is easy:
+
+1.  **Upload the Image:**
+    *   Navigate to the `files/docs/assets/img/` directory in the repository.
+    *   Click the **"Add file"** button and choose **"Upload files"**.
+    *   Upload your new photo here.
+
+2.  **Add the Image to the Gallery Page:**
+    *   Go to the `files/docs/gallery.md` file and click the **pencil icon** (✏️) to edit it.
+    *   Inside the `<div class="sprint-gallery-grid">`, copy the following code block:
+
+    ```html
+    <figure class="sprint-image">
+      <img src="../assets/img/YOUR-IMAGE-FILENAME.jpg" alt="A short description of the image">
+      <figcaption>Month Year: A brief caption for the photo.</figcaption>
+    </figure>
+    ```
+
+    *   **Paste** this block into the grid.
+    *   **Replace** `YOUR-IMAGE-FILENAME.jpg` with the actual filename of the photo you uploaded.
+    *   **Update** the `alt` text and the `figcaption` to describe the new photo.
+    *   **Commit your changes.** The website will automatically update with the new photo, perfectly formatted.

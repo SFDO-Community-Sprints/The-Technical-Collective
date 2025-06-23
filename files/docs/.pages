@@ -3,7 +3,9 @@ arrange:
   - index.md
   - roles
   - promises-expectations.md
-  - sprints.md
+  - Past Sprints:
+    - sprints.md: Sprint Summaries
+    - gallery.md
   - stories.md
   - faq.md
 order: asc

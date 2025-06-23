@@ -39,6 +39,35 @@
   font-style: italic;
 }
 
+/* ==================  SPRINT GALLERY STYLES  ================== */
+.sprint-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Style for images within the gallery grid */
+.sprint-gallery-grid .sprint-image {
+  margin: 0; /* Reset margin for grid items */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sprint-gallery-grid .sprint-image img {
+  width: 100%;
+  height: 250px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures uniform size without distortion */
+  object-position: center;
+}
+
+.sprint-gallery-grid .sprint-image figcaption {
+  padding: 0.75rem 0;
+  flex-grow: 1;
+}
+
 /* ==================  SIDEBAR STYLING & CONSISTENCY  ================== */
 /* Align left sidebar navigation */
 .md-nav--primary .md-nav__title,
