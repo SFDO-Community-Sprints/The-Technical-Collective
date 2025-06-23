@@ -1,8 +1,8 @@
 # Sidebar order (top → bottom)
 nav:
-  - index.md
-  - roles
-  - promises-expectations.md
-  - stories.md
-  - faq.md
-  - past-sprints
+  - index.md: Overview
+  - roles: Roles
+  - promises-expectations.md: Promises & Expectations
+  - stories.md: Stories
+  - faq.md: FAQ
+  - past-sprints: Past Sprints
