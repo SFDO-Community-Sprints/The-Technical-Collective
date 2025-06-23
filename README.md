@@ -1,27 +1,77 @@
-Technical-Collective
-Local program to upskill inexperienced admins to help Charities make the most of their Salesforce platform with the added support of a group of experienced Salesforce professionals.
+# The Technical Collective
 
-# Project Name
-Technical Collective Project: 
-A formalised way to match not-for-profits with an inexperienced admin supported by a technical collective of experienced Salesforce professionals.
+**A formalized program to upskill inexperienced Salesforce admins by matching them with non-profits, all with the dedicated support of experienced Salesforce professionals.**
 
-# Project Overview
-## Vision & Goals
-* A route for inexperienced admins to gain real life experience, supported by experienced Salesforce professionals
-* An opportunity for experienced Salesforce professionals to give back and support non-profits and inexperienced admins
-* Help charities make the most of their Salesforce platform while limiting possible technical debt 
-* Reduce the technical skills gap
+This repository contains the source code for the official documentation website for The Technical Collective program.
 
-## Project Vertical
-Nonprofit
+---
 
-## Trailblazer Group or Slack Channel Link (access required)
-Please replace with the URL for your Trailblazer Community group and/or Slack channel issued by the Commons program team.
+## 🚀 Project Vision & Goals
 
-## How to Contribute:
-- Way 1.
-- Way 2. 
-- Way 3. 
+The Technical Collective aims to create a win-win-win ecosystem:
 
-## Project Resources and Documentation
-Documentation can be found in the repository [wiki] (URL for wiki where docs are stored)
+*   **For Inexperienced Admins:** Provide a clear pathway to gain real-world project experience while being mentored by seasoned professionals.
+*   **For Experienced Professionals:** Offer a meaningful opportunity to give back to the community, mentor upcoming talent, and support non-profits.
+*   **For Non-Profits:** Help charities maximize their Salesforce investment and impact, all while minimizing technical debt.
+*   **For the Ecosystem:** Bridge the technical skills gap in the Salesforce community.
+
+---
+
+## 🛠️ Tech Stack
+
+This website is built with modern and simple tools to make it easy for anyone to contribute:
+
+*   **[MkDocs](https://www.mkdocs.org/):** A fast and simple static site generator.
+*   **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/):** A beautiful and feature-rich theme for MkDocs.
+*   **GitHub Pages:** For hosting the live website.
+*   **GitHub Actions:** For automating the build and deployment process.
+
+---
+
+## 🏁 Getting Started (for Developers)
+
+Want to run the website on your local machine? Here’s how:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/The-Technical-Collective/The-Technical-Collective.git
+    cd The-Technical-Collective
+    ```
+
+2.  **Set up a Python virtual environment:**
+    ```bash
+    # For macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # For Windows
+    py -m venv venv
+    venv\\Scripts\\activate
+    ```
+
+3.  **Install the dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Start the local development server:**
+    ```bash
+    mkdocs serve
+    ```
+
+    The website will now be running at `http://127.0.0.1:8000/`.
+
+---
+
+## ❤️ How to Contribute
+
+We welcome contributions from everyone! Whether you're fixing a typo, adding new content, or improving the design, your help is appreciated.
+
+Please read our **[Contribution Guide](CONTRIBUTING.md)** to learn how you can get involved.
+
+---
+
+## 🔗 Project Resources
+
+*   **Trailblazer Community Group:** [Link to be added]
+*   **Slack Channel:** [Link to be added]
