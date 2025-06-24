@@ -1,0 +1,394 @@
+/* ==================  GLOBAL LAYOUT  ================== */
+.md-sidebar { border-right: 1px solid rgb(0 0 0 /.06); }
+
+/* Responsive main content area */
+.md-main__inner {
+  max-width: 100%; /* Default for mobile, ensures no overflow */
+  padding: 1rem;   /* Mobile-first padding */
+}
+
+/* Apply wider layout only on large screens */
+@media screen and (min-width: 1220px) {
+  .md-main__inner {
+    max-width: 1600px; /* The spacious layout for desktops */
+    padding: 2rem 2.5rem;
+  }
+}
+
+/* ==================  CUSTOM IMAGE STYLES  ================== */
+/* Style for images in sprint pages */
+.sprint-image {
+  margin: 2.5em auto;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  max-width: 80%;
+  text-align: center;
+}
+
+.sprint-image img {
+  border-radius: 4px;
+  width: 100%;
+}
+
+.sprint-image figcaption {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* ==================  SPRINT CAROUSEL STYLES  ================== */
+.sprint-carousel {
+  margin: 3rem auto;
+  max-width: 800px;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 500px;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide .sprint-image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-slide .sprint-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0;
+  flex-grow: 1;
+}
+
+.carousel-slide .sprint-image figcaption {
+  padding: 1.5rem;
+  background: #fff;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.carousel-slide .sprint-image figcaption strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.carousel-slide .sprint-image figcaption span {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Navigation arrows */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-prev {
+  left: 16px;
+}
+
+.carousel-next {
+  right: 16px;
+}
+
+.carousel-nav svg {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+/* Dots indicator */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.3);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .sprint-carousel {
+    margin: 2rem auto;
+  }
+  
+  .carousel-track {
+    height: 400px;
+  }
+  
+  .carousel-slide .sprint-image img {
+    height: 250px;
+  }
+  
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-nav svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .carousel-prev {
+    left: 12px;
+  }
+  
+  .carousel-next {
+    right: 12px;
+  }
+  
+  .carousel-dots {
+    bottom: 16px;
+  }
+  
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel-track {
+    height: 350px;
+  }
+  
+  .carousel-slide .sprint-image img {
+    height: 200px;
+  }
+  
+  .carousel-slide .sprint-image figcaption {
+    padding: 1rem;
+  }
+  
+  .carousel-slide .sprint-image figcaption strong {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==================  SPRINT GALLERY STYLES  ================== */
+.sprint-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Style for images within the gallery grid */
+.sprint-gallery-grid .sprint-image {
+  margin: 0; /* Reset margin for grid items */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sprint-gallery-grid .sprint-image img {
+  width: 100%;
+  height: 250px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures uniform size without distortion */
+  object-position: center;
+}
+
+.sprint-gallery-grid .sprint-image figcaption {
+  padding: 0.75rem 0;
+  flex-grow: 1;
+}
+
+/* ==================  SIDEBAR STYLING & CONSISTENCY  ================== */
+/* Align left sidebar navigation */
+.md-nav--primary .md-nav__title,
+.md-nav--primary .md-nav__link {
+  padding-left: 0.75rem;
+}
+
+/* Style right sidebar (Table of Contents) for consistency */
+.md-nav--secondary .md-nav__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.75rem 0.5rem;
+  margin-top: 0;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-nav--secondary .md-nav__link {
+  font-size: 0.8rem;
+  padding-left: 0.75rem;
+}
+
+/* ==================  TYPOGRAPHY  ===================== */
+:root {
+  --md-text-font-family: "Inter", sans-serif;
+  --md-heading-font-family: "Inter", sans-serif;
+}
+
+.md-typeset {
+  font-size: 1rem; /* Standardize base font size to 16px */
+  line-height: 1.7;
+  font-family: var(--md-text-font-family);
+}
+
+/* Headings - establish a clear, consistent hierarchy */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-family: var(--md-heading-font-family);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+}
+
+.md-typeset h1 { font-size: 2.2rem; font-weight: 700; }
+.md-typeset h2 { font-size: 1.8rem; }
+.md-typeset h3 { font-size: 1.5rem; }
+.md-typeset h4 { font-size: 1.25rem; }
+.md-typeset h5 { font-size: 1.1rem; }
+.md-typeset h6 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Body text - ensure paragraphs and lists are consistent */
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol,
+.md-typeset blockquote {
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+}
+
+.md-typeset li {
+  margin-bottom: 0.5em;
+}
+
+/* ==================  CTA BUTTONS  ==================== */
+.md-button { border-radius: .4rem; font-weight: 600; padding: .6rem 1.2rem; }
+.md-button + .md-button { margin-left: .5rem; }
+
+/* ==================  CARDS  ========================== */
+.md-typeset .card {
+  text-align: left;
+  border-radius: .5rem;
+  box-shadow: 0 1px 3px rgb(0 0 0 /.06);
+  transition: box-shadow .2s;
+}
+.md-typeset .card:hover { box-shadow: 0 4px 6px rgb(0 0 0 /.12); }
+
+/* ==================  SIDEBAR ANIMATION  ================== */
+.md-sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 0.8rem;
+  color: var(--md-primary-fg-color);
+  opacity: 0.8;
+  transition: opacity .2s;
+}
+
+.md-sidebar-toggle:hover {
+  opacity: 1;
+}
+
+.md-sidebar-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.md-sidebar--primary {
+  transition: transform .3s ease-in-out, width .3s ease-in-out;
+  will-change: transform;
+}
+
+.md-main {
+  transition: margin-left .3s ease-in-out;
+  will-change: margin-left;
+}
+
+.sidebar-hidden .md-sidebar--primary {
+  transform: translateX(-100%);
+  width: 0; /* To fully collapse it */
+}
+
+/* When sidebar is hidden, expand main content */
+.sidebar-hidden .md-main {
+  margin-left: 0;
+}
