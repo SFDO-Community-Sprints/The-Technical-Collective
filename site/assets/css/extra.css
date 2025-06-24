@@ -39,6 +39,212 @@
   font-style: italic;
 }
 
+/* ==================  SPRINT CAROUSEL STYLES  ================== */
+.sprint-carousel {
+  margin: 3rem auto;
+  max-width: 800px;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 500px;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide .sprint-image {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-slide .sprint-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0;
+  flex-grow: 1;
+}
+
+.carousel-slide .sprint-image figcaption {
+  padding: 1.5rem;
+  background: #fff;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.carousel-slide .sprint-image figcaption strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.carousel-slide .sprint-image figcaption span {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Navigation arrows */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-prev {
+  left: 16px;
+}
+
+.carousel-next {
+  right: 16px;
+}
+
+.carousel-nav svg {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+/* Dots indicator */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.3);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .sprint-carousel {
+    margin: 2rem auto;
+  }
+  
+  .carousel-track {
+    height: 400px;
+  }
+  
+  .carousel-slide .sprint-image img {
+    height: 250px;
+  }
+  
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-nav svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .carousel-prev {
+    left: 12px;
+  }
+  
+  .carousel-next {
+    right: 12px;
+  }
+  
+  .carousel-dots {
+    bottom: 16px;
+  }
+  
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel-track {
+    height: 350px;
+  }
+  
+  .carousel-slide .sprint-image img {
+    height: 200px;
+  }
+  
+  .carousel-slide .sprint-image figcaption {
+    padding: 1rem;
+  }
+  
+  .carousel-slide .sprint-image figcaption strong {
+    font-size: 1.1rem;
+  }
+}
+
 /* ==================  SPRINT GALLERY STYLES  ================== */
 .sprint-gallery-grid {
   display: grid;

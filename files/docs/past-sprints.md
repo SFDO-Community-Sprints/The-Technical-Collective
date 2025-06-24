@@ -10,14 +10,77 @@ Welcome to the history of The Technical Collective's sprints. Here you'll find d
 
 ## Sprint Gallery
 
-<div class="sprint-gallery-grid">
-  <figure class="sprint-image" style="aspect-ratio: 1/1; max-width: 350px; margin: 2em auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background: #fff; border-radius: 12px; overflow: hidden;">
-    <img src="/The-Technical-Collective/assets/img/2023-01-Working-Hard.jpg" alt="Team working hard during the January 2023 sprint" style="object-fit: cover; width: 100%; height: 100%; border-radius: 0;">
-    <figcaption style="padding: 1.2em 1em 1em 1em; font-size: 1.05em; color: #222; text-align: left;">
-      <strong style="display: block; margin-bottom: 0.3em; color: #333;">Working Hard</strong>
-      <span style="color: #666; font-size: 0.95em;">January 2023 Sprint</span>
-    </figcaption>
-  </figure>
+<!-- 
+CAROUSEL SETUP GUIDE:
+To add more images to the carousel:
+1. Upload your image to files/docs/assets/img/
+2. Copy the carousel-slide div structure below
+3. Update the src attribute with your image path (use relative path: "../assets/img/YOUR-IMAGE.jpg")
+4. Update the alt text and figcaption content
+5. Add a corresponding carousel-dot button
+6. Update the aria-label attributes
+
+The carousel features:
+- Auto-play every 5 seconds
+- Manual navigation with arrow buttons
+- Dot indicators for direct slide access
+- Pause on hover
+- Keyboard navigation (arrow keys, home, end)
+- Responsive design for mobile devices
+-->
+
+<div class="sprint-carousel">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <figure class="sprint-image">
+          <img src="../assets/img/2023-01-Working-Hard.jpg" alt="Team working hard during the January 2023 sprint">
+          <figcaption>
+            <strong>Working Hard</strong>
+            <span>January 2023 Sprint</span>
+          </figcaption>
+        </figure>
+      </div>
+      <!-- Add more slides here as you get more images -->
+      <div class="carousel-slide">
+        <figure class="sprint-image">
+          <img src="../assets/img/2023-01-Working-Hard.jpg" alt="Team collaboration during the January 2023 sprint">
+          <figcaption>
+            <strong>Team Collaboration</strong>
+            <span>January 2023 Sprint</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="carousel-slide">
+        <figure class="sprint-image">
+          <img src="../assets/img/2023-01-Working-Hard.jpg" alt="Planning session during the January 2023 sprint">
+          <figcaption>
+            <strong>Planning Session</strong>
+            <span>January 2023 Sprint</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <!-- Navigation arrows -->
+    <button class="carousel-nav carousel-prev" aria-label="Previous image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
+    <button class="carousel-nav carousel-next" aria-label="Next image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </button>
+    
+    <!-- Dots indicator -->
+    <div class="carousel-dots">
+      <button class="carousel-dot active" aria-label="Go to image 1"></button>
+      <button class="carousel-dot" aria-label="Go to image 2"></button>
+      <button class="carousel-dot" aria-label="Go to image 3"></button>
+    </div>
+  </div>
 </div>
 
 ---
