@@ -46,5 +46,5 @@ Coming Soon
 Coming Soon
 
 ## Testing Form in Sandbox
-[Open the Web-to-Lead form](./forms/TTCwebtolead.html)
+[Open the Web-to-Lead form](./assets/forms/TTCwebtolead.html)
 
