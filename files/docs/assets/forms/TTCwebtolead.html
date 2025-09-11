@@ -195,15 +195,45 @@
     </head>
 <body>
 
+<!-- Configuration Section - Update these values as needed -->
+<script>
+    // Salesforce Configuration
+    const SALESFORCE_CONFIG = {
+        // Environment: 'sandbox' or 'production'
+        environment: 'sandbox',
+        
+        // Organization ID (get this from your Salesforce org)
+        orgId: '00DD4000000Hsrz',
+        
+        // Form Configuration
+        formTitle: 'The Technical Collective Volunteer Mentor Application',
+        leadSource: 'Website',
+        
+        // Return URL (where to redirect after successful submission)
+        returnUrl: 'javascript:history.back()',
+        
+        // Debug Configuration
+        debugMode: false,
+        debugEmail: 'your-email@domain.com'
+    };
+    
+    // Generate Salesforce form action URL based on environment
+    function getSalesforceActionUrl() {
+        const baseUrl = SALESFORCE_CONFIG.environment === 'production' 
+            ? 'https://webto.salesforce.com/servlet/servlet.WebToLead'
+            : 'https://test.salesforce.com/servlet/servlet.WebToLead';
+        return `${baseUrl}?encoding=UTF-8&orgId=${SALESFORCE_CONFIG.orgId}`;
+    }
+</script>
 
 <div class="form-container">
-        <div class="form-header">
-            The Technical Collective Volunteer Mentor Application
+        <div class="form-header" id="form-title">
+            <!-- Title will be populated by JavaScript -->
         </div>
-<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DD4000000Hsrz" method="POST">
+<form id="salesforce-form" method="POST">
 
-<input type=hidden name="oid" value="00DD4000000Hsrz">
-<input type=hidden name="retURL" value="http://">
+<input type=hidden name="oid" id="org-id-input">
+<input type=hidden name="retURL" id="return-url-input">
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
@@ -212,9 +242,9 @@
 <!--  <input type="hidden" name="debugEmail" value="zoesmith87@live.co.uk">   -->
 <!--  ----------------------------------------------------------------------  -->
 
-<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+<label for="first_name">First Name<span style="color: red;">*</span></label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required /><br>
 
-<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+<label for="last_name">Last Name<span style="color: red;">*</span></label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required /><br>
 
 <label for="email">
   Email<span style="color: red;">*</span>
@@ -229,6 +259,10 @@
 /><br>
 
 <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+<label for="company">Company<span style="color: red;">*</span></label><input  id="company" maxlength="80" name="company" size="20" type="text" required /><br>
+
+<input type="hidden" name="lead_source" id="lead-source-input">
 
 <label for="country_code">Country</label><select  id="country_code" name="country_code"><option value="">--Please select--</option><option value="AF">AF</option>
 <option value="AX">AX</option>
@@ -509,9 +543,9 @@
     <label><input type="checkbox" name="00ND400000BxOTP" value="Platform Developer 1">Platform Developer 1</label>
     <label><input type="checkbox" name="00ND400000BxOTP" value="Sales Cloud Consultant">Sales Cloud Consultant</label>
     <label><input type="checkbox" name="00ND400000BxOTP" value="Service Cloud Consultant">Service Cloud Consultant</label>
-    <label><input type="checkbox" value="Slack">Slack</label>
-    <label><input type="checkbox" value="Strategy Designer">Strategy Designer</label>
-    <label><input type="checkbox" value="UX designer">UX designer</label>
+    <label><input type="checkbox" name="00ND400000BxOTP" value="Slack">Slack</label>
+    <label><input type="checkbox" name="00ND400000BxOTP" value="Strategy Designer">Strategy Designer</label>
+    <label><input type="checkbox" name="00ND400000BxOTP" value="UX designer">UX designer</label>
 </div>
 <br>
 <input type="hidden" id="salesforceCertifications_00ND400000BxOTP" name="00ND400000BxOTP" value="">
@@ -535,7 +569,7 @@
     <label><input type="checkbox" name="00ND400000BxOTR" value="NPSP / Nonprofit Cloud">NPSP / Nonprofit Cloud</label>
     <label><input type="checkbox" name="00ND400000BxOTR" value="Experience Cloud">Experience Cloud</label>
     <label><input type="checkbox" name="00ND400000BxOTR" value="Marketing Cloud">Marketing Cloud</label>
-    <label><input type="checkbox" value="Pardot / Marketing Cloud Account Engagement">Pardot / Marketing Cloud Account Engagement</label>
+    <label><input type="checkbox" name="00ND400000BxOTR" value="Pardot / Marketing Cloud Account Engagement">Pardot / Marketing Cloud Account Engagement</label>
     <label><input type="checkbox" name="00ND400000BxOTR" value="CRM Analytics">CRM Analytics</label>
     <label><input type="checkbox" name="00ND400000BxOTR" value="Mulesoft">Mulesoft</label>
     <label><input type="checkbox" name="00ND400000BxOTR" value="Other">Other</label>
@@ -615,35 +649,125 @@
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Initialize form with configuration
+      initializeForm();
+      
       const leadForm = document.querySelector('form');
       
+      // Debug: Log form initialization
+      console.log('Salesforce Web-to-Lead form initialized');
+      console.log('Configuration:', SALESFORCE_CONFIG);
+      console.log('Form action:', leadForm.action);
+      console.log('Organization ID:', leadForm.querySelector('input[name="oid"]').value);
+      
+      // Add form validation
       leadForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Stop default redirect
-    
-        // Store where the user came from
-        const returnPage = document.referrer || '/';
-    
-        // Optionally show a thank you message
-        leadForm.innerHTML = `
-          <div style="text-align:center; font-family:sans-serif; padding:2em;">
-            <h2>Thank you for your submission!</h2>
-            <p>We’ve received your details. Redirecting you back...</p>
-          </div>
-        `;
-    
-        // Send the form to Salesforce
-        fetch(leadForm.action, {
-          method: 'POST',
-          body: new FormData(leadForm),
-          mode: 'no-cors'
-        }).catch(err => console.warn('Submission error:', err));
-    
-        // Redirect after 3 seconds
-        setTimeout(() => {
-          window.location.href = returnPage;
-        }, 3000);
+        console.log('Form submission started');
+        
+        // Validate required fields
+        const requiredFields = leadForm.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#dc3545';
+            console.warn('Required field is empty:', field.name || field.id);
+          } else {
+            field.style.borderColor = '';
+          }
+        });
+        
+        if (!isValid) {
+          e.preventDefault();
+          alert('Please fill in all required fields (marked with *)');
+          console.error('Form validation failed - missing required fields');
+          return;
+        }
+        
+        // Show loading state on submit button
+        const submitBtn = leadForm.querySelector('input[type="submit"]');
+        if (submitBtn) {
+          submitBtn.value = 'Submitting...';
+          submitBtn.disabled = true;
+        }
+        
+        // Debug: Log form data being submitted
+        const formData = new FormData(leadForm);
+        console.log('Form data being submitted:');
+        for (let [key, value] of formData.entries()) {
+          console.log(`${key}: ${value}`);
+        }
+        
+        console.log('Submitting to Salesforce...');
+      });
+      
+      // Debug: Log checkbox changes
+      const checkboxes = leadForm.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          console.log(`Checkbox changed: ${this.name} = ${this.value} (checked: ${this.checked})`);
+        });
       });
     });
+    
+    // Initialize form with configuration values
+    function initializeForm() {
+      // Set form title
+      const titleElement = document.getElementById('form-title');
+      if (titleElement) {
+        titleElement.textContent = SALESFORCE_CONFIG.formTitle;
+      }
+      
+      // Set form action URL
+      const form = document.getElementById('salesforce-form');
+      if (form) {
+        form.action = getSalesforceActionUrl();
+      }
+      
+      // Set organization ID
+      const orgIdInput = document.getElementById('org-id-input');
+      if (orgIdInput) {
+        orgIdInput.value = SALESFORCE_CONFIG.orgId;
+      }
+      
+      // Set return URL
+      const returnUrlInput = document.getElementById('return-url-input');
+      if (returnUrlInput) {
+        returnUrlInput.value = SALESFORCE_CONFIG.returnUrl;
+      }
+      
+      // Set lead source
+      const leadSourceInput = document.getElementById('lead-source-input');
+      if (leadSourceInput) {
+        leadSourceInput.value = SALESFORCE_CONFIG.leadSource;
+      }
+      
+      // Add debug fields if debug mode is enabled
+      if (SALESFORCE_CONFIG.debugMode) {
+        addDebugFields();
+      }
+    }
+    
+    // Add debug fields to form
+    function addDebugFields() {
+      const form = document.getElementById('salesforce-form');
+      if (form) {
+        const debugInput = document.createElement('input');
+        debugInput.type = 'hidden';
+        debugInput.name = 'debug';
+        debugInput.value = '1';
+        form.appendChild(debugInput);
+        
+        const debugEmailInput = document.createElement('input');
+        debugEmailInput.type = 'hidden';
+        debugEmailInput.name = 'debugEmail';
+        debugEmailInput.value = SALESFORCE_CONFIG.debugEmail;
+        form.appendChild(debugEmailInput);
+        
+        console.log('Debug mode enabled - debug email:', SALESFORCE_CONFIG.debugEmail);
+      }
+    }
     </script>
     
 
