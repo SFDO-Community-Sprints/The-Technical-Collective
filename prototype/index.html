@@ -8,6 +8,8 @@
   <link rel="icon" href="assets/favicon.ico" />
 
   <!-- WORK IN PROGRESS: prototype of the next version of the site. Not the live site. -->
+  <!-- Icons: Salesforce Lightning Design System (https://www.lightningdesignsystem.com),
+       licensed CC BY-ND 4.0 (https://creativecommons.org/licenses/by-nd/4.0/). -->
   <!-- Set .js before paint so reveal animations have no flash; without JS, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,9 +22,7 @@
             brand:  { DEFAULT: '#3f51b5', dark: '#303f9f', light: '#5c6bc0' },
             accent: { DEFAULT: '#00bcd4', dark: '#0097a7' },
           },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
         },
       },
     };
@@ -32,14 +32,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* Subtle gradient backdrop for the hero */
     .hero-gradient {
       background:
-        radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.12), transparent 60%),
-        radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.14), transparent 55%);
+        radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.10), transparent 60%),
+        radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.12), transparent 55%);
     }
-    /* Reveal-on-scroll — only hides when JS is active, so content is always
-       visible without JS (and for full-page screenshots / crawlers). */
     .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .js .reveal.is-visible { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
@@ -53,7 +50,7 @@
 
   <!-- WIP banner -->
   <div class="bg-slate-900 text-center text-xs sm:text-sm text-slate-200 py-2 px-4">
-    🚧 <span class="font-semibold">Work in progress</span> — prototype of the next version of The Technical Collective site.
+    Work in progress — prototype of the next version of The Technical Collective site.
   </div>
 
   <!-- ─────────── Header / Nav ─────────── -->
@@ -76,196 +73,155 @@
 
     <!-- ─────────── Hero ─────────── -->
     <section class="hero-gradient">
-      <div class="max-w-6xl mx-auto px-5 pt-20 pb-24 text-center">
-        <span class="inline-block mb-5 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-semibold tracking-wide uppercase">
+      <div class="max-w-4xl mx-auto px-5 pt-24 pb-28 text-center">
+        <span class="inline-block mb-6 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-semibold tracking-wide uppercase">
           A Salesforce Commons project
         </span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+        <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
           Upskill. Volunteer. <span class="text-brand">Impact.</span>
         </h1>
-        <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600">
-          We connect nonprofits, junior Salesforce admins, and seasoned experts —
-          upskilling new talent while helping charities get the most from their Salesforce platform.
+        <p class="mt-6 max-w-xl mx-auto text-lg text-slate-600">
+          Connecting nonprofits, junior Salesforce admins, and seasoned experts.
         </p>
         <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
           <a href="#apply" class="px-7 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark transition shadow-lg shadow-brand/20">
-            Get involved →
+            Get involved
           </a>
           <a href="#roles" class="px-7 py-3.5 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">
             Explore the roles
           </a>
         </div>
-
-        <!-- Stat strip -->
-        <div class="mt-16 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900">3</div>
-            <div class="text-sm text-slate-500 mt-1">groups, one ecosystem</div>
-          </div>
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900">5+</div>
-            <div class="text-sm text-slate-500 mt-1">years of expert mentorship</div>
-          </div>
-          <div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-slate-900">2023</div>
-            <div class="text-sm text-slate-500 mt-1">born at Salesforce Commons</div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- ─────────── The problem / what is it ─────────── -->
-    <section class="py-20 border-t border-slate-100">
-      <div class="max-w-3xl mx-auto px-5 text-center reveal">
-        <h2 class="text-3xl font-bold text-slate-900">What is The Technical Collective?</h2>
-        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
-          It was born from an age-old problem in the Salesforce ecosystem. Junior admins
-          don't have enough experience to land their first role. Nonprofits have donated
-          Salesforce licenses but need help getting started or maintaining their systems.
-          And technical experts want to support — but lack the structure to volunteer their time.
-        </p>
-        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
-          A group of us came together at the Salesforce Commons January 2023 sprint and built
-          a program that solves all three at once.
-        </p>
-      </div>
-    </section>
-
-    <!-- ─────────── Role cards ─────────── -->
-    <section id="roles" class="py-20 bg-slate-50 border-y border-slate-100">
+    <!-- ─────────── Role cards (concise teasers → link to live pages) ─────────── -->
+    <section id="roles" class="py-20 border-t border-slate-100">
       <div class="max-w-6xl mx-auto px-5">
-        <div class="text-center max-w-2xl mx-auto reveal">
-          <h2 class="text-3xl font-bold text-slate-900">Who can participate?</h2>
-          <p class="mt-4 text-slate-600">Three audiences, each giving and getting something they need.</p>
-        </div>
+        <h2 class="text-center text-3xl font-bold text-slate-900 reveal">Who it's for</h2>
 
         <div class="mt-12 grid md:grid-cols-3 gap-6">
 
           <!-- Nonprofit -->
-          <article class="reveal bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl">🏛️</div>
-            <h3 class="mt-5 text-xl font-bold text-slate-900">Nonprofits &amp; Charities</h3>
-            <p class="mt-3 text-slate-600 grow">
-              Receive pro-bono or compensated support on a scoped piece of Salesforce work —
-              process updates, reports &amp; dashboards, or documentation. For small- to mid-sized
-              orgs on Power of Us donated licenses.
-            </p>
-            <a href="#apply" class="mt-6 inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-dark">
-              Apply for help →
-            </a>
-          </article>
+          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/charity-nonprofit/"
+             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
+            <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M294 451c-19 20-50 20-70 0L57 271a139 139 0 0 1 0-189 123 123 0 0 1 180 0l10 12c7 8 20 8 26 0l8-10 1-2a122 122 0 0 1 180 0 140 140 0 0 1 0 189c0 2-110 119-168 180"/></svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">Nonprofits &amp; Charities</h3>
+            <p class="mt-2 text-slate-600 grow">Get scoped Salesforce support for your mission.</p>
+            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+          </a>
 
           <!-- Junior -->
-          <article class="reveal bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent-dark flex items-center justify-center text-xl">🚀</div>
-            <h3 class="mt-5 text-xl font-bold text-slate-900">Junior Professionals</h3>
-            <p class="mt-3 text-slate-600 grow">
-              Certified but seeking real-world experience for your CV? Work directly with nonprofits,
-              implement Salesforce solutions, and hone your skills with expert mentorship behind you.
-            </p>
-            <a href="#apply" class="mt-6 inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-dark">
-              Gain experience →
-            </a>
-          </article>
+          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/junior-professional/"
+             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
+            <span class="h-12 w-12 rounded-xl bg-accent/10 text-accent-dark flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M278 20a59 59 0 1 1 0 118 59 59 0 0 1 0-118m152 161c-12-1-23 7-24 18l-6 58c-2 0-3 3-5 3h-55l-38-67c-3-6-9-11-16-12l-58-8c-10-1-20 4-24 14l-44 113c-3 9 1 18 9 23l108 74 9 84c1 11 11 19 22 19 13 0 23-10 22-22l-10-103c0-5-3-10-8-14l-59-66 22-54 26 45c4 6 11 13 19 13h76l-22 180c-1 11 7 20 19 21l2-1c11 0 20-8 22-19l33-278c1-10-8-20-20-21m-308 96 37-95 9-18-5-1a67 67 0 0 0-72 44l-20 52a20 20 0 0 0 14 27l9 2c12 5 24-1 28-11m14 75L91 486c-2 7 3 13 10 13h25c9 0 18-6 21-14l44-97-50-31z"/></svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">Junior Professionals</h3>
+            <p class="mt-2 text-slate-600 grow">Gain real experience with expert mentorship.</p>
+            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+          </a>
 
           <!-- Expert -->
-          <article class="reveal bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center text-xl">🎓</div>
-            <h3 class="mt-5 text-xl font-bold text-slate-900">Technical Experts</h3>
-            <p class="mt-3 text-slate-600 grow">
-              Seasoned pros with 5+ years — including MVPs and Champions — who guide junior admins,
-              make a real difference, and give back to the community in a structured way.
-            </p>
-            <a href="#apply" class="mt-6 inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-dark">
-              Volunteer your expertise →
-            </a>
-          </article>
+          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/technical-expert/"
+             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
+            <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M420 223c-28-11-32-22-32-33s8-22 18-30a74 74 0 0 0 26-58c0-44-29-82-80-82a76 76 0 0 0-79 71c0 4 2 7 5 9 38 24 61 66 61 117 0 38-15 72-42 96-2 2-2 6 0 8 7 5 23 12 33 17l8 2h121c23 0 41-19 41-40v-6c0-35-38-54-80-71M286 362c-34-14-39-26-39-39s10-26 21-36c20-17 31-41 31-69 0-52-34-97-96-97-61 0-96 45-96 97 0 28 11 52 31 69 11 10 21 23 21 36s-5 26-40 39c-50 20-99 43-99 85v13a40 40 0 0 0 41 40h277c23 0 42-18 42-40v-14c0-41-44-64-94-84"/></svg>
+            </span>
+            <h3 class="mt-5 text-lg font-bold text-slate-900">Technical Experts</h3>
+            <p class="mt-2 text-slate-600 grow">Mentor new talent and give back, with structure.</p>
+            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+          </a>
 
         </div>
       </div>
     </section>
 
-    <!-- ─────────── How it works ─────────── -->
-    <section id="how" class="py-20">
-      <div class="max-w-5xl mx-auto px-5">
-        <div class="text-center max-w-2xl mx-auto reveal">
-          <h2 class="text-3xl font-bold text-slate-900">How it works</h2>
-          <p class="mt-4 text-slate-600">A simple, supported path from sign-up to impact.</p>
-        </div>
-
+    <!-- ─────────── How it works (3 concise steps) ─────────── -->
+    <section id="how" class="py-20 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-4xl mx-auto px-5">
+        <h2 class="text-center text-3xl font-bold text-slate-900 reveal">How it works</h2>
         <div class="mt-12 grid sm:grid-cols-3 gap-8">
           <div class="reveal text-center">
-            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">1</div>
+            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">1</div>
             <h3 class="mt-4 font-semibold text-slate-900">Sign up</h3>
-            <p class="mt-2 text-sm text-slate-600">Nonprofits, junior admins, and experts apply to join a sprint cohort.</p>
+            <p class="mt-1 text-sm text-slate-600">Join a sprint cohort.</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">2</div>
+            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">2</div>
             <h3 class="mt-4 font-semibold text-slate-900">Get matched</h3>
-            <p class="mt-2 text-sm text-slate-600">A nonprofit's scoped project is paired with a junior admin and a mentoring expert.</p>
+            <p class="mt-1 text-sm text-slate-600">A project, an admin, and a mentor.</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold text-lg">3</div>
+            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">3</div>
             <h3 class="mt-4 font-semibold text-slate-900">Deliver &amp; grow</h3>
-            <p class="mt-2 text-sm text-slate-600">The work ships, the nonprofit benefits, and the admin gains real experience.</p>
+            <p class="mt-1 text-sm text-slate-600">The work ships, everyone wins.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ─────────── Team ─────────── -->
-    <section id="team" class="py-20 bg-slate-50 border-y border-slate-100">
+    <section id="team" class="py-20">
       <div class="max-w-5xl mx-auto px-5">
-        <div class="text-center max-w-2xl mx-auto reveal">
-          <h2 class="text-3xl font-bold text-slate-900">Meet the steering committee</h2>
-          <p class="mt-4 text-slate-600">A Salesforce Commons project, kept moving by dedicated volunteers.</p>
-        </div>
+        <h2 class="text-center text-3xl font-bold text-slate-900 reveal">Steering committee</h2>
 
         <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-          <!-- names pulled from the current site -->
+          <!-- Each member: photo if present in assets/team/, else colored initials.
+               onerror swaps a missing image for the initials fallback. -->
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">SD</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/silvia-denaro.jpg" alt="Silvia Denaro" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'SD'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Silvia Denaro</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">NS</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/nathaniel-sombu.jpg" alt="Nathaniel Sombu" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'NS'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Nathaniel Sombu</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">PL</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/pei-mun-lim.jpg" alt="Pei Mun Lim" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'PL'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Pei Mun Lim</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">VM</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/vicki-moritz-henry.png" alt="Vicki Moritz-Henry" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'VM'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Vicki Moritz-Henry</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">CJ</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/claire-jones.png" alt="Claire Jones" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CJ'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Claire Jones</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold">LN</div>
+            <div class="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-lg font-bold overflow-hidden">
+              <img src="assets/team/lawrence-newcombe.jpg" alt="Lawrence Newcombe" class="h-full w-full object-cover"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'LN'}))" />
+            </div>
             <p class="mt-3 text-sm font-medium text-slate-800">Lawrence Newcombe</p>
           </div>
         </div>
-
-        <p class="mt-12 text-center text-slate-500 italic max-w-2xl mx-auto">
-          Special thanks to the volunteers at Salesforce Commons sprints who keep the project
-          moving forward — this initiative wouldn't be here without you.
-        </p>
       </div>
     </section>
 
     <!-- ─────────── CTA ─────────── -->
-    <section id="apply" class="py-24">
+    <section id="apply" class="pb-24">
       <div class="max-w-4xl mx-auto px-5">
         <div class="reveal rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-14 text-center shadow-2xl shadow-brand/30">
           <h2 class="text-3xl sm:text-4xl font-bold">Ready to make an impact?</h2>
-          <p class="mt-4 text-lg text-white/85 max-w-xl mx-auto">
-            Whether you're a nonprofit seeking support, an admin building your career, or an
-            expert ready to give back — there's a place for you here.
-          </p>
-          <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/charity-nonprofit/"
                class="px-6 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
               I'm a nonprofit
