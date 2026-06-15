@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junior Professionals — The Technical Collective</title>
+  <meta name="description" content="Certified Salesforce professionals: gain real-world experience with expert mentorship through The Technical Collective." />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { brand:{DEFAULT:'#3f51b5',dark:'#303f9f',light:'#5c6bc0'}, accent:{DEFAULT:'#00bcd4',dark:'#0097a7'} },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .hero-gradient { background:
+      radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.10), transparent 60%),
+      radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.12), transparent 55%); }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white">
+
+  <div class="bg-slate-900 text-center text-xs sm:text-sm text-slate-200 py-2 px-4">
+    Work in progress — prototype of the next version of The Technical Collective site.
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2.5">
+        <img src="../assets/tclogo.png" alt="The Technical Collective" class="h-9 w-auto" />
+        <span class="font-bold text-slate-900 hidden sm:inline">The Technical Collective</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="charity-nonprofit.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Nonprofits</a>
+        <a href="junior-professional.html" class="px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Juniors</a>
+        <a href="technical-expert.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Experts</a>
+        <a href="../promises-expectations.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Promises</a>
+        <a href="../faq.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">FAQ</a>
+        <a href="#apply" class="ml-1 px-4 py-2 rounded-lg bg-brand text-white hover:bg-brand-dark transition shadow-sm">Get involved</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition" aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
+      <a href="charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Nonprofits</a>
+      <a href="junior-professional.html" class="block px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Juniors</a>
+      <a href="technical-expert.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Experts</a>
+      <a href="../promises-expectations.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Promises</a>
+      <a href="../faq.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">FAQ</a>
+      <a href="#apply" class="block px-3 py-2 rounded-lg bg-brand text-white text-center">Get involved</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-gradient border-b border-slate-100">
+      <div class="max-w-3xl mx-auto px-5 pt-16 pb-14">
+        <nav class="text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+          <a href="../index.html" class="hover:text-brand">Home</a> <span class="mx-1.5">/</span> <span class="text-slate-700">Junior Professionals</span>
+        </nav>
+        <span class="inline-block mb-4 px-3 py-1 rounded-full bg-accent/10 text-accent-dark text-xs font-semibold tracking-wide uppercase">For junior professionals</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">Gain real experience, with mentorship</h1>
+        <p class="mt-5 text-lg text-slate-600">
+          You are a certified Salesforce professional looking for an exciting opportunity to gain hands-on experience and make a difference in the nonprofit sector.
+        </p>
+      </div>
+    </section>
+
+    <div class="max-w-3xl mx-auto px-5 py-14 space-y-12">
+
+      <section>
+        <p class="text-slate-600 leading-relaxed">
+          Get involved with The Technical Collective and become part of our mission to support charities and their impactful missions. As a junior Salesforce professional, you'll have the chance to work directly with nonprofits, implementing Salesforce solutions and honing your technical skills.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          But it's not just about technical expertise — you'll also develop valuable soft skills and receive guidance from experienced technical coaches. This is your chance to give back to the community, make a meaningful impact, and enhance your professional profile. Join us and embark on a rewarding journey of learning, growth, and making a difference.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900">Eligibility</h2>
+        <p class="mt-3 text-slate-600">We are seeking junior Salesforce professionals who meet the following requirements:</p>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> A relevant Salesforce Certification</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Desire to gain hands-on experience and the time to commit</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Completed the relevant Super Set, or created a Salesforce portfolio / dev org project</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Enthusiastic and driven to take your career to the next level</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900">What we need from you</h2>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Show us your Salesforce commitment with any projects you've created to learn so far</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Be willing to learn and open to feedback</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Embrace a learning mindset and don't hesitate to seek help when needed</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Dedicate the time to stick to project timelines</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> At project end, complete a survey and a case study around the impact this project made for your career</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Sign and return any required documents during kick-off, such as promises and an NDA</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900">What you can expect from us</h2>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Valuable work experience in the Salesforce industry, applying and enhancing your skills in a real-world setting</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Exposure to a nonprofit organisation and their mission, with a chance to make a positive impact</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Mentorship and guidance from senior Salesforce technical experts</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Networking within the Salesforce and nonprofit communities</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Access to best practices, architectural frameworks and templates</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Develop business, problem-solving and critical-thinking skills</li>
+          <li class="flex gap-3"><span class="text-accent-dark mt-1">&#10003;</span> Practice and improve soft skills (communication, requirement gathering, and more)</li>
+        </ul>
+      </section>
+
+      <section id="apply" class="rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-12 text-center shadow-xl shadow-brand/20">
+        <h2 class="text-2xl sm:text-3xl font-bold">Get involved</h2>
+        <p class="mt-3 text-white/85">Apply to join as a junior Salesforce professional.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTZLGZNBVQCvCrwX8W4gUbGqSC0Tj50fjrUQsF0rHKOIDDVQ/viewform"
+           target="_blank" rel="noopener"
+           class="mt-7 inline-block px-7 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
+          Apply as a junior professional
+        </a>
+      </section>
+
+      <p class="text-center text-slate-500">
+        Find out more about the
+        <a href="../promises-expectations.html" class="text-brand font-medium hover:underline">promises exchanged between the groups</a>
+        of The Technical Collective project.
+      </p>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-100 py-10">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-slate-500">
+      <div class="flex items-center gap-2.5">
+        <img src="../assets/tclogo.png" alt="" class="h-7 w-auto opacity-80" />
+        <span>The Technical Collective — a Salesforce Commons project</span>
+      </div>
+      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        <a href="charity-nonprofit.html" class="hover:text-brand transition">Nonprofits</a>
+        <a href="junior-professional.html" class="hover:text-brand transition">Juniors</a>
+        <a href="technical-expert.html" class="hover:text-brand transition">Experts</a>
+        <a href="../promises-expectations.html" class="hover:text-brand transition">Promises</a>
+        <a href="../faq.html" class="hover:text-brand transition">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('hidden') === false;
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
+</body>
+</html>

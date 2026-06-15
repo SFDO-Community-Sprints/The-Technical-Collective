@@ -58,17 +58,33 @@
   <!-- ─────────── Header / Nav ─────────── -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
     <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5">
+      <a href="index.html" class="flex items-center gap-2.5">
         <img src="assets/tclogo.png" alt="The Technical Collective" class="h-9 w-auto" />
         <span class="font-bold text-slate-900 hidden sm:inline">The Technical Collective</span>
       </a>
-      <div class="flex items-center gap-1 sm:gap-2 text-sm font-medium">
-        <a href="#roles" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Roles</a>
-        <a href="#how"   class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition hidden sm:inline">How it works</a>
-        <a href="#team"  class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Team</a>
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="roles/charity-nonprofit.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Nonprofits</a>
+        <a href="roles/junior-professional.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Juniors</a>
+        <a href="roles/technical-expert.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Experts</a>
+        <a href="promises-expectations.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Promises</a>
+        <a href="faq.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">FAQ</a>
         <a href="#apply" class="ml-1 px-4 py-2 rounded-lg bg-brand text-white hover:bg-brand-dark transition shadow-sm">Get involved</a>
       </div>
+      <!-- Mobile toggle -->
+      <button id="navToggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition" aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </nav>
+    <!-- Mobile menu panel -->
+    <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
+      <a href="roles/charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Nonprofits</a>
+      <a href="roles/junior-professional.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Juniors</a>
+      <a href="roles/technical-expert.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Experts</a>
+      <a href="promises-expectations.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Promises</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">FAQ</a>
+      <a href="#apply" class="block px-3 py-2 rounded-lg bg-brand text-white text-center">Get involved</a>
+    </div>
   </header>
 
   <main id="top">
@@ -117,7 +133,7 @@
         <div class="mt-12 grid md:grid-cols-3 gap-6">
 
           <!-- Nonprofit -->
-          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/charity-nonprofit/"
+          <a href="roles/charity-nonprofit.html"
              class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
             <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M294 451c-19 20-50 20-70 0L57 271a139 139 0 0 1 0-189 123 123 0 0 1 180 0l10 12c7 8 20 8 26 0l8-10 1-2a122 122 0 0 1 180 0 140 140 0 0 1 0 189c0 2-110 119-168 180"/></svg>
@@ -128,7 +144,7 @@
           </a>
 
           <!-- Junior -->
-          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/junior-professional/"
+          <a href="roles/junior-professional.html"
              class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
             <span class="h-12 w-12 rounded-xl bg-accent/10 text-accent-dark flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M278 20a59 59 0 1 1 0 118 59 59 0 0 1 0-118m152 161c-12-1-23 7-24 18l-6 58c-2 0-3 3-5 3h-55l-38-67c-3-6-9-11-16-12l-58-8c-10-1-20 4-24 14l-44 113c-3 9 1 18 9 23l108 74 9 84c1 11 11 19 22 19 13 0 23-10 22-22l-10-103c0-5-3-10-8-14l-59-66 22-54 26 45c4 6 11 13 19 13h76l-22 180c-1 11 7 20 19 21l2-1c11 0 20-8 22-19l33-278c1-10-8-20-20-21m-308 96 37-95 9-18-5-1a67 67 0 0 0-72 44l-20 52a20 20 0 0 0 14 27l9 2c12 5 24-1 28-11m14 75L91 486c-2 7 3 13 10 13h25c9 0 18-6 21-14l44-97-50-31z"/></svg>
@@ -139,7 +155,7 @@
           </a>
 
           <!-- Expert -->
-          <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/technical-expert/"
+          <a href="roles/technical-expert.html"
              class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
             <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M420 223c-28-11-32-22-32-33s8-22 18-30a74 74 0 0 0 26-58c0-44-29-82-80-82a76 76 0 0 0-79 71c0 4 2 7 5 9 38 24 61 66 61 117 0 38-15 72-42 96-2 2-2 6 0 8 7 5 23 12 33 17l8 2h121c23 0 41-19 41-40v-6c0-35-38-54-80-71M286 362c-34-14-39-26-39-39s10-26 21-36c20-17 31-41 31-69 0-52-34-97-96-97-61 0-96 45-96 97 0 28 11 52 31 69 11 10 21 23 21 36s-5 26-40 39c-50 20-99 43-99 85v13a40 40 0 0 0 41 40h277c23 0 42-18 42-40v-14c0-41-44-64-94-84"/></svg>
@@ -237,15 +253,15 @@
         <div class="reveal rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-14 text-center shadow-2xl shadow-brand/30">
           <h2 class="text-3xl sm:text-4xl font-bold">Ready to make an impact?</h2>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/charity-nonprofit/"
+            <a href="roles/charity-nonprofit.html"
                class="px-6 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
               I'm a nonprofit
             </a>
-            <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/junior-professional/"
+            <a href="roles/junior-professional.html"
                class="px-6 py-3.5 rounded-xl bg-brand-light/30 text-white font-semibold border border-white/30 hover:bg-brand-light/50 transition">
               I'm a junior admin
             </a>
-            <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/roles/technical-expert/"
+            <a href="roles/technical-expert.html"
                class="px-6 py-3.5 rounded-xl bg-brand-light/30 text-white font-semibold border border-white/30 hover:bg-brand-light/50 transition">
               I'm an expert
             </a>
@@ -258,18 +274,32 @@
 
   <!-- ─────────── Footer ─────────── -->
   <footer class="border-t border-slate-100 py-10">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-slate-500">
       <div class="flex items-center gap-2.5">
         <img src="assets/tclogo.png" alt="" class="h-7 w-auto opacity-80" />
         <span>The Technical Collective — a Salesforce Commons project</span>
       </div>
-      <a href="https://sfdo-community-sprints.github.io/The-Technical-Collective/" class="hover:text-brand transition">
-        View the current site →
-      </a>
+      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        <a href="roles/charity-nonprofit.html" class="hover:text-brand transition">Nonprofits</a>
+        <a href="roles/junior-professional.html" class="hover:text-brand transition">Juniors</a>
+        <a href="roles/technical-expert.html" class="hover:text-brand transition">Experts</a>
+        <a href="promises-expectations.html" class="hover:text-brand transition">Promises</a>
+        <a href="faq.html" class="hover:text-brand transition">FAQ</a>
+      </nav>
     </div>
   </footer>
 
   <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('hidden') === false;
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+
     // Reveal-on-scroll, with a graceful fallback if IntersectionObserver is missing.
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {

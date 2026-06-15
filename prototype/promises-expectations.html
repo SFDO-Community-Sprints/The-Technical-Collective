@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promises &amp; Expectations — The Technical Collective</title>
+  <meta name="description" content="The promises exchanged between nonprofits, junior Salesforce professionals, and technical experts in The Technical Collective." />
+  <link rel="icon" href="assets/favicon.ico" />
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { brand:{DEFAULT:'#3f51b5',dark:'#303f9f',light:'#5c6bc0'}, accent:{DEFAULT:'#00bcd4',dark:'#0097a7'} },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .hero-gradient { background:
+      radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.10), transparent 60%),
+      radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.12), transparent 55%); }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white">
+
+  <div class="bg-slate-900 text-center text-xs sm:text-sm text-slate-200 py-2 px-4">
+    Work in progress — prototype of the next version of The Technical Collective site.
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="assets/tclogo.png" alt="The Technical Collective" class="h-9 w-auto" />
+        <span class="font-bold text-slate-900 hidden sm:inline">The Technical Collective</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="roles/charity-nonprofit.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Nonprofits</a>
+        <a href="roles/junior-professional.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Juniors</a>
+        <a href="roles/technical-expert.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Experts</a>
+        <a href="promises-expectations.html" class="px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Promises</a>
+        <a href="faq.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">FAQ</a>
+        <a href="index.html#apply" class="ml-1 px-4 py-2 rounded-lg bg-brand text-white hover:bg-brand-dark transition shadow-sm">Get involved</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition" aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
+      <a href="roles/charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Nonprofits</a>
+      <a href="roles/junior-professional.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Juniors</a>
+      <a href="roles/technical-expert.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Experts</a>
+      <a href="promises-expectations.html" class="block px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Promises</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">FAQ</a>
+      <a href="index.html#apply" class="block px-3 py-2 rounded-lg bg-brand text-white text-center">Get involved</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-gradient border-b border-slate-100">
+      <div class="max-w-3xl mx-auto px-5 pt-16 pb-14">
+        <nav class="text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+          <a href="index.html" class="hover:text-brand">Home</a> <span class="mx-1.5">/</span> <span class="text-slate-700">Promises &amp; Expectations</span>
+        </nav>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">Promises &amp; Expectations</h1>
+        <p class="mt-5 text-lg text-slate-600">The commitments each group makes to one another — the foundation of a successful, respectful partnership.</p>
+      </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-5 py-14 space-y-16">
+
+      <!-- Nonprofits & Technical Experts -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 text-center">Between Nonprofits &amp; Technical Experts</h2>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-brand">Nonprofits</h3>
+            <p class="mt-3 text-slate-600">Our mission is very important to us. To create change and make an impact, we need real-time information to see how successful our initiatives are. We understand that we are fully responsible and accountable for our org, and that the junior Salesforce professional will help us do the work (with the guidance of the technical experts). When things go wrong, we will collectively create an action plan and learn from the experience.</p>
+            <p class="mt-4 font-semibold text-slate-800">We promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Have strong leadership representation who will listen to technical advice</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Make time for thoughtful discussions, respond to queries and review documents where necessary</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Respect the time our technical experts provide, and consider options carefully</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Make decisions based on discussions and recommendations</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Show appreciation through written testimonials, recommendations and referrals</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-accent-dark">Technical Experts</h3>
+            <p class="mt-3 text-slate-600">We care deeply about implementing Salesforce correctly, and we understand that charities sometimes lack the technical capability internally to leverage the platform. We aim to share our collective experience to guide charities in shaping their long-term Salesforce strategy and building internal capability.</p>
+            <p class="mt-4 font-semibold text-slate-800">We promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Understand the charity's mission and landscape, and run discovery to clarify long-term goals</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Use the Salesforce Well-Architected framework to build long-term value</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Provide strategic advice on technical implementation of Salesforce and related clouds / apps</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Advise on technical and project governance to ensure projects are successful</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Guide the charity on building internal capability and recruitment</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be clear about our committed hours, and honest if circumstances change</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nonprofit & Junior -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 text-center">Between Nonprofits &amp; Junior Professionals</h2>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-brand">Nonprofits</h3>
+            <p class="mt-3 text-slate-600">It's important for us to use our funding carefully, which means we may not have the budget to hire a junior Salesforce professional right now. If we recruit a volunteer for this role, we need someone who cares about us and understands why our mission matters.</p>
+            <p class="mt-4 font-semibold text-slate-800">We promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Create a supportive environment with flexibility in how they engage with us</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Make time to answer their questions and queries</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Provide access to the relevant org (for example a sandbox environment)</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Be thoughtful in our requests, framing them as user stories: &ldquo;As a ___, I want to ___ so that I can ___&rdquo;</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Be reasonable with requests and deadlines, and respect their working hours</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Test requirements in a timely manner and report any issues found</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Show appreciation through testimonials, recommendations and referrals</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Manage legal requirements such as NDAs, background checks and required training</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-accent-dark">Junior Professionals</h3>
+            <p class="mt-3 text-slate-600">I am a certified Salesforce professional, possibly pivoting into the industry from another career. I have done the relevant Trailhead modules and earned my certification. I have limited experience and am looking to get a foot in the door by working with a charity on a volunteer basis, with support from senior experts.</p>
+            <p class="mt-4 font-semibold text-slate-800">I promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Adhere to the charity's policies and procedures</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be clear about the hours and dates I can commit, and give notice if circumstances change</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be responsible and accountable for my tasks, owning up to any mistakes</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Focus on best practices, future-proofed solutions and ownership</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be reliable, curious, and proactive in problem-solving and research</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Document requirements, decisions, test cases and processes thoroughly</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Have a growth mindset and be fully open to feedback</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expert & Junior -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 text-center">Between Technical Experts &amp; Junior Professionals</h2>
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-brand">Technical Experts</h3>
+            <p class="mt-3 text-slate-600">We want to help new talent break into the Salesforce ecosystem, and we understand how difficult it can be to get a first job without experience. This initiative lets us coach junior professionals to perform tasks within charities, growing their skills in a controlled manner that safeguards the charity's org and delivers quality solutions.</p>
+            <p class="mt-4 font-semibold text-slate-800">We promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Be clear about our expectations for a particular engagement</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Be transparent with the &lsquo;why&rsquo; behind an instruction, so the rationale is understood</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Provide constructive, sensitive feedback so the junior professional can grow</li>
+              <li class="flex gap-2"><span class="text-brand">&#10003;</span> Support the junior professional when they have questions or doubts</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-7 bg-white">
+            <h3 class="text-lg font-bold text-accent-dark">Junior Professionals</h3>
+            <p class="mt-3 text-slate-600">I understand that the technical expert is also a volunteer who might be busy with their day job and life, and I am deeply appreciative of their guidance and advice to help me upskill and learn.</p>
+            <p class="mt-4 font-semibold text-slate-800">I promise to:</p>
+            <ul class="mt-2 space-y-2 text-slate-600 text-sm">
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be responsible, accountable and reliable</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be a proactive problem solver, using all the resources at my disposal</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Ask for advice when I'm stuck and my research hasn't yielded answers</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Learn the ropes quickly to reduce reliance on the technical experts</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Respect their time by keeping notes so I don't re-ask the same questions</li>
+              <li class="flex gap-2"><span class="text-accent-dark">&#10003;</span> Be thorough, detail-focused, and test everything</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-100 py-10">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-slate-500">
+      <div class="flex items-center gap-2.5">
+        <img src="assets/tclogo.png" alt="" class="h-7 w-auto opacity-80" />
+        <span>The Technical Collective — a Salesforce Commons project</span>
+      </div>
+      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        <a href="roles/charity-nonprofit.html" class="hover:text-brand transition">Nonprofits</a>
+        <a href="roles/junior-professional.html" class="hover:text-brand transition">Juniors</a>
+        <a href="roles/technical-expert.html" class="hover:text-brand transition">Experts</a>
+        <a href="promises-expectations.html" class="hover:text-brand transition">Promises</a>
+        <a href="faq.html" class="hover:text-brand transition">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('hidden') === false;
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
+</body>
+</html>
