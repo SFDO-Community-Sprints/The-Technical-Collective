@@ -210,12 +210,12 @@ A big thank you goes out to all our participants:
 1. **Forms Development**
    - Audited and implemented existing form content in Google Forms
    - Created two specialized forms:
-     - [Sign up form for Salesforce Professionals](https://forms.gle/your-form-link) (Jr Admin & Tech Experts)
-     - [Interest Form for Charities](https://forms.gle/your-form-link)
+     - Sign up form for Salesforce Professionals (Jr Admin & Tech Experts)
+     - Interest Form for Charities
    - Designed for seamless onboarding process
 
 2. **Project Documentation**
-   - Created [TCC Project Documentation Spreadsheet](https://docs.google.com/spreadsheets/your-spreadsheet-link)
+   - Created TCC Project Documentation Spreadsheet
    - Features:
      - Centralized project management
      - Cross-platform compatibility (.xlsx format)
@@ -223,7 +223,7 @@ A big thank you goes out to all our participants:
      - Downloadable format for platform flexibility
 
 3. **Engagement Framework**
-   - Developed [Engagement Kick-Off Template](https://docs.google.com/document/your-template-link)
+   - Developed Engagement Kick-Off Template
    - Based on successful pilot project management presentation
    - Includes:
      - Ways of working
@@ -330,7 +330,7 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
      - Framework to be developed
 
 ##### Documentation
-- [Sprint Working Document](https://docs.google.com/spreadsheets/your-sheet-link)
+- Sprint Working Document
 
 ##### Next Steps
 1. Complete website proofreading
