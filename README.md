@@ -2,7 +2,9 @@
 
 **A formalized program to upskill inexperienced Salesforce admins by matching them with non-profits, all with the dedicated support of experienced Salesforce professionals.**
 
-This repository contains the source code for the official documentation website for The Technical Collective program.
+Check out [The Technical Collective website](https://sfdo-community-sprints.github.io/The-Technical-Collective/) for full details about the program and links to apply!
+
+This repository contains the source code for this site.
 
 ---
 
@@ -73,7 +75,6 @@ Please read our **[Contribution Guide](CONTRIBUTING.md)** to learn how you can g
 
 ## 🔗 Project Resources
 
+*   **The Technical Collective website:** https://sfdo-community-sprints.github.io/The-Technical-Collective/
 *   **Trailblazer Community Group:** [Link to be added]
 *   **Slack Channel:** [Link to be added]
-
-<!-- This is a small change to trigger a new deployment. -->
