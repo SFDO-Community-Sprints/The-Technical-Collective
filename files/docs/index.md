@@ -20,15 +20,15 @@ A group of us got together at the Salesforce Commons January 2023 sprint and put
 
 **Nonprofit & Charities:** Nonprofit organisations can benefit from either pro-bono or compensated support on a scoped piece of Salesforce project work. We know that nonprofit organisations are often short on resources and can benefit from additional support, whether it is an update to the existing processes, creating some reports & dashboards or helping to document the system. The nonprofits supported will be small- to mid-sized nonprofits leveraging donated Salesforce licenses through the Power of Us Program.
 
-**Learn more as a nonprofit**
+[**Learn more as a nonprofit**](roles/charity-nonprofit.md)
 
 **Junior Salesforce Professionals:** Junior Salesforce professionals will be individuals who have already upskilled in Salesforce by earning at least one certification, but are seeking work experience to add to their CV.
 
-**Learn more as Salesforce Professionals**
+[**Learn more as Salesforce Professionals**](roles/junior-professional.md)
 
 **Technical Experts:** The team of technical experts are seasoned Salesforce professionals coming with at least 5 years of experience in the Salesforce ecosystem. They include Salesforce MVPs, Champions and volunteers with many collective years of experience.
 
-**Learn more as Technical Experts**
+[**Learn more as Technical Experts**](roles/technical-expert.md)
 
 
 ---

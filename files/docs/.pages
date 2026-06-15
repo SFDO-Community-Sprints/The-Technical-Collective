@@ -3,6 +3,9 @@ arrange:
   - index.md
   - roles
   - promises-expectations.md
-  - stories.md
   - faq.md
   - past-sprints.md
+
+# Hidden from nav until it has real content (file kept for later):
+not_in_nav: |
+  /stories.md
