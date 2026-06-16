@@ -29,6 +29,11 @@ jobs:
 
       - run: mkdocs build --strict -d _site
 
+      # Publish the next-version prototype alongside the live site, under /prototype/.
+      # This runs after the MkDocs build so it can't affect the main site output.
+      - name: Copy prototype into site output
+        run: cp -r prototype _site/prototype
+
       - uses: actions/configure-pages@v6
 
       - uses: actions/upload-pages-artifact@v5
