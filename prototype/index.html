@@ -6,6 +6,14 @@
   <title>The Technical Collective — Upskill. Volunteer. Impact.</title>
   <meta name="description" content="The Technical Collective connects nonprofits, junior Salesforce admins, and seasoned experts — upskilling new talent while helping charities get the most from Salesforce." />
   <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/tclogo.png" />
+
+  <!-- Social / share preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Technical Collective — Upskill. Volunteer. Impact." />
+  <meta property="og:description" content="A volunteer program that pairs nonprofits with junior Salesforce admins — mentored by seasoned experts — to deliver real projects." />
+  <meta property="og:image" content="assets/tclogo.png" />
+  <meta name="twitter:card" content="summary" />
 
   <!-- WORK IN PROGRESS: prototype of the next version of the site. Not the live site. -->
   <!-- Icons: Salesforce Lightning Design System (https://www.lightningdesignsystem.com),
@@ -41,18 +49,33 @@
     }
     .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Clear, consistent keyboard focus rings on interactive elements */
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid #3f51b5;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .js .reveal { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
+      /* Respect reduced-motion: hide the looping Astro video entirely (poster still shows) */
+      #astro-video { display: none; }
     }
   </style>
 </head>
 
 <body class="font-sans text-slate-800 antialiased bg-white">
 
-  <!-- WIP banner -->
-  <div class="bg-slate-900 text-center text-xs sm:text-sm text-slate-200 py-2 px-4">
-    Work in progress — prototype of the next version of The Technical Collective site.
+  <!-- WIP banner (dismissible) -->
+  <div id="wipBanner" class="bg-slate-900 text-slate-200 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-center gap-3 relative">
+      <span class="text-center">Work in progress — prototype of the next version of The Technical Collective site.</span>
+      <button id="wipClose" class="absolute right-3 p-1 rounded hover:bg-white/10 transition" aria-label="Dismiss notice">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
   </div>
 
   <!-- ─────────── Header / Nav ─────────── -->
@@ -94,7 +117,7 @@
 
       <!-- Astro (Salesforce mascot) — transparent looping video, decorative.
            Sits behind the text on the right; faded on small screens so copy stays readable. -->
-      <video
+      <video id="astro-video"
         class="pointer-events-none select-none absolute z-0 bottom-0 right-0 lg:right-4
                h-[180px] sm:h-[240px] lg:h-[300px] w-auto
                opacity-20 sm:opacity-100 drop-shadow-xl"
@@ -111,22 +134,60 @@
         <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
           Upskill. Volunteer. <span class="text-brand">Impact.</span>
         </h1>
-        <p class="mt-6 max-w-xl mx-auto text-lg text-slate-600">
-          Connecting nonprofits, junior Salesforce admins, and seasoned experts.
+        <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600">
+          A volunteer program that pairs nonprofits with junior Salesforce admins —
+          mentored by seasoned experts — to deliver real projects that grow careers and missions.
         </p>
         <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
           <a href="#apply" class="px-7 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark transition shadow-lg shadow-brand/20">
-            Get involved
+            Find your role
           </a>
-          <a href="#roles" class="px-7 py-3.5 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">
-            Explore the roles
+          <a href="#how" class="px-7 py-3.5 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">
+            See how it works
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ─────────── Role cards (concise teasers → link to live pages) ─────────── -->
-    <section id="roles" class="py-20 border-t border-slate-100">
+    <!-- ─────────── The problem we solve ─────────── -->
+    <section class="py-20 border-t border-slate-100">
+      <div class="max-w-4xl mx-auto px-5 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 reveal">One problem, three sides</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-slate-600 reveal">
+          The Technical Collective was born from an age-old problem in the Salesforce ecosystem —
+          where each group has exactly what another is missing.
+        </p>
+        <div class="mt-12 grid sm:grid-cols-3 gap-8 text-left">
+          <div class="reveal">
+            <span class="h-11 w-11 rounded-xl bg-accent/10 text-accent-dark flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M210.8 234.1a42.8 42.8 0 0 1 1.8-85.6c23.3.5 42 19.5 41.9 42.9a43.3 43.3 0 0 1-43.7 42.7m267.9 71.5-58.2-86.4V212a192 192 0 0 0-191-192 180 180 0 0 0-45.4 5.6A191 191 0 0 0 38.6 212a176 176 0 0 0 28.6 101.6c33.4 48 56 86.4 42.2 138.4a36.8 36.8 0 0 0 7.2 33.6A35.6 35.6 0 0 0 146 500h156.8a37.8 37.8 0 0 0 37.3-30.4c.9-3.1 1.5-6.3 1.6-9.6a18.9 18.9 0 0 1 19.1-16h11.3a37.8 37.8 0 0 0 37.4-27.2c7-25 10.9-50.8 11.8-76.8h41.4a22.1 22.1 0 0 0 17.5-12.8 23 23 0 0 0-1.5-21.6m-158.7-67-8 12.6a17.6 17.6 0 0 1-14.1 7.5 20 20 0 0 1-5.8-1.3l-21.2-8a92 92 0 0 1-30.8 17.6l-3.8 23.3a16.1 16.1 0 0 1-16 13.2h-16a16.1 16.1 0 0 1-16-13.2l-3.8-23.3a79 79 0 0 1-29.5-16l-22.5 8c-1.8.7-3.8 1.2-5.8 1.3-5.8 0-11.1-3.1-14.1-8l-8-13.2a15.6 15.6 0 0 1 3.8-20.1l18.6-15.1a71.4 71.4 0 0 1 0-33L108.8 155a15.4 15.4 0 0 1-3.8-20.1l8-13.2a16 16 0 0 1 14.1-8 20 20 0 0 1 5.8 1.3l22.5 8a94 94 0 0 1 29.5-17l3.2-22.1a15.4 15.4 0 0 1 16-12.6h16c7.5-.5 14.3 4.6 16 11.9l3.8 22.6a89 89 0 0 1 29.5 16l22.5-8c1.8-.7 3.8-1.2 5.8-1.3 5.8 0 11.1 3.1 14.1 8l8 13.2a16 16 0 0 1-3.7 20.5l-18.6 15.1a75 75 0 0 1 1.9 17c0 5.4-.7 10.8-1.9 16l18.6 15.4a16 16 0 0 1 3.9 20.7z"/></svg>
+            </span>
+            <h3 class="mt-4 font-bold text-slate-900">Junior admins can't get a start</h3>
+            <p class="mt-2 text-sm text-slate-600">Certified but stuck — without real-world experience, landing that first role is hard.</p>
+          </div>
+          <div class="reveal">
+            <span class="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M294 451c-19 20-50 20-70 0L57 271a139 139 0 0 1 0-189 123 123 0 0 1 180 0l10 12c7 8 20 8 26 0l8-10 1-2a122 122 0 0 1 180 0 140 140 0 0 1 0 189c0 2-110 119-168 180"/></svg>
+            </span>
+            <h3 class="mt-4 font-bold text-slate-900">Nonprofits need help</h3>
+            <p class="mt-2 text-sm text-slate-600">Donated Salesforce licenses, but limited resources to set them up or maintain them.</p>
+          </div>
+          <div class="reveal">
+            <span class="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+              <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M159 280a127 127 0 0 1-21-72c0-46 19-84 49-107a62 62 0 0 0-56-31c-44 0-69 36-69 77 0 22 7 41 22 54 8 8 15 18 15 28s-4 20-29 31c-36 16-69 38-70 71 1 22 15 39 36 39h33c5 0 10-3 13-8 16-29 46-47 71-60 9-4 11-15 6-22m292-20c-25-11-29-20-29-31s7-21 15-28a70 70 0 0 0 22-54c0-41-24-77-69-77a65 65 0 0 0-57 31c30 23 49 61 49 107q0 40.5-21 72c-5 8-2 18 6 22 25 12 55 31 71 60 3 5 8 8 13 8h33c21 0 35-17 35-39 1-33-32-55-68-71m-124 73c-27-12-32-23-32-34 0-12 8-23 17-31a80 80 0 0 0 25-60c0-45-27-84-76-84s-76 39-76 84a80 80 0 0 0 25 60c9 9 17 20 17 31 0 12-4 22-32 34-40 17-78 36-79 72 0 24 18 44 41 44h208c23 0 41-20 41-44-1-35-39-54-79-72"/></svg>
+            </span>
+            <h3 class="mt-4 font-bold text-slate-900">Experts want to give back</h3>
+            <p class="mt-2 text-sm text-slate-600">Seasoned pros are ready to mentor — they just need the structure to do it well.</p>
+          </div>
+        </div>
+        <p class="mt-12 text-slate-600 reveal">
+          We bring all three together: <span class="font-semibold text-slate-900">juniors gain experience, nonprofits get support, and experts share their craft.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────── Role cards (concise teasers → link to role pages) ─────────── -->
+    <section id="roles" class="py-20 bg-slate-50 border-t border-slate-100">
       <div class="max-w-6xl mx-auto px-5">
         <h2 class="text-center text-3xl font-bold text-slate-900 reveal">Who it's for</h2>
 
@@ -134,135 +195,155 @@
 
           <!-- Nonprofit -->
           <a href="roles/charity-nonprofit.html"
-             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
+             class="reveal group bg-white rounded-2xl border border-slate-200 border-t-4 border-t-brand p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
             <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M294 451c-19 20-50 20-70 0L57 271a139 139 0 0 1 0-189 123 123 0 0 1 180 0l10 12c7 8 20 8 26 0l8-10 1-2a122 122 0 0 1 180 0 140 140 0 0 1 0 189c0 2-110 119-168 180"/></svg>
             </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">Nonprofits &amp; Charities</h3>
-            <p class="mt-2 text-slate-600 grow">Get scoped Salesforce support for your mission.</p>
-            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-brand">For organizations</p>
+            <h3 class="mt-1 text-lg font-bold text-slate-900">Nonprofits &amp; Charities</h3>
+            <p class="mt-2 text-slate-600 grow">Get scoped Salesforce support, delivered by a mentored team — at no cost.</p>
+            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Apply for support →</span>
           </a>
 
           <!-- Junior -->
           <a href="roles/junior-professional.html"
-             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
+             class="reveal group bg-white rounded-2xl border border-slate-200 border-t-4 border-t-accent p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
             <span class="h-12 w-12 rounded-xl bg-accent/10 text-accent-dark flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M278 20a59 59 0 1 1 0 118 59 59 0 0 1 0-118m152 161c-12-1-23 7-24 18l-6 58c-2 0-3 3-5 3h-55l-38-67c-3-6-9-11-16-12l-58-8c-10-1-20 4-24 14l-44 113c-3 9 1 18 9 23l108 74 9 84c1 11 11 19 22 19 13 0 23-10 22-22l-10-103c0-5-3-10-8-14l-59-66 22-54 26 45c4 6 11 13 19 13h76l-22 180c-1 11 7 20 19 21l2-1c11 0 20-8 22-19l33-278c1-10-8-20-20-21m-308 96 37-95 9-18-5-1a67 67 0 0 0-72 44l-20 52a20 20 0 0 0 14 27l9 2c12 5 24-1 28-11m14 75L91 486c-2 7 3 13 10 13h25c9 0 18-6 21-14l44-97-50-31z"/></svg>
             </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">Junior Professionals</h3>
-            <p class="mt-2 text-slate-600 grow">Gain real experience with expert mentorship.</p>
-            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-accent-dark">For career-builders</p>
+            <h3 class="mt-1 text-lg font-bold text-slate-900">Junior Professionals</h3>
+            <p class="mt-2 text-slate-600 grow">Work on real nonprofit projects and gain experience with expert mentorship.</p>
+            <span class="mt-5 text-sm font-semibold text-accent-dark group-hover:underline">Gain experience →</span>
           </a>
 
           <!-- Expert -->
           <a href="roles/technical-expert.html"
-             class="reveal group bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-xl hover:-translate-y-1 hover:border-brand/30 transition flex flex-col">
-            <span class="h-12 w-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center">
+             class="reveal group bg-white rounded-2xl border border-slate-200 border-t-4 border-t-brand-light p-7 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
+            <span class="h-12 w-12 rounded-xl bg-brand-light/10 text-brand-light flex items-center justify-center">
               <svg class="h-6 w-6" viewBox="0 0 520 520" fill="currentColor" aria-hidden="true"><path d="M420 223c-28-11-32-22-32-33s8-22 18-30a74 74 0 0 0 26-58c0-44-29-82-80-82a76 76 0 0 0-79 71c0 4 2 7 5 9 38 24 61 66 61 117 0 38-15 72-42 96-2 2-2 6 0 8 7 5 23 12 33 17l8 2h121c23 0 41-19 41-40v-6c0-35-38-54-80-71M286 362c-34-14-39-26-39-39s10-26 21-36c20-17 31-41 31-69 0-52-34-97-96-97-61 0-96 45-96 97 0 28 11 52 31 69 11 10 21 23 21 36s-5 26-40 39c-50 20-99 43-99 85v13a40 40 0 0 0 41 40h277c23 0 42-18 42-40v-14c0-41-44-64-94-84"/></svg>
             </span>
-            <h3 class="mt-5 text-lg font-bold text-slate-900">Technical Experts</h3>
-            <p class="mt-2 text-slate-600 grow">Mentor new talent and give back, with structure.</p>
-            <span class="mt-5 text-sm font-semibold text-brand group-hover:underline">Learn more →</span>
+            <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-brand-light">For mentors</p>
+            <h3 class="mt-1 text-lg font-bold text-slate-900">Technical Experts</h3>
+            <p class="mt-2 text-slate-600 grow">Coach new talent and give back to the community, in a structured program.</p>
+            <span class="mt-5 text-sm font-semibold text-brand-light group-hover:underline">Volunteer to mentor →</span>
           </a>
 
         </div>
       </div>
     </section>
 
-    <!-- ─────────── How it works (3 concise steps) ─────────── -->
-    <section id="how" class="py-20 bg-slate-50 border-y border-slate-100">
+    <!-- ─────────── How it works (3 steps) ─────────── -->
+    <section id="how" class="py-20 border-t border-slate-100">
       <div class="max-w-4xl mx-auto px-5">
         <h2 class="text-center text-3xl font-bold text-slate-900 reveal">How it works</h2>
-        <div class="mt-12 grid sm:grid-cols-3 gap-8">
-          <div class="reveal text-center">
-            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">1</div>
+        <p class="mt-4 text-center text-slate-600 reveal">A simple, supported path from sign-up to real impact.</p>
+        <div class="relative mt-14 grid sm:grid-cols-3 gap-10 sm:gap-8">
+          <!-- connecting line (desktop) -->
+          <div class="hidden sm:block absolute top-6 left-[16.6%] right-[16.6%] h-0.5 bg-slate-200" aria-hidden="true"></div>
+          <div class="reveal relative text-center">
+            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold ring-4 ring-white">1</div>
             <h3 class="mt-4 font-semibold text-slate-900">Sign up</h3>
-            <p class="mt-1 text-sm text-slate-600">Join a sprint cohort.</p>
+            <p class="mt-1.5 text-sm text-slate-600">Apply as a nonprofit, junior admin, or expert to join an upcoming sprint cohort.</p>
           </div>
-          <div class="reveal text-center">
-            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">2</div>
+          <div class="reveal relative text-center">
+            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold ring-4 ring-white">2</div>
             <h3 class="mt-4 font-semibold text-slate-900">Get matched</h3>
-            <p class="mt-1 text-sm text-slate-600">A project, an admin, and a mentor.</p>
+            <p class="mt-1.5 text-sm text-slate-600">We pair a nonprofit's scoped project with a junior admin and a mentoring expert.</p>
           </div>
-          <div class="reveal text-center">
-            <div class="mx-auto h-11 w-11 rounded-full bg-brand text-white flex items-center justify-center font-bold">3</div>
+          <div class="reveal relative text-center">
+            <div class="mx-auto h-12 w-12 rounded-full bg-brand text-white flex items-center justify-center font-bold ring-4 ring-white">3</div>
             <h3 class="mt-4 font-semibold text-slate-900">Deliver &amp; grow</h3>
-            <p class="mt-1 text-sm text-slate-600">The work ships, everyone wins.</p>
+            <p class="mt-1.5 text-sm text-slate-600">The work ships, the nonprofit benefits, and the admin gains real-world experience.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ─────────── Team ─────────── -->
-    <section id="team" class="py-20">
+    <section id="team" class="py-20 bg-slate-50 border-t border-slate-100">
       <div class="max-w-5xl mx-auto px-5">
-        <h2 class="text-center text-3xl font-bold text-slate-900 reveal">Steering committee</h2>
+        <h2 class="text-center text-3xl font-bold text-slate-900 reveal">Meet the steering committee</h2>
+        <p class="mt-4 text-center max-w-2xl mx-auto text-slate-600 reveal">
+          A volunteer team of Salesforce community leaders, keeping the project moving forward.
+        </p>
 
-        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-6 gap-y-8">
           <!-- Each member: photo if present in assets/team/, else colored initials.
                onerror swaps a missing image for the initials fallback. -->
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/silvia-denaro.jpg" alt="Silvia Denaro" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'SD'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Silvia Denaro</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Silvia Denaro</p>
+            <p class="text-xs text-slate-500">Salesforce MVP</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/nathaniel-sombu.jpg" alt="Nathaniel Sombu" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'NS'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Nathaniel Sombu</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Nathaniel Sombu</p>
+            <p class="text-xs text-slate-500">Steering committee</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/pei-mun-lim.jpg" alt="Pei Mun Lim" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'PL'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Pei Mun Lim</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Pei Mun Lim</p>
+            <p class="text-xs text-slate-500">Community Leader</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/vicki-moritz-henry.png" alt="Vicki Moritz-Henry" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'VM'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Vicki Moritz-Henry</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Vicki Moritz-Henry</p>
+            <p class="text-xs text-slate-500">Steering committee</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/claire-jones.png" alt="Claire Jones" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'CJ'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Claire Jones</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Claire Jones</p>
+            <p class="text-xs text-slate-500">Steering committee</p>
           </div>
           <div class="reveal text-center">
-            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden">
+            <div class="mx-auto h-28 w-28 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-2xl font-bold overflow-hidden ring-2 ring-white shadow-sm">
               <img src="assets/team/lawrence-newcombe.jpg" alt="Lawrence Newcombe" class="h-full w-full object-cover"
                    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'LN'}))" />
             </div>
-            <p class="mt-3 text-sm font-medium text-slate-800">Lawrence Newcombe</p>
+            <p class="mt-3 text-sm font-semibold text-slate-900">Lawrence Newcombe</p>
+            <p class="text-xs text-slate-500">Steering committee</p>
           </div>
         </div>
+
+        <p class="mt-12 text-center text-sm text-slate-500 italic max-w-2xl mx-auto reveal">
+          Special thanks to the volunteers at Salesforce Commons sprints who keep the project moving forward — this initiative wouldn't be here without you.
+        </p>
       </div>
     </section>
 
     <!-- ─────────── CTA ─────────── -->
-    <section id="apply" class="pb-24">
+    <section id="apply" class="py-24 border-t border-slate-100">
       <div class="max-w-4xl mx-auto px-5">
         <div class="reveal rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-14 text-center shadow-2xl shadow-brand/30">
           <h2 class="text-3xl sm:text-4xl font-bold">Ready to make an impact?</h2>
+          <p class="mt-3 text-white/85 max-w-xl mx-auto">Choose your path to get started — there's a place for everyone.</p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="roles/charity-nonprofit.html"
                class="px-6 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
               I'm a nonprofit
             </a>
             <a href="roles/junior-professional.html"
-               class="px-6 py-3.5 rounded-xl bg-brand-light/30 text-white font-semibold border border-white/30 hover:bg-brand-light/50 transition">
+               class="px-6 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
               I'm a junior admin
             </a>
             <a href="roles/technical-expert.html"
-               class="px-6 py-3.5 rounded-xl bg-brand-light/30 text-white font-semibold border border-white/30 hover:bg-brand-light/50 transition">
+               class="px-6 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
               I'm an expert
             </a>
           </div>
@@ -273,19 +354,41 @@
   </main>
 
   <!-- ─────────── Footer ─────────── -->
-  <footer class="border-t border-slate-100 py-10">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-slate-500">
-      <div class="flex items-center gap-2.5">
-        <img src="assets/tclogo.png" alt="" class="h-7 w-auto opacity-80" />
-        <span>The Technical Collective — a Salesforce Commons project</span>
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-6xl mx-auto px-5 py-14 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/tclogo.png" alt="" class="h-8 w-auto" />
+          <span class="font-bold text-white">The Technical Collective</span>
+        </div>
+        <p class="mt-4 text-sm text-slate-400 max-w-sm">
+          Connecting nonprofits, junior Salesforce admins, and seasoned experts — upskilling new talent while helping charities make the most of Salesforce.
+        </p>
+        <p class="mt-4 text-sm text-slate-400">A Salesforce Commons project.</p>
       </div>
-      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-        <a href="roles/charity-nonprofit.html" class="hover:text-brand transition">Nonprofits</a>
-        <a href="roles/junior-professional.html" class="hover:text-brand transition">Juniors</a>
-        <a href="roles/technical-expert.html" class="hover:text-brand transition">Experts</a>
-        <a href="promises-expectations.html" class="hover:text-brand transition">Promises</a>
-        <a href="faq.html" class="hover:text-brand transition">FAQ</a>
-      </nav>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Explore</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="roles/charity-nonprofit.html" class="block text-slate-400 hover:text-white transition">For nonprofits</a>
+          <a href="roles/junior-professional.html" class="block text-slate-400 hover:text-white transition">For juniors</a>
+          <a href="roles/technical-expert.html" class="block text-slate-400 hover:text-white transition">For experts</a>
+          <a href="promises-expectations.html" class="block text-slate-400 hover:text-white transition">Promises &amp; Expectations</a>
+          <a href="faq.html" class="block text-slate-400 hover:text-white transition">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Connect</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="mailto:techcollectiveproject@gmail.com" class="block text-slate-400 hover:text-white transition">Email us</a>
+          <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">LinkedIn</a>
+          <a href="https://twitter.com/1TechCollective" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">Twitter / X</a>
+        </nav>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-slate-500 text-center">
+        © The Technical Collective. Built by the community, for the community.
+      </div>
     </div>
   </footer>
 
@@ -298,6 +401,13 @@
         const open = navMenu.classList.toggle('hidden') === false;
         navToggle.setAttribute('aria-expanded', String(open));
       });
+    }
+
+    // Dismissible WIP banner
+    const wipClose = document.getElementById('wipClose');
+    const wipBanner = document.getElementById('wipBanner');
+    if (wipClose && wipBanner) {
+      wipClose.addEventListener('click', () => wipBanner.remove());
     }
 
     // Reveal-on-scroll, with a graceful fallback if IntersectionObserver is missing.

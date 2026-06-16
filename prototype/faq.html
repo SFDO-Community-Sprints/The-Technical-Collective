@@ -6,6 +6,12 @@
   <title>FAQ — The Technical Collective</title>
   <meta name="description" content="Frequently asked questions about The Technical Collective program for nonprofits, junior admins, and technical experts." />
   <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/tclogo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FAQ — The Technical Collective" />
+  <meta property="og:description" content="Everything you need to know about the program." />
+  <meta property="og:image" content="assets/tclogo.png" />
+  <meta name="twitter:card" content="summary" />
   <script>document.documentElement.classList.add('js');</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -24,12 +30,20 @@
     details > summary { list-style: none; }
     details > summary::-webkit-details-marker { display: none; }
     details[open] .faq-chevron { transform: rotate(180deg); }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid #3f51b5; outline-offset: 2px; border-radius: 6px;
+    }
   </style>
 </head>
 <body class="font-sans text-slate-800 antialiased bg-white">
 
-  <div class="bg-slate-900 text-center text-xs sm:text-sm text-slate-200 py-2 px-4">
-    Work in progress — prototype of the next version of The Technical Collective site.
+  <div id="wipBanner" class="bg-slate-900 text-slate-200 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-center gap-3 relative">
+      <span class="text-center">Work in progress — prototype of the next version of The Technical Collective site.</span>
+      <button id="wipClose" class="absolute right-3 p-1 rounded hover:bg-white/10 transition" aria-label="Dismiss notice">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
   </div>
 
   <!-- Header -->
@@ -190,19 +204,41 @@
     </div>
   </main>
 
-  <footer class="border-t border-slate-100 py-10">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-slate-500">
-      <div class="flex items-center gap-2.5">
-        <img src="assets/tclogo.png" alt="" class="h-7 w-auto opacity-80" />
-        <span>The Technical Collective — a Salesforce Commons project</span>
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-6xl mx-auto px-5 py-14 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/tclogo.png" alt="" class="h-8 w-auto" />
+          <span class="font-bold text-white">The Technical Collective</span>
+        </div>
+        <p class="mt-4 text-sm text-slate-400 max-w-sm">
+          Connecting nonprofits, junior Salesforce admins, and seasoned experts — upskilling new talent while helping charities make the most of Salesforce.
+        </p>
+        <p class="mt-4 text-sm text-slate-400">A Salesforce Commons project.</p>
       </div>
-      <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-        <a href="roles/charity-nonprofit.html" class="hover:text-brand transition">Nonprofits</a>
-        <a href="roles/junior-professional.html" class="hover:text-brand transition">Juniors</a>
-        <a href="roles/technical-expert.html" class="hover:text-brand transition">Experts</a>
-        <a href="promises-expectations.html" class="hover:text-brand transition">Promises</a>
-        <a href="faq.html" class="hover:text-brand transition">FAQ</a>
-      </nav>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Explore</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="roles/charity-nonprofit.html" class="block text-slate-400 hover:text-white transition">For nonprofits</a>
+          <a href="roles/junior-professional.html" class="block text-slate-400 hover:text-white transition">For juniors</a>
+          <a href="roles/technical-expert.html" class="block text-slate-400 hover:text-white transition">For experts</a>
+          <a href="promises-expectations.html" class="block text-slate-400 hover:text-white transition">Promises &amp; Expectations</a>
+          <a href="faq.html" class="block text-slate-400 hover:text-white transition">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Connect</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="mailto:techcollectiveproject@gmail.com" class="block text-slate-400 hover:text-white transition">Email us</a>
+          <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">LinkedIn</a>
+          <a href="https://twitter.com/1TechCollective" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">Twitter / X</a>
+        </nav>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-slate-500 text-center">
+        © The Technical Collective. Built by the community, for the community.
+      </div>
     </div>
   </footer>
 
@@ -215,6 +251,9 @@
         navToggle.setAttribute('aria-expanded', String(open));
       });
     }
+    const wipClose = document.getElementById('wipClose');
+    const wipBanner = document.getElementById('wipBanner');
+    if (wipClose && wipBanner) wipClose.addEventListener('click', () => wipBanner.remove());
   </script>
 </body>
 </html>
