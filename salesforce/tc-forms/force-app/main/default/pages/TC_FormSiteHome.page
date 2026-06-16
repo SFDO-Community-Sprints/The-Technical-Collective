@@ -1,0 +1,6 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+  <!-- Minimal home page for the Technical Collective forms Site.
+       The Site exists to expose the TC_FormIntake Apex REST endpoint
+       at /services/apexrest/tc/intake; this page is just a placeholder. -->
+  <p>The Technical Collective.</p>
+</apex:page>

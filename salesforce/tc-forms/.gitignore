@@ -1,0 +1,6 @@
+# Local Salesforce CLI state — never commit
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+**/*.log
