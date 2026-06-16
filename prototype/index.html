@@ -290,7 +290,7 @@
 
           <!-- Track -->
           <div id="communityGrid"
-               class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 scroll-px-5 scroll-smooth
+               class="flex items-start gap-6 overflow-x-auto snap-x snap-mandatory pb-4 px-5 scroll-smooth
                       [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"></div>
         </div>
 
@@ -503,28 +503,36 @@
       const grid = document.getElementById('communityGrid');
       if (!section || !grid || posts.length === 0) return;
 
-      const extractSrc = (entry) => {
+      const parsePost = (entry) => {
         // Accept either a full <iframe …> snippet or a bare URL.
         const raw = String((entry && entry.embed) || entry || '');
         const m = raw.match(/src\s*=\s*["']([^"']+)["']/i);
         const url = (m ? m[1] : raw).trim();
+        let src = null;
         try {
           const u = new URL(url);
-          const okHost = u.protocol === 'https:' && /(^|\.)linkedin\.com$/i.test(u.hostname);
-          return okHost && u.pathname.startsWith('/embed/') ? u.href : null;
-        } catch { return null; }
+          if (u.protocol === 'https:' && /(^|\.)linkedin\.com$/i.test(u.hostname) && u.pathname.startsWith('/embed/')) src = u.href;
+        } catch { /* invalid URL */ }
+        if (!src) return null;
+        // Use each post's own width/height from the embed snippet so the whole
+        // post shows — full width (incl. the reactions/comments rail) and full
+        // height — with no internal scrollbar. Clamped to sane bounds.
+        const num = (re, dflt, lo, hi) => { const x = raw.match(re); const n = x ? parseInt(x[1], 10) : dflt; return Math.min(Math.max(n, lo), hi); };
+        return { src, width: num(/width\s*=\s*["']?(\d+)/i, 504, 320, 600), height: num(/height\s*=\s*["']?(\d+)/i, 600, 320, 900) };
       };
 
-      const frames = posts.map(extractSrc).filter(Boolean).map((src) => {
+      const frames = posts.map(parsePost).filter(Boolean).map(({ src, width, height }) => {
         const f = document.createElement('iframe');
         f.src = src;
         f.title = 'Embedded LinkedIn post';
         f.loading = 'lazy';
         f.setAttribute('frameborder', '0');
         f.setAttribute('allowfullscreen', '');
-        // Carousel item: fixed width that fits LinkedIn's ~504px embed, never shrinks,
-        // snaps into place. On narrow screens it caps to the viewport width.
-        f.className = 'reveal snap-start shrink-0 w-[min(85vw,460px)] h-[560px] rounded-2xl border border-slate-200 bg-white shadow-sm';
+        // Natural size so nothing is cropped or scrolls; caps to the viewport on
+        // small screens. Never shrinks in the flex row; snaps into place.
+        f.style.width = `min(${width}px, 92vw)`;
+        f.style.height = `${height}px`;
+        f.className = 'reveal snap-center shrink-0 rounded-2xl border border-slate-200 bg-white shadow-sm';
         return f;
       });
 
@@ -538,15 +546,24 @@
       const next = document.getElementById('commNext');
       const dotsWrap = document.getElementById('commDots');
 
-      // Step = one card's width plus the flex gap, so each move advances one post.
-      const stepSize = () => {
-        const gap = parseFloat(getComputedStyle(grid).columnGap) || 24;
-        return frames[0].getBoundingClientRect().width + gap;
+      // Cards vary in width, so navigate by each card's actual position: the
+      // scrollLeft that centers card i in the viewport.
+      const targetFor = (i) => {
+        const f = frames[Math.max(0, Math.min(i, frames.length - 1))];
+        return f.offsetLeft - (grid.clientWidth - f.offsetWidth) / 2;
       };
-      const indexFromScroll = () => Math.round(grid.scrollLeft / stepSize());
-      const scrollToIndex = (i) => {
+      const indexFromScroll = () => {
+        const c = grid.scrollLeft + grid.clientWidth / 2;          // viewport centre
+        let best = 0, bestD = Infinity;
+        frames.forEach((f, i) => {
+          const d = Math.abs((f.offsetLeft + f.offsetWidth / 2) - c);
+          if (d < bestD) { bestD = d; best = i; }
+        });
+        return best;
+      };
+      const scrollToIndex = (i, smooth = true) => {
         const clamped = Math.max(0, Math.min(i, frames.length - 1));
-        grid.scrollTo({ left: clamped * stepSize(), behavior: 'smooth' });
+        grid.scrollTo({ left: targetFor(clamped), behavior: smooth ? 'smooth' : 'auto' });
       };
 
       // Build one dot per post.
@@ -555,7 +572,7 @@
         d.type = 'button';
         d.setAttribute('aria-label', `Go to post ${i + 1}`);
         d.className = 'h-2.5 w-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all';
-        d.addEventListener('click', () => scrollToIndex(i));
+        d.addEventListener('click', () => { stopAuto(); scrollToIndex(i); });
         dotsWrap.appendChild(d);
         return d;
       });
@@ -574,12 +591,35 @@
         if (next) next.disabled = grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 1;
       };
 
-      prev && prev.addEventListener('click', () => scrollToIndex(indexFromScroll() - 1));
-      next && next.addEventListener('click', () => scrollToIndex(indexFromScroll() + 1));
+      // ── Autoplay ───────────────────────────────────────────────────────
+      // Advances every few seconds, looping back to the start. Pauses on hover,
+      // focus, touch, or any manual control, and respects reduced-motion.
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let timer = null;
+      const advance = () => {
+        const i = indexFromScroll();
+        scrollToIndex(i >= frames.length - 1 ? 0 : i + 1);
+      };
+      const startAuto = () => { if (!timer && !reduceMotion && frames.length > 1) timer = setInterval(advance, 5000); };
+      const stopAuto  = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+      prev && prev.addEventListener('click', () => { stopAuto(); scrollToIndex(indexFromScroll() - 1); });
+      next && next.addEventListener('click', () => { stopAuto(); scrollToIndex(indexFromScroll() + 1); });
+
+      // Pause while the user is engaging; resume when they leave.
+      ['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((ev) => grid.addEventListener(ev, stopAuto, { passive: true }));
+      ['mouseleave', 'focusout'].forEach((ev) => grid.addEventListener(ev, startAuto));
+      // Don't run autoplay while the section is off-screen (saves work, avoids
+      // the user returning to a mid-scrolled carousel).
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          entries.forEach((e) => e.isIntersecting ? startAuto() : stopAuto());
+        }, { threshold: 0.4 }).observe(section);
+      } else { startAuto(); }
 
       let raf = 0;
       grid.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
-      window.addEventListener('resize', sync);
+      window.addEventListener('resize', () => { sync(); });
 
       // A single post needs no controls.
       if (frames.length < 2) { dotsWrap.classList.add('hidden'); if (prev) prev.style.display = 'none'; if (next) next.style.display = 'none'; }
