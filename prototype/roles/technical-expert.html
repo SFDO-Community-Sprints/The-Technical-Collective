@@ -30,6 +30,12 @@
     a:focus-visible, button:focus-visible, summary:focus-visible {
       outline: 2px solid #3f51b5; outline-offset: 2px; border-radius: 6px;
     }
+    /* Apply modal */
+    dialog.tc-modal { width: min(46rem, 92vw); max-height: 88vh; padding: 0; border: none;
+      border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,.35); overflow: hidden; }
+    dialog.tc-modal::backdrop { background: rgba(15,23,42,.55); backdrop-filter: blur(2px); }
+    dialog.tc-modal .tc-modal-body { max-height: calc(88vh - 4rem); overflow-y: auto; }
+    body.tc-modal-open { overflow: hidden; }
   </style>
 </head>
 <body class="font-sans text-slate-800 antialiased bg-white">
@@ -138,15 +144,33 @@
         </div>
       </section>
 
-      <!-- Application: banner + custom form that creates a Contact in Salesforce
-           via the public Site endpoint (see assets/tc-forms.js). -->
+      <!-- Application: banner + "Apply" button that opens the form in a modal.
+           The form itself is rendered by assets/tc-forms.js into the host below. -->
       <section id="apply" class="scroll-mt-20">
         <img src="../assets/banners/professional.jpg" alt="Professionals. Skills. Impact. Join the Technical Collective."
              class="w-full rounded-2xl shadow-sm" />
-        <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 sm:p-9 shadow-sm">
-          <div data-tc-form="professional" data-redirect="technical-expert.html"></div>
+        <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm text-center">
+          <h2 class="text-2xl font-bold text-slate-900">Volunteer as a technical expert</h2>
+          <p class="mt-2 text-slate-600 max-w-xl mx-auto">Share your contact details and Salesforce credentials, and we'll be in touch.</p>
+          <button type="button" data-open-apply
+                  class="mt-6 inline-block px-7 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark transition shadow-lg shadow-brand/20">
+            Apply as a technical expert
+          </button>
         </div>
       </section>
+
+      <!-- Apply modal -->
+      <dialog class="tc-modal" data-apply-modal aria-label="Application form">
+        <div class="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+          <span class="font-semibold text-slate-900">Volunteer as a technical expert</span>
+          <button type="button" data-close-apply class="p-1.5 rounded-lg text-slate-500 hover:bg-slate-100 transition" aria-label="Close">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <div class="tc-modal-body px-6 py-6">
+          <div data-tc-form="professional" data-redirect="technical-expert.html"></div>
+        </div>
+      </dialog>
 
       <p class="text-center text-slate-500">
         Find out more about the
@@ -206,6 +230,19 @@
     const wipClose = document.getElementById('wipClose');
     const wipBanner = document.getElementById('wipBanner');
     if (wipClose && wipBanner) wipClose.addEventListener('click', () => wipBanner.remove());
+
+    // Apply modal: open on any Apply trigger or #apply link, close on button/backdrop/Esc.
+    const applyModal = document.querySelector('[data-apply-modal]');
+    if (applyModal && typeof applyModal.showModal === 'function') {
+      const openModal = () => { applyModal.showModal(); document.body.classList.add('tc-modal-open'); };
+      const closeModal = () => { applyModal.close(); };
+      document.querySelectorAll('[data-open-apply], a[href="#apply"], a[href$="#apply"]').forEach((el) => {
+        el.addEventListener('click', (e) => { e.preventDefault(); openModal(); if (navMenu) navMenu.classList.add('hidden'); });
+      });
+      applyModal.querySelectorAll('[data-close-apply]').forEach((b) => b.addEventListener('click', closeModal));
+      applyModal.addEventListener('click', (e) => { if (e.target === applyModal) closeModal(); });
+      applyModal.addEventListener('close', () => document.body.classList.remove('tc-modal-open'));
+    }
   </script>
   <script src="../assets/tc-forms.js"></script>
 </body>
