@@ -22,21 +22,7 @@
        Salesforce Commons community project context. -->
   <!-- Set .js before paint so reveal animations have no flash; without JS, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // Mirrors the current site's indigo/cyan palette
-            brand:  { DEFAULT: '#3f51b5', dark: '#303f9f', light: '#5c6bc0' },
-            accent: { DEFAULT: '#00bcd4', dark: '#0097a7' },
-          },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="assets/tailwind.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

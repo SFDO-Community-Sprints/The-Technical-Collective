@@ -49,6 +49,3 @@ Coming Soon
 ## Resources
 
 Coming Soon
-
-<!--## Testing Form in Sandbox
-[Open the Web-to-Lead form](./assets/forms/TTCwebtolead.html)-->

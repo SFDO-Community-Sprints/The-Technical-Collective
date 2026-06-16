@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <label>TC Form Guest</label>
-    <description>Minimal access for the TCForms Site guest user: run the intake Apex class and create Accounts/Contacts. No read/edit/delete.</description>
+    <description>Minimal access for the TCForms Site guest user: run the intake Apex class only. Account/Contact writes are confined to the controller.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <classAccesses>
         <apexClass>TC_FormIntake</apexClass>
@@ -9,8 +9,8 @@
     </classAccesses>
     <objectPermissions>
         <object>Account</object>
-        <allowCreate>true</allowCreate>
-        <allowRead>true</allowRead>
+        <allowCreate>false</allowCreate>
+        <allowRead>false</allowRead>
         <allowEdit>false</allowEdit>
         <allowDelete>false</allowDelete>
         <viewAllRecords>false</viewAllRecords>
@@ -18,8 +18,8 @@
     </objectPermissions>
     <objectPermissions>
         <object>Contact</object>
-        <allowCreate>true</allowCreate>
-        <allowRead>true</allowRead>
+        <allowCreate>false</allowCreate>
+        <allowRead>false</allowRead>
         <allowEdit>false</allowEdit>
         <allowDelete>false</allowDelete>
         <viewAllRecords>false</viewAllRecords>

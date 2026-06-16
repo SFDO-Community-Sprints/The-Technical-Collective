@@ -11,15 +11,22 @@
  *
  * Core fields map to standard fields; every other questionnaire answer is
  * written as a clean, labelled block in the record's Description field, so no
- * custom fields are required. A honeypot field ("website_url2") blocks bots.
+ * custom fields are required. Server-side abuse controls limit automated use.
  */
 @RestResource(urlMapping='/tc/intake')
 global without sharing class TC_FormIntake {
 
+    private static final String ACCEPTED_MESSAGE = 'Thank you for submitting your interest to the Technical Collective!';
     // Submissions completed faster than this (milliseconds) are treated as bots.
     private static final Decimal MIN_ELAPSED_MS = 2500;
+    // Submissions claiming an implausibly old rendered form are also dropped.
+    private static final Decimal MAX_ELAPSED_MS = 7200000;
     // A given email may only create one record within this window (hours).
     private static final Integer DEDUPE_WINDOW_HOURS = 24;
+    private static final Integer RATE_LIMIT_WINDOW_SECONDS = 3600;
+    @TestVisible private static final Integer MAX_SUBMISSIONS_PER_CLIENT = 5;
+    @TestVisible private static Map<String, Integer> testRateLimitCounts = new Map<String, Integer>();
+    @TestVisible private static String testClientKey;
 
     // ---- response shape ------------------------------------------------------
     global class Result {
@@ -49,27 +56,8 @@ global without sharing class TC_FormIntake {
             return new Result(false, 'Empty request.');
         }
 
-        // --- Spam guards -----------------------------------------------------
-        // 1. Honeypot: real users never fill this hidden field. Pretend success
-        //    so a bot can't tell it was rejected.
-        String honeypot = str(body.get('website_url2'));
-        if (String.isNotBlank(honeypot)) {
-            res.statusCode = 200;
-            return new Result(true, 'Thank you for your submission!');
-        }
-
-        // 2. Timing trap: the form reports how long the user spent before
-        //    submitting (elapsedMs). A human takes seconds; bots post instantly.
-        //    Too-fast submissions are silently accepted-looking but dropped.
-        Object elapsedRaw = body.get('elapsedMs');
-        if (elapsedRaw != null) {
-            try {
-                Decimal elapsed = Decimal.valueOf(String.valueOf(elapsedRaw));
-                if (elapsed < MIN_ELAPSED_MS) {
-                    res.statusCode = 200;
-                    return new Result(true, 'Thank you for your submission!');
-                }
-            } catch (Exception ignore) { /* unparseable -> ignore the trap */ }
+        if (!passesSubmissionGuards(body, res)) {
+            return accepted(res);
         }
 
         String formType = str(body.get('formType')).toLowerCase();
@@ -103,11 +91,12 @@ global without sharing class TC_FormIntake {
             res.statusCode = 400;
             return new Result(false, 'Please enter a valid email address.');
         }
+        if (!allowClientSubmission(res)) {
+            return accepted(res);
+        }
         // Dedupe: this email already applied recently -> look successful, skip insert.
         if (recentlySubmitted(email)) {
-            Result dup = new Result(true, 'Thank you — we already have your submission and will be in touch.');
-            res.statusCode = 200;
-            return dup;
+            return accepted(res);
         }
 
         Account acc = new Account();
@@ -154,11 +143,7 @@ global without sharing class TC_FormIntake {
         putIf(c, 'Title', str(b.get('roleAtOrg')));
         insert c;
 
-        Result r = new Result(true, 'Thank you for submitting your interest to the Technical Collective!');
-        r.accountId = acc.Id;
-        r.contactId = c.Id;
-        res.statusCode = 200;
-        return r;
+        return accepted(res);
     }
 
     // ---- professional: Contact ----------------------------------------------
@@ -175,11 +160,12 @@ global without sharing class TC_FormIntake {
             res.statusCode = 400;
             return new Result(false, 'Please enter a valid email address.');
         }
+        if (!allowClientSubmission(res)) {
+            return accepted(res);
+        }
         // Dedupe: this email already applied recently -> look successful, skip insert.
         if (recentlySubmitted(email)) {
-            Result dup = new Result(true, 'Thank you — we already have your submission and will be in touch.');
-            res.statusCode = 200;
-            return dup;
+            return accepted(res);
         }
 
         Contact c = new Contact();
@@ -205,13 +191,88 @@ global without sharing class TC_FormIntake {
         });
         insert c;
 
-        Result r = new Result(true, 'Thank you for submitting your interest to the Technical Collective!');
-        r.contactId = c.Id;
-        res.statusCode = 200;
-        return r;
+        return accepted(res);
     }
 
     // ---- helpers -------------------------------------------------------------
+    private static Result accepted(RestResponse res) {
+        res.statusCode = 200;
+        return new Result(true, ACCEPTED_MESSAGE);
+    }
+
+    private static Boolean passesSubmissionGuards(Map<String, Object> body, RestResponse res) {
+        String honeypot = str(body.get('website_url2'));
+        if (String.isNotBlank(honeypot)) {
+            res.statusCode = 200;
+            return false;
+        }
+
+        Object elapsedRaw = body.get('elapsedMs');
+        if (elapsedRaw == null) {
+            res.statusCode = 200;
+            return false;
+        }
+
+        try {
+            Decimal elapsed = Decimal.valueOf(String.valueOf(elapsedRaw));
+            if (elapsed < MIN_ELAPSED_MS || elapsed > MAX_ELAPSED_MS) {
+                res.statusCode = 200;
+                return false;
+            }
+        } catch (Exception e) {
+            res.statusCode = 200;
+            return false;
+        }
+        return true;
+    }
+
+    private static Boolean allowClientSubmission(RestResponse res) {
+        String clientKey = clientRateLimitKey();
+        if (String.isBlank(clientKey)) {
+            res.statusCode = 200;
+            return false;
+        }
+        if (Test.isRunningTest()) {
+            Integer count = testRateLimitCounts.containsKey(clientKey) ? testRateLimitCounts.get(clientKey) : 0;
+            count++;
+            testRateLimitCounts.put(clientKey, count);
+            return count <= MAX_SUBMISSIONS_PER_CLIENT;
+        }
+
+        String cacheKey = 'tc_form_intake_' + EncodingUtil.convertToHex(
+            Crypto.generateDigest('SHA-256', Blob.valueOf(clientKey))
+        );
+        try {
+            Object rawCount = Cache.Org.get(cacheKey);
+            Integer count = rawCount == null ? 0 : Integer.valueOf(String.valueOf(rawCount));
+            count++;
+            Cache.Org.put(cacheKey, count, RATE_LIMIT_WINDOW_SECONDS);
+            return count <= MAX_SUBMISSIONS_PER_CLIENT;
+        } catch (Exception e) {
+            res.statusCode = 200;
+            return false;
+        }
+    }
+
+    private static String clientRateLimitKey() {
+        if (Test.isRunningTest() && String.isNotBlank(testClientKey)) {
+            return testClientKey;
+        }
+        RestRequest req = RestContext.request;
+        if (req == null) return '';
+        if (String.isNotBlank(req.remoteAddress)) return req.remoteAddress;
+
+        List<String> headerNames = new List<String>{
+            'True-Client-IP', 'CF-Connecting-IP', 'X-Salesforce-SIP', 'X-Forwarded-For'
+        };
+        for (String headerName : headerNames) {
+            String value = req.headers != null ? req.headers.get(headerName) : null;
+            if (String.isBlank(value)) continue;
+            return value.split(',')[0].trim();
+        }
+        return '';
+    }
+
     private static String str(Object o) {
         if (o == null) return '';
         if (o instanceof List<Object>) {

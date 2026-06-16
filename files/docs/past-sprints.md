@@ -247,20 +247,20 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 #### Sprint Overview
 
 ##### Team Members
-- Nathaniel Sombu (n.sombu@gmail.com)
-- Lukasz Bujlo (lukasz.bujlo@coffeeforce.pl)
-- Kacper Pytowski (kacper.pytowski@coffeeforce.pl)
-- Paulina Pytowska (paulina.pytowska@coffeeforce.pl)
-- Tracy Ilunga (ilungatracy92@gmail.com)
-- Darshani Liyana Arachchige (devika25@hotmail.com)
-- Yinka Faponnle (yinkafaps@gmail.com)
-- Justyna Krajewska (justyna.krajewska@trailblazercgl.com)
-- V Kumar (vkumarsnn@gmail.com)
-- Sameekshya Panda (sameekshya.p@gmail.com)
-- Louise Lockie (louisealockie@gmail.com)
-- Melissa Shepard (mshepard@lizztech.com)
-- Adenike Adegboyega (zadeadegboyega@gmail.com)
-- Maurice Kollewe (kollewe@gmail.com)
+- Nathaniel Sombu
+- Lukasz Bujlo
+- Kacper Pytowski
+- Paulina Pytowska
+- Tracy Ilunga
+- Darshani Liyana Arachchige
+- Yinka Faponnle
+- Justyna Krajewska
+- V Kumar
+- Sameekshya Panda
+- Louise Lockie
+- Melissa Shepard
+- Adenike Adegboyega
+- Maurice Kollewe
 
 ##### Sprint Goals
 
@@ -337,4 +337,4 @@ The February 2024 Virtual Sprint demonstrated remarkable progress with a small b
 2. Implement social media channels
 3. Develop technical expert onboarding process
 4. Create and distribute feedback surveys
-5. Finalize all onboarding documentation 
+5. Finalize all onboarding documentation
