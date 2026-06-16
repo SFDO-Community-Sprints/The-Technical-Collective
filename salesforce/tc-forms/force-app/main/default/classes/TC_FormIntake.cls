@@ -16,6 +16,11 @@
 @RestResource(urlMapping='/tc/intake')
 global without sharing class TC_FormIntake {
 
+    // Submissions completed faster than this (milliseconds) are treated as bots.
+    private static final Decimal MIN_ELAPSED_MS = 2500;
+    // A given email may only create one record within this window (hours).
+    private static final Integer DEDUPE_WINDOW_HOURS = 24;
+
     // ---- response shape ------------------------------------------------------
     global class Result {
         global Boolean success;
@@ -44,11 +49,27 @@ global without sharing class TC_FormIntake {
             return new Result(false, 'Empty request.');
         }
 
-        // Honeypot: real users never fill this hidden field. Pretend success.
+        // --- Spam guards -----------------------------------------------------
+        // 1. Honeypot: real users never fill this hidden field. Pretend success
+        //    so a bot can't tell it was rejected.
         String honeypot = str(body.get('website_url2'));
         if (String.isNotBlank(honeypot)) {
             res.statusCode = 200;
             return new Result(true, 'Thank you for your submission!');
+        }
+
+        // 2. Timing trap: the form reports how long the user spent before
+        //    submitting (elapsedMs). A human takes seconds; bots post instantly.
+        //    Too-fast submissions are silently accepted-looking but dropped.
+        Object elapsedRaw = body.get('elapsedMs');
+        if (elapsedRaw != null) {
+            try {
+                Decimal elapsed = Decimal.valueOf(String.valueOf(elapsedRaw));
+                if (elapsed < MIN_ELAPSED_MS) {
+                    res.statusCode = 200;
+                    return new Result(true, 'Thank you for your submission!');
+                }
+            } catch (Exception ignore) { /* unparseable -> ignore the trap */ }
         }
 
         String formType = str(body.get('formType')).toLowerCase();
@@ -81,6 +102,12 @@ global without sharing class TC_FormIntake {
         if (!looksLikeEmail(email)) {
             res.statusCode = 400;
             return new Result(false, 'Please enter a valid email address.');
+        }
+        // Dedupe: this email already applied recently -> look successful, skip insert.
+        if (recentlySubmitted(email)) {
+            Result dup = new Result(true, 'Thank you — we already have your submission and will be in touch.');
+            res.statusCode = 200;
+            return dup;
         }
 
         Account acc = new Account();
@@ -148,6 +175,12 @@ global without sharing class TC_FormIntake {
             res.statusCode = 400;
             return new Result(false, 'Please enter a valid email address.');
         }
+        // Dedupe: this email already applied recently -> look successful, skip insert.
+        if (recentlySubmitted(email)) {
+            Result dup = new Result(true, 'Thank you — we already have your submission and will be in touch.');
+            res.statusCode = 200;
+            return dup;
+        }
 
         Contact c = new Contact();
         c.FirstName = firstName;
@@ -191,6 +224,18 @@ global without sharing class TC_FormIntake {
 
     private static Boolean looksLikeEmail(String e) {
         return String.isNotBlank(e) && Pattern.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$', e);
+    }
+
+    // True if a Contact with this email was created within the dedupe window.
+    // Limits the same address (or a bot replaying one payload) to one record.
+    private static Boolean recentlySubmitted(String email) {
+        if (String.isBlank(email)) return false;
+        Datetime cutoff = Datetime.now().addHours(-DEDUPE_WINDOW_HOURS);
+        return [
+            SELECT COUNT()
+            FROM Contact
+            WHERE Email = :email AND CreatedDate >= :cutoff
+        ] > 0;
     }
 
     // Set a field only when there's a value, and trim to the field's max length.

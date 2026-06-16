@@ -215,6 +215,10 @@
     var busy = host.querySelector('[data-form-busy]');
     var submitBtn = form.querySelector('button[type="submit"]');
 
+    // Spam timing trap: record when the form became available; the elapsed time
+    // is sent on submit so the server can drop instant (bot) submissions.
+    var renderedAt = Date.now();
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       errBox.classList.add('hidden');
@@ -227,6 +231,7 @@
 
       var payload = collect(form);
       payload.formType = type;
+      payload.elapsedMs = Date.now() - renderedAt;
 
       submitBtn.disabled = true;
       busy.classList.remove('hidden');

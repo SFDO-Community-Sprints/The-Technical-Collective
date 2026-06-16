@@ -102,6 +102,44 @@ private class TC_FormIntakeTest {
     }
 
     @IsTest
+    static void timingTrap_tooFast_dropsRecord() {
+        Integer before = [SELECT COUNT() FROM Contact];
+        TC_FormIntake.Result r = invoke(new Map<String, Object>{
+            'formType' => 'professional', 'lastName' => 'Speedy', 'email' => 'fast@example.com',
+            'elapsedMs' => 200   // way under the 2500ms threshold -> treated as a bot
+        });
+        System.assertEquals(true, r.success);                       // looks successful to the bot
+        System.assertEquals(before, [SELECT COUNT() FROM Contact]); // but nothing was created
+    }
+
+    @IsTest
+    static void timingTrap_humanSpeed_succeeds() {
+        TC_FormIntake.Result r = invoke(new Map<String, Object>{
+            'formType' => 'professional', 'lastName' => 'Human', 'email' => 'human@example.com',
+            'elapsedMs' => 9000
+        });
+        System.assertEquals(true, r.success, r.message);
+        System.assertNotEquals(null, r.contactId);
+    }
+
+    @IsTest
+    static void dedupe_sameEmailWithinWindow_skipsSecondInsert() {
+        Map<String, Object> b = new Map<String, Object>{
+            'formType' => 'professional', 'lastName' => 'Twice', 'email' => 'twice@example.com'
+        };
+        Test.startTest();
+        TC_FormIntake.Result first  = invoke(b);
+        TC_FormIntake.Result second = invoke(b);   // same email again
+        Test.stopTest();
+
+        System.assertEquals(true, first.success);
+        System.assertNotEquals(null, first.contactId);
+        System.assertEquals(true, second.success);          // still looks successful
+        System.assertEquals(null, second.contactId);        // but no new record
+        System.assertEquals(1, [SELECT COUNT() FROM Contact WHERE Email = 'twice@example.com']);
+    }
+
+    @IsTest
     static void unknownType_fails() {
         TC_FormIntake.Result r = invoke(new Map<String, Object>{ 'formType' => 'nope' });
         System.assertEquals(false, r.success);
