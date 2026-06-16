@@ -260,6 +260,33 @@
       </div>
     </section>
 
+    <!-- ─────────── Community buzz (curated LinkedIn posts) ─────────── -->
+    <!-- Cards are rendered from assets/community-posts.js — the team edits that
+         one file to feature posts. If the list is empty or the script fails to
+         load, this whole section hides itself (see the script at page bottom). -->
+    <section id="community" class="hidden py-20 border-t border-slate-100">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center">
+          <span class="inline-block mb-4 px-3 py-1 rounded-full bg-accent/10 text-accent-dark text-xs font-semibold tracking-wide uppercase">From the community</span>
+          <h2 class="text-3xl font-bold text-slate-900 reveal">Community buzz</h2>
+          <p class="mt-4 max-w-2xl mx-auto text-slate-600 reveal">
+            What people are saying about The Technical Collective on LinkedIn.
+          </p>
+        </div>
+
+        <!-- Cards land here -->
+        <div id="communityGrid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <div class="mt-10 text-center reveal">
+          <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
+            Follow us on LinkedIn
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.38-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ─────────── Team ─────────── -->
     <section id="team" class="py-20 bg-slate-50 border-t border-slate-100">
       <div class="max-w-5xl mx-auto px-5">
@@ -392,6 +419,10 @@
     </div>
   </footer>
 
+  <!-- Curated community posts (the team edits this one file). Loaded before the
+       render script below so window.TC_COMMUNITY_POSTS is ready. -->
+  <script src="assets/community-posts.js"></script>
+
   <script>
     // Mobile menu toggle
     const navToggle = document.getElementById('navToggle');
@@ -411,14 +442,50 @@
     }
 
     // Reveal-on-scroll, with a graceful fallback if IntersectionObserver is missing.
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-    } else {
-      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+    // Exposed as a function so dynamically-added cards (community buzz) can opt in too.
+    const supportsIO = 'IntersectionObserver' in window;
+    const io = supportsIO ? new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 }) : null;
+    function observeReveals(root = document) {
+      root.querySelectorAll('.reveal').forEach((el) => {
+        if (el.classList.contains('is-visible')) return;
+        if (io) io.observe(el); else el.classList.add('is-visible');
+      });
     }
+    observeReveals();
+
+    // Community buzz — render curated LinkedIn posts from assets/community-posts.js.
+    // The section starts hidden and only appears if there's at least one post,
+    // so a missing/empty data file simply shows nothing (no broken UI).
+    (function renderCommunity() {
+      const posts = Array.isArray(window.TC_COMMUNITY_POSTS) ? window.TC_COMMUNITY_POSTS : [];
+      const section = document.getElementById('community');
+      const grid = document.getElementById('communityGrid');
+      if (!section || !grid || posts.length === 0) return;
+
+      const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+        ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+      const initials = (name) => esc(String(name || '?').trim().split(/\s+/).slice(0, 2).map(w => w[0] || '').join('').toUpperCase() || '?');
+
+      grid.innerHTML = posts.map((p) => `
+        <a href="${esc(p.url)}" target="_blank" rel="noopener"
+           class="reveal group bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 transition flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="h-11 w-11 shrink-0 rounded-full bg-gradient-to-br from-brand to-accent text-white flex items-center justify-center text-sm font-bold">${initials(p.author)}</span>
+            <div class="min-w-0">
+              <p class="font-semibold text-slate-900 truncate">${esc(p.author) || 'LinkedIn member'}</p>
+              <p class="text-xs text-slate-500 truncate">${esc(p.title)}${p.title && p.date ? ' · ' : ''}${esc(p.date)}</p>
+            </div>
+            <svg class="h-5 w-5 ml-auto shrink-0 text-[#0a66c2]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.38-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </div>
+          <p class="mt-4 text-slate-600 grow">${esc(p.quote)}</p>
+          <span class="mt-4 text-sm font-semibold text-brand group-hover:underline">View on LinkedIn →</span>
+        </a>`).join('');
+
+      section.classList.remove('hidden');
+      observeReveals(grid);
+    })();
   </script>
 </body>
 </html>

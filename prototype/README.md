@@ -11,7 +11,7 @@ standalone working prototype.
 🚧 Prototype / for review — **not** the live site, and not wired into the deploy.
 
 ## Pages
-- `index.html` — home: hero (with animated Astro), role teasers, how-it-works, team, CTA
+- `index.html` — home: hero (with animated Astro), role teasers, how-it-works, community buzz, team, CTA
 - `roles/charity-nonprofit.html` — full nonprofit page
 - `roles/junior-professional.html` — full junior professional page
 - `roles/technical-expert.html` — full technical expert page
@@ -21,6 +21,13 @@ standalone working prototype.
 All pages share a header (with working mobile menu), footer, and the brand styling.
 "Apply" buttons link to the real Google Form applications; the FAQ/expert pages link to
 the project email.
+
+## Featuring LinkedIn posts ("Community buzz")
+The homepage has a curated **Community buzz** section. To feature a LinkedIn post that
+mentions The Technical Collective, edit one file — `assets/community-posts.js` — and add
+the post's link plus a short quote. Step-by-step instructions are at the top of that file;
+no coding needed, and it can be done straight from GitHub's web editor. The section hides
+itself automatically when the list is empty, so it never shows a broken/empty block.
 
 ## How to view it
 Single self-contained HTML pages (Tailwind via CDN, no build step). Either:
