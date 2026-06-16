@@ -23,11 +23,13 @@ All pages share a header (with working mobile menu), footer, and the brand styli
 the project email.
 
 ## Featuring LinkedIn posts ("Community buzz")
-The homepage has a curated **Community buzz** section. To feature a LinkedIn post that
-mentions The Technical Collective, edit one file — `assets/community-posts.js` — and add
-the post's link plus a short quote. Step-by-step instructions are at the top of that file;
-no coding needed, and it can be done straight from GitHub's web editor. The section hides
-itself automatically when the list is empty, so it never shows a broken/empty block.
+The homepage has a curated **Community buzz** section that shows real, embedded LinkedIn
+posts. To feature one, edit a single file — `assets/community-posts.js` — and paste the
+post's official embed code (on the post: `···` → **"Embed this post"**). Step-by-step
+instructions are at the top of that file; no coding needed, and it can be done straight
+from GitHub's web editor. The section hides itself automatically when the list is empty,
+so it never shows a broken/empty block. For safety, only genuine
+`www.linkedin.com/embed/...` links are rendered — anything else is ignored.
 
 ## How to view it
 Single self-contained HTML pages (Tailwind via CDN, no build step). Either:
