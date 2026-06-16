@@ -264,23 +264,25 @@
     <!-- Cards are rendered from assets/community-posts.js — the team edits that
          one file to feature posts. If the list is empty or the script fails to
          load, this whole section hides itself (see the script at page bottom). -->
-    <section id="community" class="hidden py-20 border-t border-slate-100">
+    <section id="community" class="hidden py-16 border-t border-slate-100">
       <div class="max-w-6xl mx-auto px-5">
         <div class="text-center">
-          <span class="inline-block mb-4 px-3 py-1 rounded-full bg-accent/10 text-accent-dark text-xs font-semibold tracking-wide uppercase">From the community</span>
-          <h2 class="text-3xl font-bold text-slate-900 reveal">Community buzz</h2>
+          <span class="inline-block mb-4 px-3 py-1 rounded-full bg-accent/10 text-accent-dark text-xs font-semibold tracking-wide uppercase">Find us on LinkedIn</span>
+          <h2 class="text-3xl font-bold text-slate-900 reveal">Straight from our LinkedIn</h2>
           <p class="mt-4 max-w-2xl mx-auto text-slate-600 reveal">
-            What people are saying about The Technical Collective on LinkedIn.
+            Updates, stories, and shout-outs from The Technical Collective. Swipe through our latest posts.
           </p>
         </div>
 
-        <!-- Embedded LinkedIn posts land here -->
-        <div id="communityGrid" class="mt-12 flex flex-wrap justify-center gap-6"></div>
+        <!-- Embedded LinkedIn posts land here. Horizontal scroll-snap carousel so the
+             section stays compact (one row) no matter how many posts are added. -->
+        <div id="communityGrid"
+             class="mt-12 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 scroll-px-5"></div>
 
-        <div class="mt-10 text-center reveal">
+        <div class="mt-8 text-center reveal">
           <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener"
              class="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
-            Follow us on LinkedIn
+            See more on LinkedIn
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.38-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
           </a>
         </div>
@@ -488,8 +490,9 @@
         f.loading = 'lazy';
         f.setAttribute('frameborder', '0');
         f.setAttribute('allowfullscreen', '');
-        // LinkedIn embeds are a fixed ~504px wide; cap to the column on small screens.
-        f.className = 'reveal w-full max-w-[504px] h-[600px] rounded-2xl border border-slate-200 bg-white shadow-sm';
+        // Carousel item: fixed width that fits LinkedIn's ~504px embed, never shrinks,
+        // snaps into place. On narrow screens it caps to the viewport width.
+        f.className = 'reveal snap-start shrink-0 w-[min(85vw,460px)] h-[560px] rounded-2xl border border-slate-200 bg-white shadow-sm';
         return f;
       });
 

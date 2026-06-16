@@ -11,7 +11,7 @@ standalone working prototype.
 🚧 Prototype / for review — **not** the live site, and not wired into the deploy.
 
 ## Pages
-- `index.html` — home: hero (with animated Astro), role teasers, how-it-works, community buzz, team, CTA
+- `index.html` — home: hero (with animated Astro), role teasers, how-it-works, LinkedIn posts, team, CTA
 - `roles/charity-nonprofit.html` — full nonprofit page
 - `roles/junior-professional.html` — full junior professional page
 - `roles/technical-expert.html` — full technical expert page
@@ -22,9 +22,10 @@ All pages share a header (with working mobile menu), footer, and the brand styli
 "Apply" buttons link to the real Google Form applications; the FAQ/expert pages link to
 the project email.
 
-## Featuring LinkedIn posts ("Community buzz")
-The homepage has a curated **Community buzz** section that shows real, embedded LinkedIn
-posts. To feature one, edit a single file — `assets/community-posts.js` — and paste the
+## Featuring LinkedIn posts ("Straight from our LinkedIn")
+The homepage has a curated section showing real, embedded posts from The Technical
+Collective's own LinkedIn, in a compact swipeable carousel.
+To feature one, edit a single file — `assets/community-posts.js` — and paste the
 post's official embed code (on the post: `···` → **"Embed this post"**). Step-by-step
 instructions are at the top of that file; no coding needed, and it can be done straight
 from GitHub's web editor. The section hides itself automatically when the list is empty,
