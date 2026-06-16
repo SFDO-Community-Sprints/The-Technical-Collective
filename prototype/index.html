@@ -60,8 +60,8 @@
     @media (prefers-reduced-motion: reduce) {
       .js .reveal { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
-      /* Respect reduced-motion: hide the looping Astro video entirely (poster still shows) */
-      #astro-video { display: none; }
+      /* Respect reduced-motion: hide the looping Astro videos entirely (posters still show) */
+      #astro-video, #astro-video-2 { display: none; }
     }
   </style>
 </head>
@@ -375,8 +375,22 @@
     </section>
 
     <!-- ─────────── CTA ─────────── -->
-    <section id="apply" class="py-24 border-t border-slate-100">
-      <div class="max-w-4xl mx-auto px-5">
+    <section id="apply" class="relative overflow-hidden py-24 border-t border-slate-100">
+
+      <!-- Astro (Salesforce mascot) — a second, contrasting pose that bookends the
+           hero Astro: greets you top-right up top, sees you off bottom-left down here.
+           Same displayed size and treatment as the hero video; decorative only. -->
+      <video id="astro-video-2"
+        class="pointer-events-none select-none absolute z-0 bottom-0 left-0 lg:left-4
+               h-[180px] sm:h-[240px] lg:h-[300px] w-auto
+               opacity-20 sm:opacity-100 drop-shadow-xl"
+        autoplay loop muted playsinline aria-hidden="true"
+        poster="assets/video/astro-pose-poster.png">
+        <source src="assets/video/astro-pose.webm" type="video/webm" />
+        <source src="assets/video/astro-pose.mp4"  type='video/mp4; codecs="hvc1"' />
+      </video>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-5">
         <div class="reveal rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-14 text-center shadow-2xl shadow-brand/30">
           <h2 class="text-3xl sm:text-4xl font-bold">Ready to make an impact?</h2>
           <p class="mt-3 text-white/85 max-w-xl mx-auto">Choose your path to get started — there's a place for everyone.</p>
