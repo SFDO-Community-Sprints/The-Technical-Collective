@@ -274,10 +274,28 @@
           </p>
         </div>
 
-        <!-- Embedded LinkedIn posts land here. Horizontal scroll-snap carousel so the
-             section stays compact (one row) no matter how many posts are added. -->
-        <div id="communityGrid"
-             class="mt-12 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 scroll-px-5"></div>
+        <!-- Carousel. The track (#communityGrid) is a scroll-snap row; the arrow
+             buttons and dots below drive it. Embedded posts are injected into the
+             track by the script at the bottom of the page. -->
+        <div class="relative mt-12">
+          <!-- Prev / Next arrows (hidden on small screens, where users just swipe) -->
+          <button id="commPrev" type="button" aria-label="Previous post"
+            class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:text-brand hover:border-brand/40 transition disabled:opacity-0 disabled:pointer-events-none">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="commNext" type="button" aria-label="Next post"
+            class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 h-11 w-11 items-center justify-center rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:text-brand hover:border-brand/40 transition disabled:opacity-0 disabled:pointer-events-none">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Track -->
+          <div id="communityGrid"
+               class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5 scroll-px-5 scroll-smooth
+                      [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"></div>
+        </div>
+
+        <!-- Dot indicators (one per post; injected by the script) -->
+        <div id="commDots" class="mt-6 flex justify-center gap-2"></div>
 
         <div class="mt-8 text-center reveal">
           <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener"
@@ -500,6 +518,58 @@
       frames.forEach((f) => grid.appendChild(f));
       section.classList.remove('hidden');
       observeReveals(grid);
+
+      // ── Carousel controls ──────────────────────────────────────────────
+      const prev = document.getElementById('commPrev');
+      const next = document.getElementById('commNext');
+      const dotsWrap = document.getElementById('commDots');
+
+      // Step = one card's width plus the flex gap, so each move advances one post.
+      const stepSize = () => {
+        const gap = parseFloat(getComputedStyle(grid).columnGap) || 24;
+        return frames[0].getBoundingClientRect().width + gap;
+      };
+      const indexFromScroll = () => Math.round(grid.scrollLeft / stepSize());
+      const scrollToIndex = (i) => {
+        const clamped = Math.max(0, Math.min(i, frames.length - 1));
+        grid.scrollTo({ left: clamped * stepSize(), behavior: 'smooth' });
+      };
+
+      // Build one dot per post.
+      const dots = frames.map((_, i) => {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.setAttribute('aria-label', `Go to post ${i + 1}`);
+        d.className = 'h-2.5 w-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all';
+        d.addEventListener('click', () => scrollToIndex(i));
+        dotsWrap.appendChild(d);
+        return d;
+      });
+
+      // Reflect the current position in the dots and arrow enabled-state.
+      const sync = () => {
+        const i = indexFromScroll();
+        dots.forEach((d, j) => {
+          const active = j === i;
+          d.classList.toggle('bg-brand', active);
+          d.classList.toggle('bg-slate-300', !active);
+          d.classList.toggle('w-6', active);     // active dot stretches into a pill…
+          d.classList.toggle('w-2.5', !active);  // …and back to a dot when inactive
+        });
+        if (prev) prev.disabled = grid.scrollLeft <= 1;
+        if (next) next.disabled = grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 1;
+      };
+
+      prev && prev.addEventListener('click', () => scrollToIndex(indexFromScroll() - 1));
+      next && next.addEventListener('click', () => scrollToIndex(indexFromScroll() + 1));
+
+      let raf = 0;
+      grid.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
+      window.addEventListener('resize', sync);
+
+      // A single post needs no controls.
+      if (frames.length < 2) { dotsWrap.classList.add('hidden'); if (prev) prev.style.display = 'none'; if (next) next.style.display = 'none'; }
+      sync();
     })();
   </script>
 </body>
