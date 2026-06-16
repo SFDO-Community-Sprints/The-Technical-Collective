@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nonprofits &amp; Charities — The Technical Collective</title>
+  <meta name="description" content="Get pro-bono or compensated Salesforce support for your nonprofit through The Technical Collective." />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/tclogo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nonprofits & Charities — The Technical Collective" />
+  <meta property="og:description" content="Get scoped Salesforce support for your mission, delivered by a mentored team." />
+  <meta property="og:image" content="../assets/tclogo.png" />
+  <meta name="twitter:card" content="summary" />
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { brand:{DEFAULT:'#3f51b5',dark:'#303f9f',light:'#5c6bc0'}, accent:{DEFAULT:'#00bcd4',dark:'#0097a7'} },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .hero-gradient { background:
+      radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.10), transparent 60%),
+      radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.12), transparent 55%); }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid #3f51b5; outline-offset: 2px; border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white">
+
+  <div id="wipBanner" class="bg-slate-900 text-slate-200 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-center gap-3 relative">
+      <span class="text-center">Work in progress — prototype of the next version of The Technical Collective site.</span>
+      <button id="wipClose" class="absolute right-3 p-1 rounded hover:bg-white/10 transition" aria-label="Dismiss notice">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2.5">
+        <img src="../assets/tclogo.png" alt="The Technical Collective" class="h-9 w-auto" />
+        <span class="font-bold text-slate-900 hidden sm:inline">The Technical Collective</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="charity-nonprofit.html" class="px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Nonprofits</a>
+        <a href="junior-professional.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Juniors</a>
+        <a href="technical-expert.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Experts</a>
+        <a href="../promises-expectations.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Promises</a>
+        <a href="../faq.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">FAQ</a>
+        <a href="#apply" class="ml-1 px-4 py-2 rounded-lg bg-brand text-white hover:bg-brand-dark transition shadow-sm">Get involved</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition" aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
+      <a href="charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">Nonprofits</a>
+      <a href="junior-professional.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Juniors</a>
+      <a href="technical-expert.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Experts</a>
+      <a href="../promises-expectations.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Promises</a>
+      <a href="../faq.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">FAQ</a>
+      <a href="#apply" class="block px-3 py-2 rounded-lg bg-brand text-white text-center">Get involved</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="hero-gradient border-b border-slate-100">
+      <div class="max-w-3xl mx-auto px-5 pt-16 pb-14">
+        <nav class="text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+          <a href="../index.html" class="hover:text-brand">Home</a> <span class="mx-1.5">/</span> <span class="text-slate-700">Nonprofits &amp; Charities</span>
+        </nav>
+        <span class="inline-block mb-4 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-semibold tracking-wide uppercase">For nonprofits &amp; charities</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">Salesforce support for your mission</h1>
+        <p class="mt-5 text-lg text-slate-600">
+          You are a nonprofit organisation in need of Salesforce support. Look no further than The Technical Collective.
+        </p>
+      </div>
+    </section>
+
+    <div class="max-w-3xl mx-auto px-5 py-14 space-y-12">
+
+      <section>
+        <p class="text-slate-600 leading-relaxed">
+          We are a team of passionate volunteers, here to support charities in their journey towards leveraging the power of Salesforce. We understand that time and budget constraints can make it challenging for nonprofits to hire additional resources to support their teams to satisfy all their organisational requirements.
+        </p>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          That's where we come in. We connect enthusiastic junior Salesforce professionals who are seeking work experience with charities in need of support. Our goal is to match the right professional with the right organisation, ensuring a mutually beneficial partnership. By volunteering their time and expertise, our professionals help charities optimise their Salesforce systems, provide strategic guidance, and empower them to achieve their mission with the support of technical experts. We believe in the power of collaboration and making a positive impact — let us be your partner in harnessing the full potential of Salesforce for your charity.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900">Eligibility</h2>
+        <p class="mt-3 text-slate-600">We are seeking nonprofits or social organisations who meet the following requirements:</p>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Registered charities with donated or discounted Salesforce licenses through the Power of Us Program</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Have at least one license available for the duration of the project</li>
+          <li class="flex gap-3"><span class="text-brand mt-1">&#10003;</span> Have recently or newly implemented Salesforce, or are ready to enhance an existing implementation</li>
+        </ul>
+      </section>
+
+      <section class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-7">
+          <h2 class="text-xl font-bold text-slate-900">What we ask of you</h2>
+          <ul class="mt-4 space-y-2.5 text-slate-600 text-sm">
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Willingness to collaborate with the volunteer and provide feedback</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Create a safe environment for learning</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> One production license and 2 sandbox licenses for the project, with full System Administrator access</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Clear guidance on priorities for the technical changes needed</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Clear, measurable objectives, achievable in the agreed time frame</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Review &amp; approve solutions suggested by our experts</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> Responsibility for NDAs, data privacy (e.g. GDPR), backups and sector policies</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> A closing survey and case study on the project's impact</li>
+            <li class="flex gap-3"><span class="text-brand mt-0.5">&#10003;</span> And the biggest one — your time to help make this a success</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-accent/30 bg-accent/5 p-7">
+          <h2 class="text-xl font-bold text-slate-900">What you can expect from us</h2>
+          <ul class="mt-4 space-y-2.5 text-slate-600 text-sm">
+            <li class="flex gap-3"><span class="text-accent-dark mt-0.5">&#10003;</span> A dedicated Salesforce technical team for a time-framed project with clear deliverables</li>
+            <li class="flex gap-3"><span class="text-accent-dark mt-0.5">&#10003;</span> A team of experts from the Salesforce Community to support your volunteer</li>
+            <li class="flex gap-3"><span class="text-accent-dark mt-0.5">&#10003;</span> Greater impact through the CRM — measuring charity impact for funding and board reporting</li>
+            <li class="flex gap-3"><span class="text-accent-dark mt-0.5">&#10003;</span> New talent and connections to grow your network and the community</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="apply" class="rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-12 text-center shadow-xl shadow-brand/20">
+        <h2 class="text-2xl sm:text-3xl font-bold">Get involved</h2>
+        <p class="mt-3 text-white/85">Apply for Salesforce support for your organisation.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTZLGZNBVQCvCrwX8W4gUbGqSC0Tj50fjrUQsF0rHKOIDDVQ/viewform"
+           target="_blank" rel="noopener"
+           class="mt-7 inline-block px-7 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
+          Apply for help for your organisation
+        </a>
+      </section>
+
+      <p class="text-center text-slate-500">
+        Find out more about the
+        <a href="../promises-expectations.html" class="text-brand font-medium hover:underline">promises exchanged between the groups</a>
+        of The Technical Collective project.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-6xl mx-auto px-5 py-14 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <img src="../assets/tclogo.png" alt="" class="h-8 w-auto" />
+          <span class="font-bold text-white">The Technical Collective</span>
+        </div>
+        <p class="mt-4 text-sm text-slate-400 max-w-sm">
+          Connecting nonprofits, junior Salesforce admins, and seasoned experts — upskilling new talent while helping charities make the most of Salesforce.
+        </p>
+        <p class="mt-4 text-sm text-slate-400">A Salesforce Commons project.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Explore</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="charity-nonprofit.html" class="block text-slate-400 hover:text-white transition">For nonprofits</a>
+          <a href="junior-professional.html" class="block text-slate-400 hover:text-white transition">For juniors</a>
+          <a href="technical-expert.html" class="block text-slate-400 hover:text-white transition">For experts</a>
+          <a href="../promises-expectations.html" class="block text-slate-400 hover:text-white transition">Promises &amp; Expectations</a>
+          <a href="../faq.html" class="block text-slate-400 hover:text-white transition">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Connect</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="mailto:techcollectiveproject@gmail.com" class="block text-slate-400 hover:text-white transition">Email us</a>
+          <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">LinkedIn</a>
+          <a href="https://twitter.com/1TechCollective" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">Twitter / X</a>
+        </nav>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-slate-500 text-center">
+        © The Technical Collective. Built by the community, for the community.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('hidden') === false;
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const wipClose = document.getElementById('wipClose');
+    const wipBanner = document.getElementById('wipBanner');
+    if (wipClose && wipBanner) wipClose.addEventListener('click', () => wipBanner.remove());
+  </script>
+</body>
+</html>

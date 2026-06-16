@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — The Technical Collective</title>
+  <meta name="description" content="Frequently asked questions about The Technical Collective program for nonprofits, junior admins, and technical experts." />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/tclogo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FAQ — The Technical Collective" />
+  <meta property="og:description" content="Everything you need to know about the program." />
+  <meta property="og:image" content="assets/tclogo.png" />
+  <meta name="twitter:card" content="summary" />
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { brand:{DEFAULT:'#3f51b5',dark:'#303f9f',light:'#5c6bc0'}, accent:{DEFAULT:'#00bcd4',dark:'#0097a7'} },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .hero-gradient { background:
+      radial-gradient(60rem 40rem at 80% -10%, rgba(0,188,212,0.10), transparent 60%),
+      radial-gradient(50rem 40rem at 0% 0%, rgba(63,81,181,0.12), transparent 55%); }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid #3f51b5; outline-offset: 2px; border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white">
+
+  <div id="wipBanner" class="bg-slate-900 text-slate-200 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-center gap-3 relative">
+      <span class="text-center">Work in progress — prototype of the next version of The Technical Collective site.</span>
+      <button id="wipClose" class="absolute right-3 p-1 rounded hover:bg-white/10 transition" aria-label="Dismiss notice">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <img src="assets/tclogo.png" alt="The Technical Collective" class="h-9 w-auto" />
+        <span class="font-bold text-slate-900 hidden sm:inline">The Technical Collective</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <a href="roles/charity-nonprofit.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Nonprofits</a>
+        <a href="roles/junior-professional.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Juniors</a>
+        <a href="roles/technical-expert.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Experts</a>
+        <a href="promises-expectations.html" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50 transition">Promises</a>
+        <a href="faq.html" class="px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">FAQ</a>
+        <a href="index.html#apply" class="ml-1 px-4 py-2 rounded-lg bg-brand text-white hover:bg-brand-dark transition shadow-sm">Get involved</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition" aria-label="Open menu" aria-expanded="false">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
+      <a href="roles/charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Nonprofits</a>
+      <a href="roles/junior-professional.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Juniors</a>
+      <a href="roles/technical-expert.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Experts</a>
+      <a href="promises-expectations.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Promises</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-brand bg-brand/5 font-semibold">FAQ</a>
+      <a href="index.html#apply" class="block px-3 py-2 rounded-lg bg-brand text-white text-center">Get involved</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-gradient border-b border-slate-100">
+      <div class="max-w-3xl mx-auto px-5 pt-16 pb-14">
+        <nav class="text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+          <a href="index.html" class="hover:text-brand">Home</a> <span class="mx-1.5">/</span> <span class="text-slate-700">FAQ</span>
+        </nav>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">Frequently asked questions</h1>
+        <p class="mt-5 text-lg text-slate-600">Everything you need to know about the program.</p>
+      </div>
+    </section>
+
+    <div class="max-w-3xl mx-auto px-5 py-14 space-y-12">
+
+      <!-- General -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">General</h2>
+        <div class="space-y-3">
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm" open>
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What is The Technical Collective?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">The Technical Collective is a community-led program that connects small to mid-sized nonprofits with junior Salesforce administrators seeking real-world experience, supported by seasoned Salesforce professionals.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Who is this program for?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">This initiative is ideal for nonprofits using Salesforce, certified junior admins looking to gain hands-on experience, and experienced Salesforce professionals who want to mentor and give back.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Is there a cost to participate?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">No, the program is designed to provide pro-bono support to nonprofits, while offering a skills-building pathway for junior admins.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What kinds of Salesforce projects are supported?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Some of our past projects covered report and dashboard creation, process updates, data clean-up, documentation, and basic automation. We are open to other products or types of projects based on availability and skillset.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">How are projects scoped and managed?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Each project needs to have a clear, achievable and limited scope, and includes oversight from an experienced Salesforce professional to ensure quality and alignment with best practices. Please refer to our <a href="promises-expectations.html" class="text-brand hover:underline">Promises &amp; Expectations</a> section for more information.</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Nonprofits -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">For nonprofits &amp; charities</h2>
+        <div class="space-y-3">
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">How can our nonprofit apply for support?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">You can complete the online application form detailing your Salesforce setup, current challenges, and support needs. We will review and match you with an appropriate team.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What are the eligibility criteria for nonprofits?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Your organisation should be using Salesforce Nonprofit Cloud or similar, ideally using no more than the 10 donated licenses provided through the Power of Us Program from Salesforce.org, and be open to collaboration and knowledge-sharing.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Will we be working directly with a junior admin?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Yes. Your assigned junior admin will take the lead on the work, but all tasks are reviewed and supported by a senior Salesforce technical expert.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What are the expected time commitments for nonprofits?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">This depends on project scope. You will need to commit to a brief onboarding session and regular check-ins.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What if our needs are too complex for a junior admin?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">We will assess your requirements during the scoping process. If a project is too advanced, we may refer you to a more appropriate support channel or re-scope the task.</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Juniors -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">For junior Salesforce professionals</h2>
+        <div class="space-y-3">
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What do I need to join as a junior professional?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">You need to be already upskilled in Salesforce by earning at least one certification, and be seeking work experience to add to your CV or resume.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What kind of support will I receive?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">You will be paired with an experienced Salesforce mentor who will guide you through best practices, review your work, and provide feedback.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Will this experience count toward job applications or references?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Yes. You will receive documented project experience and the option to request a reference from your technical expert or the nonprofit after successful completion.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Do I get paid?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">This is a voluntary learning program and is currently unpaid. However, the experience is highly valuable and can significantly boost your employability. We are open to paid offerings in the future based on availability, length of project, and complexity.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">How long is each placement?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Due to the nature of volunteer work, we are not able to guarantee a project length. This will be decided during the project kick-off, when scope is established and ways of working are defined.</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Experts -->
+      <section>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">For technical experts</h2>
+        <div class="space-y-3">
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">How can I get involved as a mentor or technical expert?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">You can register via our website to express interest. We will then match you with junior professionals or projects aligned with your skills and availability.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">What's expected of me as a mentor?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">You will offer technical guidance, review the junior professional's work, answer questions, and ensure deliverables align with Salesforce best practices. We match a team of experts to ensure there is always a technical expert available for support.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Do I need nonprofit experience to be a mentor?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">No, but familiarity with Nonprofit Cloud and/or NPSP is helpful. The key requirement is at least 5 years of hands-on Salesforce experience, and a passion for supporting others is essential.</div>
+          </details>
+          <details class="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+            <summary class="flex items-center justify-between cursor-pointer px-5 py-4 font-medium text-slate-900">Can I pick which projects or professionals I support?<svg class="faq-chevron h-5 w-5 text-slate-400 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="px-5 pb-4 text-slate-600">Yes. We try to match you based on your interests and availability, and you will have the opportunity to accept or decline any proposed engagement.</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="rounded-3xl bg-gradient-to-br from-brand to-brand-dark text-white px-8 py-12 text-center shadow-xl shadow-brand/20">
+        <h2 class="text-2xl sm:text-3xl font-bold">Still have questions?</h2>
+        <p class="mt-3 text-white/85">Reach out to the team directly.</p>
+        <a href="mailto:techcollectiveproject@gmail.com"
+           class="mt-7 inline-block px-7 py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-slate-100 transition">
+          Email the team
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="max-w-6xl mx-auto px-5 py-14 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-2">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/tclogo.png" alt="" class="h-8 w-auto" />
+          <span class="font-bold text-white">The Technical Collective</span>
+        </div>
+        <p class="mt-4 text-sm text-slate-400 max-w-sm">
+          Connecting nonprofits, junior Salesforce admins, and seasoned experts — upskilling new talent while helping charities make the most of Salesforce.
+        </p>
+        <p class="mt-4 text-sm text-slate-400">A Salesforce Commons project.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Explore</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="roles/charity-nonprofit.html" class="block text-slate-400 hover:text-white transition">For nonprofits</a>
+          <a href="roles/junior-professional.html" class="block text-slate-400 hover:text-white transition">For juniors</a>
+          <a href="roles/technical-expert.html" class="block text-slate-400 hover:text-white transition">For experts</a>
+          <a href="promises-expectations.html" class="block text-slate-400 hover:text-white transition">Promises &amp; Expectations</a>
+          <a href="faq.html" class="block text-slate-400 hover:text-white transition">FAQ</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Connect</h3>
+        <nav class="mt-3 space-y-2 text-sm">
+          <a href="mailto:techcollectiveproject@gmail.com" class="block text-slate-400 hover:text-white transition">Email us</a>
+          <a href="https://www.linkedin.com/company/the-technical-collective/" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">LinkedIn</a>
+          <a href="https://twitter.com/1TechCollective" target="_blank" rel="noopener" class="block text-slate-400 hover:text-white transition">Twitter / X</a>
+        </nav>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-slate-500 text-center">
+        © The Technical Collective. Built by the community, for the community.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('hidden') === false;
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+    const wipClose = document.getElementById('wipClose');
+    const wipBanner = document.getElementById('wipBanner');
+    if (wipClose && wipBanner) wipClose.addEventListener('click', () => wipBanner.remove());
+  </script>
+</body>
+</html>
