@@ -381,7 +381,7 @@
            hero Astro: greets you top-right up top, sees you off bottom-left down here.
            Same displayed size and treatment as the hero video; decorative only. -->
       <video id="astro-video-2"
-        class="pointer-events-none select-none absolute z-0 bottom-0 left-0 lg:left-4
+        class="pointer-events-none select-none absolute z-0 bottom-0 -left-6 sm:-left-10 lg:-left-20
                h-[180px] sm:h-[240px] lg:h-[300px] w-auto
                opacity-20 sm:opacity-100 drop-shadow-xl"
         autoplay loop muted playsinline aria-hidden="true"
@@ -592,30 +592,44 @@
       };
 
       // ── Autoplay ───────────────────────────────────────────────────────
-      // Advances every few seconds, looping back to the start. Pauses on hover,
-      // focus, touch, or any manual control, and respects reduced-motion.
+      // One always-running interval; each tick decides whether to advance.
+      // It advances only when: motion is allowed, there's >1 post, the section
+      // is on screen, the tab is visible, and the user isn't currently
+      // interacting (hover/focus/recent touch). "pausedUntil" auto-expires so
+      // any interaction always resumes on its own — no stuck-paused states.
       const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let timer = null;
+      let hovering = false, pausedUntil = 0, onScreen = true;
+      const stopAuto = (ms = 8000) => { pausedUntil = Date.now() + ms; };
+
       const advance = () => {
         const i = indexFromScroll();
         scrollToIndex(i >= frames.length - 1 ? 0 : i + 1);
       };
-      const startAuto = () => { if (!timer && !reduceMotion && frames.length > 1) timer = setInterval(advance, 5000); };
-      const stopAuto  = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+      if (!reduceMotion && frames.length > 1) {
+        setInterval(() => {
+          if (hovering || onScreen === false || document.hidden) return;
+          if (Date.now() < pausedUntil) return;
+          advance();
+        }, 5000);
+      }
 
       prev && prev.addEventListener('click', () => { stopAuto(); scrollToIndex(indexFromScroll() - 1); });
       next && next.addEventListener('click', () => { stopAuto(); scrollToIndex(indexFromScroll() + 1); });
 
-      // Pause while the user is engaging; resume when they leave.
-      ['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((ev) => grid.addEventListener(ev, stopAuto, { passive: true }));
-      ['mouseleave', 'focusout'].forEach((ev) => grid.addEventListener(ev, startAuto));
-      // Don't run autoplay while the section is off-screen (saves work, avoids
-      // the user returning to a mid-scrolled carousel).
+      // Pause while hovering/focused; brief pause after a touch or manual scroll.
+      grid.addEventListener('mouseenter', () => { hovering = true; });
+      grid.addEventListener('mouseleave', () => { hovering = false; });
+      grid.addEventListener('focusin',  () => { hovering = true; });
+      grid.addEventListener('focusout', () => { hovering = false; });
+      ['touchstart', 'pointerdown', 'wheel'].forEach((ev) => grid.addEventListener(ev, () => stopAuto(), { passive: true }));
+
+      // Skip work while the section is off screen (still resumes when scrolled to).
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
-          entries.forEach((e) => e.isIntersecting ? startAuto() : stopAuto());
-        }, { threshold: 0.4 }).observe(section);
-      } else { startAuto(); }
+          entries.forEach((e) => { onScreen = e.isIntersecting; });
+        }, { threshold: 0.01 }).observe(section);
+      }
 
       let raf = 0;
       grid.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
