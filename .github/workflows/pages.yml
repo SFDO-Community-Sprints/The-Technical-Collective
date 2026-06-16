@@ -27,12 +27,13 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: mkdocs build --strict -d _site
+      # The next-version prototype is now the main site (served at the root).
+      # The original MkDocs documentation site is preserved under /docs/.
+      - name: Build MkDocs site into /docs/
+        run: mkdocs build --strict -d _site/docs
 
-      # Publish the next-version prototype alongside the live site, under /prototype/.
-      # This runs after the MkDocs build so it can't affect the main site output.
-      - name: Copy prototype into site output
-        run: cp -r prototype _site/prototype
+      - name: Publish prototype at the site root
+        run: cp -r prototype/. _site/
 
       - uses: actions/configure-pages@v6
 
