@@ -115,20 +115,21 @@ details[open] > div {
   }
 
   .tc-page-hero-media {
-    opacity: 0.1;
-    object-position: center top !important;
+    opacity: 0.34;
+    object-position: right top !important;
     transform: none !important;
   }
 
   .tc-page-hero-scrim {
     background:
       linear-gradient(
-        180deg,
+        90deg,
         rgba(255, 255, 255, 0.99) 0%,
-        rgba(255, 255, 255, 0.98) 48%,
-        rgba(255, 255, 255, 0.95) 100%
+        rgba(255, 255, 255, 0.96) 58%,
+        rgba(255, 255, 255, 0.8) 82%,
+        rgba(255, 255, 255, 0.64) 100%
       );
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
   }
 
   .tc-page-hero-copy {
