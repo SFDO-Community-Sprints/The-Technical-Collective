@@ -1,6 +1,6 @@
 site_name: "The Technical Collective"    # Site title
 docs_dir: files/docs
-site_url: https://the-technical-collective.github.io/
+site_url: https://www.technicalcollective.org/docs/
 
 theme:
   name: material
