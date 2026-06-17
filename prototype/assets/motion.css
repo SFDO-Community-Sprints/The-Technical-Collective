@@ -13,6 +13,21 @@
   will-change: transform;
 }
 
+.tc-page-hero {
+  isolation: isolate;
+}
+
+.tc-page-hero-scrim {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.96) 38%,
+      rgba(255, 255, 255, 0.78) 66%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+}
+
 details {
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
@@ -93,12 +108,56 @@ details[open] > div {
 }
 
 @media (max-width: 639px) {
+  .tc-page-hero {
+    min-height: auto;
+    align-items: flex-start;
+    background: #fff;
+  }
+
+  .tc-page-hero-media {
+    opacity: 0.18;
+    object-position: center top !important;
+    transform: none !important;
+  }
+
+  .tc-page-hero-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.99) 0%,
+        rgba(255, 255, 255, 0.96) 48%,
+        rgba(255, 255, 255, 0.9) 100%
+      );
+    backdrop-filter: blur(1px);
+  }
+
+  .tc-page-hero-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .tc-page-hero-copy h1 {
+    font-size: 2.625rem;
+    line-height: 1.08;
+  }
+
+  .tc-page-hero-copy p {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
   .tc-apply-banner {
     border-radius: 1rem;
   }
 
   .tc-apply-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .tc-page-hero-copy h1 {
+    font-size: 2.25rem;
   }
 }
 
@@ -150,6 +209,14 @@ details[open] > div {
     --tc-reveal-y: 20px;
     --tc-reveal-blur: 3px;
     --tc-reveal-duration: 780ms;
+  }
+}
+
+@media (max-width: 639px) and (prefers-reduced-motion: no-preference) {
+  [data-reveal="fade-left"],
+  [data-reveal="fade-right"] {
+    --tc-reveal-x: 0;
+    --tc-reveal-y: 14px;
   }
 }
 

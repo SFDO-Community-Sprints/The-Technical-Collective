@@ -93,12 +93,15 @@
     <!-- ─────────── Hero ─────────── -->
     <section class="hero-gradient relative overflow-hidden">
 
-      <!-- Astro (Salesforce mascot) — transparent looping video, decorative.
-           Sits behind the text on the right; faded on small screens so copy stays readable. -->
+      <!-- Astro is a transparent looping video on larger screens. Mobile uses
+           the poster image to avoid browsers rendering alpha video as black. -->
+      <img src="assets/video/astro-poster.png" alt="" aria-hidden="true"
+        class="pointer-events-none select-none absolute z-0 bottom-0 right-0
+               h-[180px] w-auto opacity-20 drop-shadow-xl sm:hidden" />
       <video id="astro-video"
         class="pointer-events-none select-none absolute z-0 bottom-0 right-0 lg:right-4
-               h-[180px] sm:h-[240px] lg:h-[300px] w-auto
-               opacity-20 sm:opacity-100 drop-shadow-xl"
+               hidden h-[240px] lg:h-[300px] w-auto
+               opacity-100 drop-shadow-xl sm:block"
         data-hero-media
         autoplay loop muted playsinline aria-hidden="true"
         poster="assets/video/astro-poster.png">
@@ -349,13 +352,14 @@
     <!-- ─────────── CTA ─────────── -->
     <section id="apply" class="relative overflow-hidden py-24 border-t border-slate-100">
 
-      <!-- Astro (Salesforce mascot) — a second, contrasting pose that bookends the
-           hero Astro: greets you top-right up top, sees you off bottom-left down here.
-           Same displayed size and treatment as the hero video; decorative only. -->
+      <!-- Astro uses a poster on mobile for the same alpha-video fallback. -->
+      <img src="assets/video/astro-pose-poster.png" alt="" aria-hidden="true"
+        class="pointer-events-none select-none absolute z-0 bottom-0 -left-6
+               h-[180px] w-auto opacity-20 drop-shadow-xl sm:hidden" />
       <video id="astro-video-2"
         class="pointer-events-none select-none absolute z-0 bottom-0 -left-6 sm:-left-10 lg:-left-20
-               h-[180px] sm:h-[240px] lg:h-[300px] w-auto
-               opacity-20 sm:opacity-100 drop-shadow-xl"
+               hidden h-[240px] lg:h-[300px] w-auto
+               opacity-100 drop-shadow-xl sm:block"
         autoplay loop muted playsinline aria-hidden="true"
         poster="assets/video/astro-pose-poster.png">
         <source src="assets/video/astro-pose.webm" type="video/webm" />
