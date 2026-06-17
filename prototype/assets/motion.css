@@ -1,0 +1,102 @@
+/* Shared motion layer for the static prototype. Content remains visible without JS. */
+.tc-scroll-progress {
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #3f51b5, #00bcd4);
+}
+
+[data-hero-media] {
+  transform: translate3d(0, var(--tc-hero-shift, 0px), 0) scale(1.035);
+  transform-origin: center;
+  will-change: transform;
+}
+
+details {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+details[open] {
+  border-color: rgba(63, 81, 181, 0.28);
+  box-shadow: 0 14px 30px -22px rgba(15, 23, 42, 0.34);
+}
+
+details > div {
+  transition: opacity 220ms ease;
+}
+
+details[open] > div {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal],
+  .js .reveal {
+    opacity: 0;
+    transform:
+      translate3d(var(--tc-reveal-x, 0), var(--tc-reveal-y, 18px), 0)
+      scale(var(--tc-reveal-scale, 1));
+    filter: blur(var(--tc-reveal-blur, 0));
+    transition:
+      opacity var(--tc-reveal-duration, 660ms) cubic-bezier(0.22, 1, 0.36, 1),
+      transform var(--tc-reveal-duration, 660ms) cubic-bezier(0.22, 1, 0.36, 1),
+      filter var(--tc-reveal-duration, 660ms) cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--tc-reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  .js [data-reveal].is-visible,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  [data-reveal="fade-left"] {
+    --tc-reveal-x: -28px;
+    --tc-reveal-y: 0;
+  }
+
+  [data-reveal="fade-right"] {
+    --tc-reveal-x: 28px;
+    --tc-reveal-y: 0;
+  }
+
+  [data-reveal="scale-in"] {
+    --tc-reveal-y: 12px;
+    --tc-reveal-scale: 0.97;
+  }
+
+  [data-reveal="soft"] {
+    --tc-reveal-y: 10px;
+    --tc-reveal-blur: 4px;
+    --tc-reveal-duration: 760ms;
+  }
+
+  [data-reveal="hero"] {
+    --tc-reveal-y: 20px;
+    --tc-reveal-blur: 3px;
+    --tc-reveal-duration: 780ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal],
+  .js .reveal,
+  [data-hero-media] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  #astro-video,
+  #astro-video-2 {
+    display: none;
+  }
+}

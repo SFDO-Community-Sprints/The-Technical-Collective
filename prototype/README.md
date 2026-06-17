@@ -1,14 +1,11 @@
-# Next-version site prototype (WIP)
+# Public Site Prototype
 
-A **work-in-progress** prototype of a redesigned, multi-page site for The Technical Collective.
-
-This is intentionally separate from the live documentation site (`files/docs/`, built with
-MkDocs). It explores a modern, marketing-style design as a possible "next version" — fully
-self-contained, with no links back to the current live site, so it can be shared as a
-standalone working prototype.
+This folder contains the static HTML site served at the GitHub Pages root.
+The original MkDocs documentation site (`files/docs/`) is still built and published under
+`/docs/`.
 
 ## Status
-🚧 Prototype / for review — **not** the live site, and not wired into the deploy.
+Published by `.github/workflows/pages.yml` on pushes to `main`.
 
 ## Pages
 - `index.html` — home: hero (with animated Astro), role teasers, how-it-works, LinkedIn posts, team, CTA
@@ -18,9 +15,9 @@ standalone working prototype.
 - `promises-expectations.html` — the promises between all three groups
 - `faq.html` — full FAQ (expandable sections)
 
-All pages share a header (with working mobile menu), footer, and the brand styling.
-"Apply" buttons link to the real Google Form applications; the FAQ/expert pages link to
-the project email.
+All pages share a header, mobile menu, footer, brand styling, and the shared motion layer
+in `assets/motion.css` and `assets/tc-motion.js`. Role-page apply buttons open the local
+application modal rendered by `assets/tc-forms.js`.
 
 ## Featuring LinkedIn posts ("Straight from our LinkedIn")
 The homepage has a curated section showing real, embedded posts from The Technical
@@ -33,10 +30,17 @@ so it never shows a broken/empty block. For safety, only genuine
 `www.linkedin.com/embed/...` links are rendered — anything else is ignored.
 
 ## How to view it
-Single self-contained HTML pages (Tailwind via CDN, no build step). Either:
+Static HTML pages with local CSS/JS assets. Either:
 
 - Open `prototype/index.html` directly in a browser, or
 - Serve the folder: `python3 -m http.server -d prototype 8001` → http://127.0.0.1:8001
+
+Tailwind is built into `assets/tailwind.css`. If Tailwind classes change, rebuild it from
+the repository root:
+
+```bash
+npx --yes tailwindcss@3.4.17 -c prototype/tailwind.config.js -i prototype/assets/tailwind-input.css -o prototype/assets/tailwind.css --minify
+```
 
 ## What it reuses from the current site
 - Brand: logo, favicon, indigo/cyan palette, Inter typeface

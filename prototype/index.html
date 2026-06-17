@@ -23,6 +23,7 @@
   <!-- Set .js before paint so reveal animations have no flash; without JS, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="assets/tailwind.css" />
+  <link rel="stylesheet" href="assets/motion.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -85,6 +86,7 @@
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </nav>
+    <div class="tc-scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <!-- Mobile menu panel -->
     <div id="navMenu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-1 text-sm font-medium">
       <a href="roles/charity-nonprofit.html" class="block px-3 py-2 rounded-lg text-slate-600 hover:text-brand hover:bg-slate-50">Nonprofits</a>
@@ -107,6 +109,7 @@
         class="pointer-events-none select-none absolute z-0 bottom-0 right-0 lg:right-4
                h-[180px] sm:h-[240px] lg:h-[300px] w-auto
                opacity-20 sm:opacity-100 drop-shadow-xl"
+        data-hero-media
         autoplay loop muted playsinline aria-hidden="true"
         poster="assets/video/astro-poster.png">
         <source src="assets/video/astro.webm" type="video/webm" />
@@ -114,17 +117,17 @@
       </video>
 
       <div class="relative z-10 max-w-4xl mx-auto px-5 pt-24 pb-28 text-center">
-        <span class="inline-block mb-6 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-semibold tracking-wide uppercase">
+        <span data-reveal="hero" class="inline-block mb-6 px-3 py-1 rounded-full bg-brand/10 text-brand text-xs font-semibold tracking-wide uppercase">
           A Salesforce Commons project
         </span>
-        <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+        <h1 data-reveal="hero" style="--tc-reveal-delay: 90ms" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
           Upskill. Volunteer. <span class="text-brand">Impact.</span>
         </h1>
-        <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600">
+        <p data-reveal="hero" style="--tc-reveal-delay: 180ms" class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600">
           A volunteer program that pairs nonprofits with junior Salesforce admins —
           mentored by seasoned experts — to deliver real projects that grow careers and missions.
         </p>
-        <div class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
+        <div data-reveal="hero" style="--tc-reveal-delay: 270ms" class="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
           <a href="#apply" class="px-7 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark transition shadow-lg shadow-brand/20">
             Find your role
           </a>
@@ -662,5 +665,6 @@
       sync();
     })();
   </script>
+  <script src="assets/tc-motion.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 **A formalized program to upskill inexperienced Salesforce admins by matching them with non-profits, all with the dedicated support of experienced Salesforce professionals.**
 
-This repository contains the source code for the official documentation website for The Technical Collective program.
+This repository contains the source for The Technical Collective website and supporting documentation.
 
 ---
 
@@ -21,8 +21,10 @@ The Technical Collective aims to create a win-win-win ecosystem:
 
 This website is built with modern and simple tools to make it easy for anyone to contribute:
 
-*   **[MkDocs](https://www.mkdocs.org/):** A fast and simple static site generator.
-*   **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/):** A beautiful and feature-rich theme for MkDocs.
+*   **Static HTML prototype:** The current public site, served from `prototype/`.
+*   **[MkDocs](https://www.mkdocs.org/):** Builds the preserved documentation site under `/docs/`.
+*   **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/):** Theme for the documentation section.
+*   **Tailwind CSS:** Prebuilt local stylesheet for the prototype.
 *   **GitHub Pages:** For hosting the live website.
 *   **GitHub Actions:** For automating the build and deployment process.
 
@@ -54,12 +56,19 @@ Want to run the website on your local machine? Here’s how:
     pip install -r requirements.txt
     ```
 
-4.  **Start the local development server:**
+4.  **Start the documentation development server:**
     ```bash
     mkdocs serve
     ```
 
-    The website will now be running at `http://127.0.0.1:8000/`.
+    The documentation site will now be running at `http://127.0.0.1:8000/`.
+
+5.  **Serve the public prototype locally:**
+    ```bash
+    python3 -m http.server -d prototype 8001
+    ```
+
+    The prototype will be running at `http://127.0.0.1:8001/`.
 
 ---
 
@@ -75,5 +84,3 @@ Please read our **[Contribution Guide](CONTRIBUTING.md)** to learn how you can g
 
 *   **Trailblazer Community Group:** [Link to be added]
 *   **Slack Channel:** [Link to be added]
-
-<!-- This is a small change to trigger a new deployment. -->

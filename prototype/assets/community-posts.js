@@ -36,6 +36,7 @@ window.TC_COMMUNITY_POSTS = [
   // ⤵︎  Add new posts here (newest first).
 
   { embed: `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7472317496428052480?collapsed=1" height="634" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>` },
+  { embed: `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7472755480403296256?collapsed=1" height="877" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>` },
   { embed: `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7232740958155542531?collapsed=1" height="614" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>` },
   { embed: `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7204109438209720320?collapsed=1" height="542" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>` },
   { embed: `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7204075600104321024?collapsed=1" height="634" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>` },
