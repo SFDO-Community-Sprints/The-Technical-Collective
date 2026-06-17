@@ -93,9 +93,9 @@
     <!-- ─────────── Hero ─────────── -->
     <section class="hero-gradient relative overflow-hidden">
 
-      <!-- Astro is a transparent looping video on larger screens. Mobile uses
-           the poster image to avoid browsers rendering alpha video as black. -->
-      <img src="assets/video/astro-poster.png" alt="" aria-hidden="true"
+      <!-- Mobile uses an animated APNG so Astro moves without relying on
+           video alpha or mobile autoplay behavior. -->
+      <img src="assets/video/astro-mobile.apng" alt="" aria-hidden="true"
         class="pointer-events-none select-none absolute z-0 bottom-0 right-0
                h-[180px] w-auto opacity-20 drop-shadow-xl sm:hidden" />
       <video id="astro-video"
@@ -352,8 +352,8 @@
     <!-- ─────────── CTA ─────────── -->
     <section id="apply" class="relative overflow-hidden py-24 border-t border-slate-100">
 
-      <!-- Astro uses a poster on mobile for the same alpha-video fallback. -->
-      <img src="assets/video/astro-pose-poster.png" alt="" aria-hidden="true"
+      <!-- Mobile uses an animated APNG so Astro moves without video alpha. -->
+      <img src="assets/video/astro-pose-mobile.apng" alt="" aria-hidden="true"
         class="pointer-events-none select-none absolute z-0 bottom-0 -left-6
                h-[180px] w-auto opacity-20 drop-shadow-xl sm:hidden" />
       <video id="astro-video-2"
