@@ -32,15 +32,6 @@
 </head>
 <body class="font-sans text-slate-800 antialiased bg-white">
 
-  <div id="wipBanner" class="bg-slate-900 text-slate-200 text-xs sm:text-sm">
-    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-center gap-3 relative">
-      <span class="text-center">Work in progress — prototype of the next version of The Technical Collective site.</span>
-      <button id="wipClose" class="absolute right-3 p-1 rounded hover:bg-white/10 transition" aria-label="Dismiss notice">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-  </div>
-
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
     <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
@@ -253,9 +244,6 @@
         navToggle.setAttribute('aria-expanded', String(open));
       });
     }
-    const wipClose = document.getElementById('wipClose');
-    const wipBanner = document.getElementById('wipBanner');
-    if (wipClose && wipBanner) wipClose.addEventListener('click', () => wipBanner.remove());
   </script>
   <script src="assets/tc-motion.js"></script>
 </body>
